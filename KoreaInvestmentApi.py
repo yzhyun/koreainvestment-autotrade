@@ -4,101 +4,123 @@ import datetime
 import time
 import yaml
 
+TARGET_MODE = "dev"
+# 모의계좌 : dev / 실제계좌 : prd
 
-with open('config.yaml', encoding='UTF-8') as f:
-    _cfg = yaml.load(f, Loader=yaml.FullLoader)
-    APP_KEY = _cfg['APP_KEY']
-    APP_SECRET = _cfg['APP_SECRET']
-    ACCESS_TOKEN = ""
-    CANO = _cfg['CANO']
-    ACNT_PRDT_CD = _cfg['ACNT_PRDT_CD']
-    DISCORD_WEBHOOK_URL = _cfg['DISCORD_WEBHOOK_URL']
-    URL_BASE = _cfg['URL_BASE']
+if TARGET_MODE == "dev":
+    with open('dev_config.yaml', encoding='UTF-8') as f:
+        _cfg = yaml.load(f, Loader=yaml.FullLoader)
+else:
+    with open('config.yaml', encoding='UTF-8') as f:
+        _cfg = yaml.load(f, Loader=yaml.FullLoader)
 
-def test():
-    print("welcome")
-    
+APP_KEY = _cfg['APP_KEY']
+APP_SECRET = _cfg['APP_SECRET']
+ACCESS_TOKEN = ""
+CANO = _cfg['CANO']
+ACNT_PRDT_CD = _cfg['ACNT_PRDT_CD']
+TR_ID = _cfg['TR_ID']
+
+SLACK_WEBHOOK_URL = _cfg['SLACK_WEBHOOK_URL']
+SLACK_TOKEN = _cfg['SLACK_TOKEN']
+SLACK_CHANNEL = _cfg['SLACK_CHANNEL']
+URL_BASE = _cfg['URL_BASE']
+
+
 def send_message(msg):
     """디스코드 메세지 전송"""
-    now = datetime.datetime.now()
-    message = {"content": f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] {str(msg)}"}
-    requests.post(DISCORD_WEBHOOK_URL, data=message)
-    print(message)
+    token = SLACK_TOKEN
+    channel = SLACK_CHANNEL
+
+    requests.post(SLACK_WEBHOOK_URL,
+                  headers={"Authorization": "Bearer " + token},
+                  data={"channel": channel, "text": msg})
+
+    # now = datetime.datetime.now()
+
 
 def get_access_token():
     """토큰 발급"""
-    headers = {"content-type":"application/json"}
-    body = {"grant_type":"client_credentials",
-    "appkey":APP_KEY, 
-    "appsecret":APP_SECRET}
+    headers = {"content-type": "application/json"}
+    body = {"grant_type": "client_credentials",
+            "appkey": APP_KEY,
+            "appsecret": APP_SECRET}
     PATH = "oauth2/tokenP"
     URL = f"{URL_BASE}/{PATH}"
+
+    print(body)
+    print(URL)
     res = requests.post(URL, headers=headers, data=json.dumps(body))
+    print(res)
     ACCESS_TOKEN = res.json()["access_token"]
     return ACCESS_TOKEN
-    
+
+
 def hashkey(datas):
     """암호화"""
     PATH = "uapi/hashkey"
     URL = f"{URL_BASE}/{PATH}"
     headers = {
-    'content-Type' : 'application/json',
-    'appKey' : APP_KEY,
-    'appSecret' : APP_SECRET,
+        'content-Type': 'application/json',
+        'appKey': APP_KEY,
+        'appSecret': APP_SECRET,
     }
     res = requests.post(URL, headers=headers, data=json.dumps(datas))
     hashkey = res.json()["HASH"]
     return hashkey
 
+
 def get_current_price(code="005930"):
     """현재가 조회"""
     PATH = "uapi/domestic-stock/v1/quotations/inquire-price"
     URL = f"{URL_BASE}/{PATH}"
-    headers = {"Content-Type":"application/json", 
-            "authorization": f"Bearer {ACCESS_TOKEN}",
-            "appKey":APP_KEY,
-            "appSecret":APP_SECRET,
-            "tr_id":"FHKST01010100"}
+    headers = {"Content-Type": "application/json",
+               "authorization": f"Bearer {ACCESS_TOKEN}",
+               "appKey": APP_KEY,
+               "appSecret": APP_SECRET,
+               "tr_id": "FHKST01010100"}
     params = {
-    "fid_cond_mrkt_div_code":"J",
-    "fid_input_iscd":code,
+        "fid_cond_mrkt_div_code": "J",
+        "fid_input_iscd": code,
     }
     res = requests.get(URL, headers=headers, params=params)
     return int(res.json()['output']['stck_prpr'])
+
 
 def get_target_price(code="005930"):
     """변동성 돌파 전략으로 매수 목표가 조회"""
     PATH = "uapi/domestic-stock/v1/quotations/inquire-daily-price"
     URL = f"{URL_BASE}/{PATH}"
-    headers = {"Content-Type":"application/json", 
-        "authorization": f"Bearer {ACCESS_TOKEN}",
-        "appKey":APP_KEY,
-        "appSecret":APP_SECRET,
-        "tr_id":"FHKST01010400"}
+    headers = {"Content-Type": "application/json",
+               "authorization": f"Bearer {ACCESS_TOKEN}",
+               "appKey": APP_KEY,
+               "appSecret": APP_SECRET,
+               "tr_id": "FHKST01010400"}
     params = {
-    "fid_cond_mrkt_div_code":"J",
-    "fid_input_iscd":code,
-    "fid_org_adj_prc":"1",
-    "fid_period_div_code":"D"
+        "fid_cond_mrkt_div_code": "J",
+        "fid_input_iscd": code,
+        "fid_org_adj_prc": "1",
+        "fid_period_div_code": "D"
     }
     res = requests.get(URL, headers=headers, params=params)
-    stck_oprc = int(res.json()['output'][0]['stck_oprc']) #오늘 시가
-    stck_hgpr = int(res.json()['output'][1]['stck_hgpr']) #전일 고가
-    stck_lwpr = int(res.json()['output'][1]['stck_lwpr']) #전일 저가
+    stck_oprc = int(res.json()['output'][0]['stck_oprc'])  # 오늘 시가
+    stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
+    stck_lwpr = int(res.json()['output'][1]['stck_lwpr'])  # 전일 저가
     target_price = stck_oprc + (stck_hgpr - stck_lwpr) * 0.5
     return target_price
 
-def get_stock_balance(ACCESS_TOKEN):
+
+def get_stock_balance():
     """주식 잔고조회"""
     PATH = "uapi/domestic-stock/v1/trading/inquire-balance"
     URL = f"{URL_BASE}/{PATH}"
-    headers = {"Content-Type":"application/json", 
-        "authorization":f"Bearer {ACCESS_TOKEN}",
-        "appKey":APP_KEY,
-        "appSecret":APP_SECRET,
-        "tr_id":"TTTC8434R",
-        "custtype":"P",
-    }
+    headers = {"Content-Type": "application/json",
+               "authorization": f"Bearer {ACCESS_TOKEN}",
+               "appKey": APP_KEY,
+               "appSecret": APP_SECRET,
+               "tr_id": "TTTC8434R",
+               "custtype": "P",
+               }
     params = {
         "CANO": CANO,
         "ACNT_PRDT_CD": ACNT_PRDT_CD,
@@ -113,8 +135,6 @@ def get_stock_balance(ACCESS_TOKEN):
         "CTX_AREA_NK100": ""
     }
     res = requests.get(URL, headers=headers, params=params)
-
-    print(res.json())
     stock_list = res.json()['output1']
     evaluation = res.json()['output2']
     stock_dict = {}
@@ -133,35 +153,38 @@ def get_stock_balance(ACCESS_TOKEN):
     send_message(f"=================")
     return stock_dict
 
+
 def get_balance():
     """현금 잔고조회"""
     PATH = "uapi/domestic-stock/v1/trading/inquire-psbl-order"
     URL = f"{URL_BASE}/{PATH}"
-    print(URL)
-    headers = {"Content-Type":"application/json", 
-        "authorization":f"Bearer {ACCESS_TOKEN}",
-        "appKey":APP_KEY,
-        "appSecret":APP_SECRET,
-        "tr_id":"TTTC8908R",
-        "custtype":"P",
-    }
+    headers = {"Content-Type": "application/json",
+               "authorization": f"Bearer {ACCESS_TOKEN}",
+               "appKey": APP_KEY,
+               "appSecret": APP_SECRET,
+               "tr_id": TR_ID,
+               "custtype": "P",
+               }
     params = {
         "CANO": CANO,
         "ACNT_PRDT_CD": ACNT_PRDT_CD,
         "PDNO": "005930",
-        "ORD_UNPR": "65500",
+        "ORD_UNPR": "",
         "ORD_DVSN": "01",
         "CMA_EVLU_AMT_ICLD_YN": "Y",
         "OVRS_ICLD_YN": "Y"
     }
+    print(headers , params)
     res = requests.get(URL, headers=headers, params=params)
-    print(res)
+    print(res.json())
     cash = res.json()['output']['ord_psbl_cash']
+    print(f"주문 가능 현금 잔고: {cash}원")
     send_message(f"주문 가능 현금 잔고: {cash}원")
     return int(cash)
 
+
 def buy(code="005930", qty="1"):
-    """주식 시장가 매수"""  
+    """주식 시장가 매수"""
     PATH = "uapi/domestic-stock/v1/trading/order-cash"
     URL = f"{URL_BASE}/{PATH}"
     data = {
@@ -172,14 +195,14 @@ def buy(code="005930", qty="1"):
         "ORD_QTY": str(int(qty)),
         "ORD_UNPR": "0",
     }
-    headers = {"Content-Type":"application/json", 
-        "authorization":f"Bearer {ACCESS_TOKEN}",
-        "appKey":APP_KEY,
-        "appSecret":APP_SECRET,
-        "tr_id":"TTTC0802U",
-        "custtype":"P",
-        "hashkey" : hashkey(data)
-    }
+    headers = {"Content-Type": "application/json",
+               "authorization": f"Bearer {ACCESS_TOKEN}",
+               "appKey": APP_KEY,
+               "appSecret": APP_SECRET,
+               "tr_id": "TTTC0802U",
+               "custtype": "P",
+               "hashkey": hashkey(data)
+               }
     res = requests.post(URL, headers=headers, data=json.dumps(data))
     if res.json()['rt_cd'] == '0':
         send_message(f"[매수 성공]{str(res.json())}")
@@ -187,6 +210,7 @@ def buy(code="005930", qty="1"):
     else:
         send_message(f"[매수 실패]{str(res.json())}")
         return False
+
 
 def sell(code="005930", qty="1"):
     """주식 시장가 매도"""
@@ -200,14 +224,14 @@ def sell(code="005930", qty="1"):
         "ORD_QTY": qty,
         "ORD_UNPR": "0",
     }
-    headers = {"Content-Type":"application/json", 
-        "authorization":f"Bearer {ACCESS_TOKEN}",
-        "appKey":APP_KEY,
-        "appSecret":APP_SECRET,
-        "tr_id":"TTTC0801U",
-        "custtype":"P",
-        "hashkey" : hashkey(data)
-    }
+    headers = {"Content-Type": "application/json",
+               "authorization": f"Bearer {ACCESS_TOKEN}",
+               "appKey": APP_KEY,
+               "appSecret": APP_SECRET,
+               "tr_id": "TTTC0801U",
+               "custtype": "P",
+               "hashkey": hashkey(data)
+               }
     res = requests.post(URL, headers=headers, data=json.dumps(data))
     if res.json()['rt_cd'] == '0':
         send_message(f"[매도 성공]{str(res.json())}")
@@ -215,3 +239,4 @@ def sell(code="005930", qty="1"):
     else:
         send_message(f"[매도 실패]{str(res.json())}")
         return False
+

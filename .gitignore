@@ -1,1 +1,5 @@
+#Security File
 config.yaml
+
+.idea/
+__pycache__/
