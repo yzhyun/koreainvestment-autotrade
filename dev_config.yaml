@@ -5,16 +5,16 @@ APP_SECRET: "A7L+6p+qB48l149xWC4Uy+IWnsLLG7i+y1IdJFzpIsWHWo2eiGY9R2pOWb8cKhjUWxp
 #계좌번호 앞 8자리
 CANO: "50089546"
 #계좌번호 뒤 2자리
-ACNT_PRDT_CD: "01"
+ACNT_PRDT_CD: ""
 
 #ID: $0676788
 
 #실전투자
 #URL_BASE: "https://openapi.koreainvestment.com:9443"
-#TR_ID: "TTTC8908R"
+#TR_ID_TYPE: "T"
 #모의투자
 URL_BASE: "https://openapivts.koreainvestment.com:29443"
-TR_ID: "VTTC8908R"
+TR_ID_TYPE: "V"
 #SLACK 메세지 URL
 SLACK_WEBHOOK_URL: "https://slack.com/api/chat.postMessage"
 SLACK_TOKEN: "xoxb-5720124641303-5747996040017-JJ8KTb3XA44Ar1Y8Dcfmpt54"

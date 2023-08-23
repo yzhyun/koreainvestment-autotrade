@@ -19,7 +19,7 @@ APP_SECRET = _cfg['APP_SECRET']
 ACCESS_TOKEN = ""
 CANO = _cfg['CANO']
 ACNT_PRDT_CD = _cfg['ACNT_PRDT_CD']
-TR_ID = _cfg['TR_ID']
+TR_ID_TYPE = _cfg['TR_ID_TYPE']
 
 SLACK_WEBHOOK_URL = _cfg['SLACK_WEBHOOK_URL']
 SLACK_TOKEN = _cfg['SLACK_TOKEN']
@@ -28,7 +28,7 @@ URL_BASE = _cfg['URL_BASE']
 
 
 def send_message(msg):
-    """디스코드 메세지 전송"""
+    """slack 메세지 전송"""
     token = SLACK_TOKEN
     channel = SLACK_CHANNEL
 
@@ -48,10 +48,7 @@ def get_access_token():
     PATH = "oauth2/tokenP"
     URL = f"{URL_BASE}/{PATH}"
 
-    print(body)
-    print(URL)
     res = requests.post(URL, headers=headers, data=json.dumps(body))
-    print(res)
     ACCESS_TOKEN = res.json()["access_token"]
     return ACCESS_TOKEN
 
@@ -118,7 +115,7 @@ def get_stock_balance():
                "authorization": f"Bearer {ACCESS_TOKEN}",
                "appKey": APP_KEY,
                "appSecret": APP_SECRET,
-               "tr_id": "TTTC8434R",
+               "tr_id": TR_ID_TYPE + "TTC8434R",
                "custtype": "P",
                }
     params = {
@@ -134,7 +131,10 @@ def get_stock_balance():
         "CTX_AREA_FK100": "",
         "CTX_AREA_NK100": ""
     }
+    print(headers , params)
     res = requests.get(URL, headers=headers, params=params)
+    print(URL)
+    print(res.json())
     stock_list = res.json()['output1']
     evaluation = res.json()['output2']
     stock_dict = {}
@@ -155,6 +155,7 @@ def get_stock_balance():
 
 
 def get_balance():
+    print("get_balance")
     """현금 잔고조회"""
     PATH = "uapi/domestic-stock/v1/trading/inquire-psbl-order"
     URL = f"{URL_BASE}/{PATH}"
@@ -171,8 +172,8 @@ def get_balance():
         "PDNO": "005930",
         "ORD_UNPR": "",
         "ORD_DVSN": "01",
-        "CMA_EVLU_AMT_ICLD_YN": "Y",
-        "OVRS_ICLD_YN": "Y"
+        "CMA_EVLU_AMT_ICLD_YN": "N",
+        "OVRS_ICLD_YN": "N"
     }
     print(headers , params)
     res = requests.get(URL, headers=headers, params=params)

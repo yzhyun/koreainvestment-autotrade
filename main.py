@@ -4,12 +4,14 @@ import time
 try:
 
     kis.ACCESS_TOKEN = kis.get_access_token()
-    total_cash = kis.get_balance()  # 보유 현금 조회
 
-    # symbol_list = ["005930","035720","000660","069500"] # 매수 희망 종목 리스트
-    # bought_list = [] # 매수 완료된 종목 리스트
-    # total_cash = get_balance() # 보유 현금 조회
-    # stock_dict = get_stock_balance() # 보유 주식 조회
+    # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380
+    symbol_list = ["005930","035720","000660","234340"] # 매수 희망 종목 리스트
+    bought_list = [] # 매수 완료된 종목 리스트
+
+    total_cash = kis.get_balance() # 보유 현금 조회
+    stock_dict = kis.get_stock_balance() # 보유 주식 조회
+
     # for sym in stock_dict.keys():
     #     bought_list.append(sym)
     # target_buy_count = 3 # 매수할 종목 수
