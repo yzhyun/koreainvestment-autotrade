@@ -1,4 +1,5 @@
 import KoreaInvestmentApi as kis
+from common import *
 import time
 # 자동매매 시작
 try:
@@ -9,8 +10,13 @@ try:
     symbol_list = ["005930","035720","000660","234340"] # 매수 희망 종목 리스트
     bought_list = [] # 매수 완료된 종목 리스트
 
-    total_cash = kis.get_balance() # 보유 현금 조회
-    stock_dict = kis.get_stock_balance() # 보유 주식 조회
+    #total_cash = kis.get_balance() # 보유 현금 조회
+    #stock_dict = kis.get_stock_balance() # 보유 주식 조회
+
+    '''TEST'''
+    # 대상 종목 전일 종가 조회
+    print(kis.get_target_price("035720"))
+    '''TEST'''
 
     # for sym in stock_dict.keys():
     #     bought_list.append(sym)

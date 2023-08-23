@@ -3,6 +3,7 @@ import json
 import datetime
 import time
 import yaml
+from common import *
 
 TARGET_MODE = "dev"
 # 모의계좌 : dev / 실제계좌 : prd
@@ -21,22 +22,12 @@ CANO = _cfg['CANO']
 ACNT_PRDT_CD = _cfg['ACNT_PRDT_CD']
 TR_ID_TYPE = _cfg['TR_ID_TYPE']
 
-SLACK_WEBHOOK_URL = _cfg['SLACK_WEBHOOK_URL']
-SLACK_TOKEN = _cfg['SLACK_TOKEN']
-SLACK_CHANNEL = _cfg['SLACK_CHANNEL']
+
 URL_BASE = _cfg['URL_BASE']
 
 
-def send_message(msg):
-    """slack 메세지 전송"""
-    token = SLACK_TOKEN
-    channel = SLACK_CHANNEL
 
-    requests.post(SLACK_WEBHOOK_URL,
-                  headers={"Authorization": "Bearer " + token},
-                  data={"channel": channel, "text": msg})
 
-    # now = datetime.datetime.now()
 
 
 def get_access_token():
@@ -100,6 +91,9 @@ def get_target_price(code="005930"):
         "fid_period_div_code": "D"
     }
     res = requests.get(URL, headers=headers, params=params)
+
+    print(res.json())
+
     stck_oprc = int(res.json()['output'][0]['stck_oprc'])  # 오늘 시가
     stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
     stck_lwpr = int(res.json()['output'][1]['stck_lwpr'])  # 전일 저가
@@ -131,10 +125,7 @@ def get_stock_balance():
         "CTX_AREA_FK100": "",
         "CTX_AREA_NK100": ""
     }
-    print(headers , params)
     res = requests.get(URL, headers=headers, params=params)
-    print(URL)
-    print(res.json())
     stock_list = res.json()['output1']
     evaluation = res.json()['output2']
     stock_dict = {}
@@ -163,7 +154,7 @@ def get_balance():
                "authorization": f"Bearer {ACCESS_TOKEN}",
                "appKey": APP_KEY,
                "appSecret": APP_SECRET,
-               "tr_id": TR_ID,
+               "tr_id": TR_ID_TYPE + "TTC8908R",
                "custtype": "P",
                }
     params = {
@@ -175,9 +166,7 @@ def get_balance():
         "CMA_EVLU_AMT_ICLD_YN": "N",
         "OVRS_ICLD_YN": "N"
     }
-    print(headers , params)
     res = requests.get(URL, headers=headers, params=params)
-    print(res.json())
     cash = res.json()['output']['ord_psbl_cash']
     print(f"주문 가능 현금 잔고: {cash}원")
     send_message(f"주문 가능 현금 잔고: {cash}원")

@@ -15,7 +15,3 @@ ACNT_PRDT_CD: ""
 #모의투자
 URL_BASE: "https://openapivts.koreainvestment.com:29443"
 TR_ID_TYPE: "V"
-#SLACK 메세지 URL
-SLACK_WEBHOOK_URL: "https://slack.com/api/chat.postMessage"
-SLACK_TOKEN: "xoxb-5720124641303-5747996040017-JJ8KTb3XA44Ar1Y8Dcfmpt54"
-SLACK_CHANNEL: "#보고"
