@@ -15,3 +15,4 @@ ACNT_PRDT_CD: ""
 #모의투자
 URL_BASE: "https://openapivts.koreainvestment.com:29443"
 TR_ID_TYPE: "V"
+

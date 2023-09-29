@@ -8,12 +8,16 @@ from common import *
 TARGET_MODE = "dev"
 # 모의계좌 : dev / 실제계좌 : prd
 
+
+
 if TARGET_MODE == "dev":
     with open('dev_config.yaml', encoding='UTF-8') as f:
         _cfg = yaml.load(f, Loader=yaml.FullLoader)
 else:
     with open('config.yaml', encoding='UTF-8') as f:
         _cfg = yaml.load(f, Loader=yaml.FullLoader)
+
+
 
 APP_KEY = _cfg['APP_KEY']
 APP_SECRET = _cfg['APP_SECRET']
@@ -24,11 +28,6 @@ TR_ID_TYPE = _cfg['TR_ID_TYPE']
 
 
 URL_BASE = _cfg['URL_BASE']
-
-
-
-
-
 
 def get_access_token():
     """토큰 발급"""
@@ -75,7 +74,7 @@ def get_current_price(code="005930"):
     return int(res.json()['output']['stck_prpr'])
 
 
-def get_target_price(code="005930"):
+def get_stock_price(code):
     """변동성 돌파 전략으로 매수 목표가 조회"""
     PATH = "uapi/domestic-stock/v1/quotations/inquire-daily-price"
     URL = f"{URL_BASE}/{PATH}"
@@ -93,13 +92,7 @@ def get_target_price(code="005930"):
     res = requests.get(URL, headers=headers, params=params)
 
     print(res.json())
-
-    stck_oprc = int(res.json()['output'][0]['stck_oprc'])  # 오늘 시가
-    stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
-    stck_lwpr = int(res.json()['output'][1]['stck_lwpr'])  # 전일 저가
-    target_price = stck_oprc + (stck_hgpr - stck_lwpr) * 0.5
-    return target_price
-
+    return (res)
 
 def get_stock_balance():
     """주식 잔고조회"""
@@ -129,7 +122,6 @@ def get_stock_balance():
     stock_list = res.json()['output1']
     evaluation = res.json()['output2']
     stock_dict = {}
-    send_message(f"====주식 보유잔고====")
     for stock in stock_list:
         if int(stock['hldg_qty']) > 0:
             stock_dict[stock['pdno']] = stock['hldg_qty']
@@ -141,12 +133,10 @@ def get_stock_balance():
     time.sleep(0.1)
     send_message(f"총 평가 금액: {evaluation[0]['tot_evlu_amt']}원")
     time.sleep(0.1)
-    send_message(f"=================")
     return stock_dict
 
 
 def get_balance():
-    print("get_balance")
     """현금 잔고조회"""
     PATH = "uapi/domestic-stock/v1/trading/inquire-psbl-order"
     URL = f"{URL_BASE}/{PATH}"
@@ -168,8 +158,6 @@ def get_balance():
     }
     res = requests.get(URL, headers=headers, params=params)
     cash = res.json()['output']['ord_psbl_cash']
-    print(f"주문 가능 현금 잔고: {cash}원")
-    send_message(f"주문 가능 현금 잔고: {cash}원")
     return int(cash)
 
 
@@ -194,13 +182,7 @@ def buy(code="005930", qty="1"):
                "hashkey": hashkey(data)
                }
     res = requests.post(URL, headers=headers, data=json.dumps(data))
-    if res.json()['rt_cd'] == '0':
-        send_message(f"[매수 성공]{str(res.json())}")
-        return True
-    else:
-        send_message(f"[매수 실패]{str(res.json())}")
-        return False
-
+    return res
 
 def sell(code="005930", qty="1"):
     """주식 시장가 매도"""
