@@ -90,11 +90,12 @@ try:
                     res = kis.buy(code, buy_qty)
                     if res.json()['rt_cd'] == '0':
                         dict_bought_list[code] = buy_qty
+                        tmp_sell_target_price = dict_stock_info[code][5]
                         dict_stock_info[code][5] = current_price * 1.02  # 매수 금액으로 매매 목표 금액 재설정
                         del dict_stock_info[code]   # 매수 했으므로 매수 희망 종목 리스트에서 제외
-                        send_message(f"[매수 성공]{str(res.json())}")
+                        send_message(f"[매수 성공]: {_code[code]}*{buy_qty} \n 매매 목표가 변경 {tmp_sell_target_price} -> {dict_stock_info[code][5]}")
                     else:
-                        send_message(f"[매수 실패]{str(res.json())}")
+                        send_message(f"[매수 실패]")
                     time.sleep(1)
 
                 # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
