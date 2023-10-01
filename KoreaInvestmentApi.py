@@ -177,7 +177,7 @@ def buy(code="005930", qty="1"):
                "authorization": f"Bearer {ACCESS_TOKEN}",
                "appKey": APP_KEY,
                "appSecret": APP_SECRET,
-               "tr_id": "TTTC0802U",
+               "tr_id": TR_ID_TYPE + "TTC0802U",
                "custtype": "P",
                "hashkey": hashkey(data)
                }
@@ -193,14 +193,14 @@ def sell(code="005930", qty="1"):
         "ACNT_PRDT_CD": ACNT_PRDT_CD,
         "PDNO": code,
         "ORD_DVSN": "01",
-        "ORD_QTY": qty,
+        "ORD_QTY": str(int(qty)),
         "ORD_UNPR": "0",
     }
     headers = {"Content-Type": "application/json",
                "authorization": f"Bearer {ACCESS_TOKEN}",
                "appKey": APP_KEY,
                "appSecret": APP_SECRET,
-               "tr_id": "TTTC0801U",
+               "tr_id": TR_ID_TYPE + "TTC0801U",
                "custtype": "P",
                "hashkey": hashkey(data)
                }

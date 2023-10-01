@@ -13,19 +13,19 @@ def send_message(msg):
     """slack 메세지 전송"""
     token = SLACK_TOKEN
     channel = SLACK_CHANNEL
-    print("slack msg: " + msg)
+    print("slack msg: " +"\n" + msg)
     msg = msg + "\n" + "==============================" + "\n"
     res = requests.post(SLACK_WEBHOOK_URL,
                   headers={"Authorization": "Bearer " + token},
                   data={"channel": channel, "text": msg})
-    print(res.json())
+    #print(res.json())
 
 def get_target_price(num, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr):
     val = ""
     if num == 0:
-        val = stck_clpr + stck_clpr * 0.02
+        val = stck_oprc + stck_oprc * 0.02  # 오늘 시가 * 0.02
     elif num == 1:
-        val = stck_oprc + (stck_hgpr - stck_lwpr) * 0.5
+        val = stck_oprc + (stck_hgpr - stck_lwpr) * 0.5 # 오늘 시가 + (전일 고가 - 전일 저가)/2
     return val
 
 
