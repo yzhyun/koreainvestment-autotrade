@@ -7,9 +7,11 @@ import time
 with open('stock_code.yaml', encoding='UTF-8') as f:
     _code = yaml.load(f, Loader=yaml.FullLoader)
 
+REPORT_STOCK_PRICE = False  # 프로그램 실행 시 주식 정보 레포트
+DEV_FLAG = False  # 개발을 위해 FLAG 설정 TRUE 인 경우 시간에 관계없이 수행
 # 자동매매 시작
 try:
-    DEV_FLAG = False  # 개발을 위해 FLAG 설정 TRUE 인 경우 시간에 관계없이 수행
+
     kis.ACCESS_TOKEN = kis.get_access_token()
 
     # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380
@@ -18,7 +20,7 @@ try:
     total_cash = kis.get_balance()  # 보유 현금 조회
     stock_dict = kis.get_stock_balance()  # 보유 주식 조회
     soldout = False
-    REPORT_STOCK_PRICE = False  # 프로그램 실행 시 주식 정보 레포트
+
     dict_stock_info = {}  # 매수 희망 종목 정보
     dict_bought_list = {} # 매수 완료 정보
 
@@ -29,6 +31,7 @@ try:
         t_sell = t_now.replace(hour=15, minute=15, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         today = datetime.datetime.today().weekday()
+
         if DEV_FLAG and (today == 5 or today == 6):  # 토요일이나 일요일이면 자동 종료
             send_message("주말이므로 프로그램을 종료합니다.")
             break
@@ -105,7 +108,7 @@ try:
                             del dict_bought_list[code]
                             del dict_stock_info[code]
                         time.sleep(1)
-        if DEV_FLAG and (t_sell < t_now < t_exit):  # PM 03:15 ~ PM 03:20 : 일괄 매도
+        if t_sell < t_now < t_exit:  # PM 03:15 ~ PM 03:20 : 일괄 매도
             stock_dict = kis.get_stock_balance()
             for code, qty in stock_dict.items():
                 if code in symbol_list:
@@ -113,7 +116,7 @@ try:
                         del dict_bought_list[code]
                         del dict_stock_info[code]
             time.sleep(1)
-        if DEV_FLAG and (t_exit < t_now):  # PM 03:20 ~ :프로그램 종료
+        if t_exit < t_now:  # PM 03:20 ~ :프로그램 종료
             diff_cash = kis.get_balance() - total_cash
             send_message("금일 수익: " + str(diff_cash))
             break
