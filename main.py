@@ -1,11 +1,17 @@
 import datetime
-
 import KoreaInvestmentApi as kis
+
 from common import *
 import time
+import logging
 
 with open('stock_code.yaml', encoding='UTF-8') as f:
     _code = yaml.load(f, Loader=yaml.FullLoader)
+
+log = logging.getLogger()
+handler = logging.FileHandler("../log/" + datetime.datetime.today().weekday())
+log.addHandler(handler)
+log.error("test logs")
 
 REPORT_STOCK_PRICE = False  # 프로그램 실행 시 주식 정보 레포트
 DEV_FLAG = True  # 개발을 위해 FLAG 설정 TRUE 인 경우 시간에 관계없이 수행
@@ -14,15 +20,17 @@ try:
 
     kis.ACCESS_TOKEN = kis.get_access_token()
 
-    # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380
-    symbol_list = ["234340", "000660", "005380", "035720"]  # 매수 희망 종목 리스트
-    standard_price_stock = 100000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
+    # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640 한화: 000880 롯데정보통신: 286940
+    symbol_list = ["234340", "000660", "005380", "035720", "036800", "066570", "032640", "000880",
+                   "286940"]  # 매수 희망 종목 리스트
+    # symbol_list = ["036800", "066570", "032640"]
+    standard_price_stock = 200000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
     total_cash = kis.get_balance()  # 보유 현금 조회
     stock_dict = kis.get_stock_balance()  # 보유 주식 조회
     soldout = False
 
     dict_stock_info = {}  # 매수 희망 종목 정보
-    dict_bought_list = {} # 매수 완료 정보
+    dict_bought_list = {}  # 매수 완료 정보
 
     while True:
         t_now = datetime.datetime.now()
@@ -37,9 +45,8 @@ try:
             break
         if t_9 < t_now < t_start:  # 잔여 수량 매도
             for code, qty in stock_dict.items():
-                if code in symbol_list:     # 매수 희망 종목 리스트에 포함된 주식만 해당 프로그램에서 다룬다.
+                if code in symbol_list:  # 매수 희망 종목 리스트에 포함된 주식만 해당 프로그램에서 다룬다.
                     kis.sell(code, qty)
-
 
         # 대상 종목 전일 종가 및 금일 시가 Report 프로그램 실행 최초 1회 수행
         if not REPORT_STOCK_PRICE:
@@ -77,12 +84,13 @@ try:
                 send_message(msg)
                 dict_stock_info[code] = arr
             REPORT_STOCK_PRICE = True
-        #send_message("보유현금: " + str(total_cash))
+        # send_message("보유현금: " + str(total_cash))
         if REPORT_STOCK_PRICE and (t_9 < t_now < t_sell):  # Report 완료 후 수행
             print("=====매수목표가 달성 시 매수 진행")
             for code in list(dict_stock_info.keys()):
                 arrTmp = dict_stock_info[code]
                 current_price = kis.get_current_price(code)
+                time.sleep(0.5)
                 print(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
                 if code in dict_bought_list:
                     print("=====이미 매수한 종목 입니다.")
@@ -90,7 +98,8 @@ try:
                 buy_qty = 0
                 # 목표가보다 현재가가 높은 경우 매수 진행
                 if arrTmp[4] <= current_price <= int(arrTmp[5] * 1.02): # 급등 항목은 제외 될 수 있도록
-                    target_buy_count = current_price // standard_price_stock    # 1주당 금액 기준으로 매수 수량 선택
+                    #target_buy_count = current_price // standard_price_stock    # 1주당 금액 기준으로 매수 수량 선택
+                    target_buy_count = standard_price_stock // current_price
                     if target_buy_count == 0:
                         buy_qty = 1
                     else:
@@ -101,9 +110,9 @@ try:
                         dict_bought_list[code] = buy_qty
                         tmp_sell_target_price = dict_stock_info[code][5]
                         dict_stock_info[code][5] = int(current_price * 1.02)  # 매수 금액으로 매매 목표 금액 재설정
-                        #del dict_stock_info[code]   # 매수 했으므로 매수 희망 종목 리스트에서 제외
+                        # del dict_stock_info[code]   # 매수 했으므로 매수 희망 종목 리스트에서 제외
                         send_message(f"[매수 성공]: {_code[code]}({buy_qty})")
-                                     #f"매매 목표가 변경 {tmp_sell_target_price} -> {dict_stock_info[code][5]}")
+                        # f"매매 목표가 변경 {tmp_sell_target_price} -> {dict_stock_info[code][5]}")
                     else:
                         send_message(f"[매수 실패]")
                     time.sleep(1)
@@ -113,7 +122,7 @@ try:
             for code in list(dict_stock_info.keys()):
                 arrTmp = dict_stock_info[code]
                 current_price = kis.get_current_price(code)
-                time.sleep(1)
+                time.sleep(0.5)
                 print(f"{_code[code]} 현재가 [{current_price}] / 매매목표가 [{arrTmp[5]}]")
                 if int(arrTmp[5]) <= int(current_price):
                     send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {current_price}) 매매를 시도합니다.")
