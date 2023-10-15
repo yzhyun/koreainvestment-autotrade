@@ -1,44 +1,46 @@
+import sys
 import datetime
 import KoreaInvestmentApi as kis
 
+from logger import *
 from common import *
 import time
-import logging
 
-with open('stock_code.yaml', encoding='UTF-8') as f:
+
+with open('././config/stock_code.yaml', encoding='UTF-8') as f:
     _code = yaml.load(f, Loader=yaml.FullLoader)
 
-log = logging.getLogger()
-handler = logging.FileHandler("../log/" + datetime.datetime.today().weekday())
-log.addHandler(handler)
-log.error("test logs")
-
+logger = log()  # 로그 설정
 REPORT_STOCK_PRICE = False  # 프로그램 실행 시 주식 정보 레포트
 DEV_FLAG = True  # 개발을 위해 FLAG 설정 TRUE 인 경우 시간에 관계없이 수행
 # 자동매매 시작
-try:
 
-    kis.ACCESS_TOKEN = kis.get_access_token()
+kis.ACCESS_TOKEN = kis.get_access_token()
 
-    # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640 한화: 000880 롯데정보통신: 286940
-    symbol_list = ["234340", "000660", "005380", "035720", "036800", "066570", "032640", "000880",
-                   "286940"]  # 매수 희망 종목 리스트
-    # symbol_list = ["036800", "066570", "032640"]
-    standard_price_stock = 200000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
-    total_cash = kis.get_balance()  # 보유 현금 조회
-    stock_dict = kis.get_stock_balance()  # 보유 주식 조회
-    soldout = False
+# 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640 한화: 000880 롯데정보통신: 286940
+symbol_list = ["234340", "000660", "005380", "035720", "036800", "066570", "032640", "000880",
+               "286940"]  # 매수 희망 종목 리스트
+# symbol_list = ["036800", "066570", "032640"]
+standard_price_stock = 200000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
+total_cash = kis.get_balance()  # 보유 현금 조회
+stock_dict = kis.get_stock_balance()  # 보유 주식 조회
+soldout = False
 
-    dict_stock_info = {}  # 매수 희망 종목 정보
-    dict_bought_list = {}  # 매수 완료 정보
+dict_stock_info = {}  # 매수 희망 종목 정보
+dict_bought_list = {}  # 매수 완료 정보
 
-    while True:
+while True:
+    try:
         t_now = datetime.datetime.now()
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
         t_start = t_now.replace(hour=9, minute=5, second=0, microsecond=0)
         t_sell = t_now.replace(hour=15, minute=15, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         today = datetime.datetime.today().weekday()
+
+        a = 6
+        if a < 1 or a > 5:
+            raise Exception("에러에러에러!!")
 
         if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
             send_message("주말이므로 프로그램을 종료합니다.")
@@ -145,8 +147,8 @@ try:
             diff_cash = kis.get_balance() - total_cash
             send_message(f"금일 수익: {diff_cash}")
             break
-        # if not DEV_FLAG:
-        #     break
-except Exception as e:
-    kis.send_message(f"[오류 발생]{e}")
-    time.sleep(1)
+    except Exception as e:
+        print(e.args)
+        logger.error(e)
+        kis.send_message(f"[오류 발생]{e}")
+
