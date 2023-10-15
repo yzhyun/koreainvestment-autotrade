@@ -17,11 +17,14 @@ DEV_FLAG = True  # 개발을 위해 FLAG 설정 TRUE 인 경우 시간에 관계
 
 kis.ACCESS_TOKEN = kis.get_access_token()
 
-# 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640 한화: 000880 롯데정보통신: 286940
+# 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640 한화: 000880 롯데정보통신: 286940 CJ CGV: 079160
+# 롯데지주: 004990 삼천리: 004690 대한항공: 003490
 symbol_list = ["234340", "000660", "005380", "035720", "036800", "066570", "032640", "000880",
-               "286940"]  # 매수 희망 종목 리스트
+               "286940", "079160", "069960", "004990", "004990", "004690", "003490"]  # 매수 희망 종목 리스트
 # symbol_list = ["036800", "066570", "032640"]
 standard_price_stock = 200000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
+
+logger.info("======================Start the program. Let's be rich======================")
 total_cash = kis.get_balance()  # 보유 현금 조회
 stock_dict = kis.get_stock_balance()  # 보유 주식 조회
 soldout = False
@@ -38,9 +41,9 @@ while True:
         t_exit = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         today = datetime.datetime.today().weekday()
 
-        a = 6
-        if a < 1 or a > 5:
-            raise Exception("에러에러에러!!")
+        # a = 6
+        # if a < 1 or a > 5:
+        #     raise Exception("에러에러에러!!")
 
         if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
             send_message("주말이므로 프로그램을 종료합니다.")
@@ -52,9 +55,9 @@ while True:
 
         # 대상 종목 전일 종가 및 금일 시가 Report 프로그램 실행 최초 1회 수행
         if not REPORT_STOCK_PRICE:
-            print("===대상 종목 전일 종가 조회")
+            logger.info("===대상 종목 전일 종가 조회")
             for code in symbol_list:
-                print(f"{_code[code]}[{code}]")
+                logger.info(f"{_code[code]}[{code}]")
                 arr = []
                 res = kis.get_stock_price(code)
                 stck_oprc = int(res.json()['output'][0]['stck_oprc'])  # 오늘 시가
@@ -73,12 +76,12 @@ while True:
                 arr.append(target_price)  # 매수 목표가
                 arr.append(sell_target_price)  # 매매 목표가
 
-                print(f"오늘 시가: {stck_oprc}")
-                print(f"전일 고가: {stck_hgpr}")
-                print(f"전일 저가: {stck_lwpr}")
-                print(f"전일 종가: {stck_clpr}")
-                print(f"매수 목표가:    {target_price}")
-                print(f"매매 목표가:    {sell_target_price}")
+                logger.info(f"오늘 시가: {stck_oprc}")
+                logger.info(f"전일 고가: {stck_hgpr}")
+                logger.info(f"전일 저가: {stck_lwpr}")
+                logger.info(f"전일 종가: {stck_clpr}")
+                logger.info(f"매수 목표가:    {target_price}")
+                logger.info(f"매매 목표가:    {sell_target_price}")
 
                 msg = _code[code] + "[" + code + "]" + "\n" + "오늘 시가: " + str(stck_lwpr) + "\n" + "전일 종가: " \
                       + str(stck_clpr) + "\n" + "매수목표가: " + str(target_price) + "\n" + "매매목표가: " + str(
@@ -88,14 +91,14 @@ while True:
             REPORT_STOCK_PRICE = True
         # send_message("보유현금: " + str(total_cash))
         if REPORT_STOCK_PRICE and (t_9 < t_now < t_sell):  # Report 완료 후 수행
-            print("=====매수목표가 달성 시 매수 진행")
+            logger.info("=====매수목표가 달성 시 매수 진행")
             for code in list(dict_stock_info.keys()):
                 arrTmp = dict_stock_info[code]
                 current_price = kis.get_current_price(code)
                 time.sleep(0.5)
-                print(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
+                logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
                 if code in dict_bought_list:
-                    print("=====이미 매수한 종목 입니다.")
+                    logger.info("=====이미 매수한 종목 입니다.")
                     continue
                 buy_qty = 0
                 # 목표가보다 현재가가 높은 경우 매수 진행
@@ -120,12 +123,12 @@ while True:
                     time.sleep(1)
 
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
-            print("=====매매목표가 달성 시 매매 진행")
+            logger.info("=====매매목표가 달성 시 매매 진행")
             for code in list(dict_stock_info.keys()):
                 arrTmp = dict_stock_info[code]
                 current_price = kis.get_current_price(code)
                 time.sleep(0.5)
-                print(f"{_code[code]} 현재가 [{current_price}] / 매매목표가 [{arrTmp[5]}]")
+                logger.info(f"{_code[code]} 현재가 [{current_price}] / 매매목표가 [{arrTmp[5]}]")
                 if int(arrTmp[5]) <= int(current_price):
                     send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {current_price}) 매매를 시도합니다.")
                     if code in symbol_list:
@@ -148,7 +151,6 @@ while True:
             send_message(f"금일 수익: {diff_cash}")
             break
     except Exception as e:
-        print(e.args)
         logger.error(e)
         kis.send_message(f"[오류 발생]{e}")
 

@@ -1,6 +1,7 @@
 def log():
     # Logging 모듈은 파이썬 기본 라이브러리 중 하나로 콘솔에 출력할 뿐만 아니라 파일 형태로 로그를 생성 할 수 있습니다.
     import logging
+    from datetime import datetime
 
     # 1. logger instance 설정
     logger = logging.getLogger(__name__)
@@ -10,7 +11,9 @@ def log():
     formatter = logging.Formatter("%(asctime)s - %(levelname)s - [%(funcName)s:%(lineno)d] - %(message)s", datefmt='%Y-%m-%d %H:%M:%S')
     # 3. handler 생성 (streamHandler : 콘솔 출력용 // fileHandler : 파일 기록용)
     streamHandler = logging.StreamHandler()
-    fileHandler = logging.FileHandler("server.log", encoding='utf-8')    # 로그를 기록할 파일 이름 지정
+    today = datetime.today().strftime("%Y%m%d")
+    print(today)
+    fileHandler = logging.FileHandler("././log/" + today + ".log", encoding='utf-8')    # 로그를 기록할 파일 이름 지정
 
     # 4. logger instance에 formatter 설정 (각각의 Handler에 formatter 설정 적용)
     streamHandler.setFormatter(formatter)
