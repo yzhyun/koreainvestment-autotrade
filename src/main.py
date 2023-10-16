@@ -138,13 +138,14 @@ while True:
                             del dict_stock_info[code]
                         time.sleep(1)
         if t_sell < t_now < t_exit:  # PM 03:15 ~ PM 03:20 : 일괄 매도
-            stock_dict = kis.get_stock_balance()
-            for code, qty in stock_dict.items():
-                if code in symbol_list:
-                    if kis.sell(code, dict_bought_list[code]):
-                        send_message(f"[매매 성공]: {_code[code]}({dict_bought_list[code]})")
-                        del dict_bought_list[code]
-                        del dict_stock_info[code]
+            if len(dict_bought_list) > 0:
+                stock_dict = kis.get_stock_balance()
+                for code, qty in stock_dict.items():
+                    if code in symbol_list:
+                        if kis.sell(code, dict_bought_list[code]):
+                            send_message(f"[매매 성공]: {_code[code]}({dict_bought_list[code]})")
+                            del dict_bought_list[code]
+                            del dict_stock_info[code]
             time.sleep(1)
         if t_exit < t_now:  # PM 03:20 ~ :프로그램 종료
             diff_cash = kis.get_balance() - total_cash
