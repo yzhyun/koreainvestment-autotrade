@@ -7,7 +7,7 @@ from common import *
 import time
 
 
-with open('././config/stock_code.yaml', encoding='UTF-8') as f:
+with open('./../config/stock_code.yaml', encoding='UTF-8') as f:
     _code = yaml.load(f, Loader=yaml.FullLoader)
 
 logger = log()  # 로그 설정
@@ -51,7 +51,10 @@ while True:
         if t_9 < t_now < t_start:  # 잔여 수량 매도
             for code, qty in stock_dict.items():
                 if code in symbol_list:  # 매수 희망 종목 리스트에 포함된 주식만 해당 프로그램에서 다룬다.
-                    kis.sell(code, qty)
+                    try:
+                        kis.sell(code, qty)
+                    except Exception as e:
+                        logger.error(f"[매매 오류 발생]{e}")
 
         # 대상 종목 전일 종가 및 금일 시가 Report 프로그램 실행 최초 1회 수행
         if not REPORT_STOCK_PRICE:
@@ -91,14 +94,14 @@ while True:
             REPORT_STOCK_PRICE = True
         # send_message("보유현금: " + str(total_cash))
         if REPORT_STOCK_PRICE and (t_9 < t_now < t_sell):  # Report 완료 후 수행
-            logger.info("=====매수목표가 달성 시 매수 진행")
+            print("=====매수목표가 달성 시 매수 진행")
             for code in list(dict_stock_info.keys()):
                 arrTmp = dict_stock_info[code]
                 current_price = kis.get_current_price(code)
                 time.sleep(0.5)
                 logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
                 if code in dict_bought_list:
-                    logger.info("=====이미 매수한 종목 입니다.")
+                    #logger.info("=====이미 매수한 종목 입니다.")
                     continue
                 buy_qty = 0
                 # 목표가보다 현재가가 높은 경우 매수 진행
@@ -109,8 +112,11 @@ while True:
                         buy_qty = 1
                     else:
                         buy_qty = target_buy_count
-                    send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {current_price}) 매수를 시도합니다.")
-                    res = kis.buy(code, buy_qty)
+                    try:
+                        send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {current_price}) 매수를 시도합니다.")
+                        res = kis.buy(code, buy_qty)
+                    except Exception as e :
+                        logger.error(f"[매수 오류 발생]{e}")
                     if res.json()['rt_cd'] == '0':
                         dict_bought_list[code] = buy_qty
                         tmp_sell_target_price = dict_stock_info[code][5]
@@ -119,11 +125,12 @@ while True:
                         send_message(f"[매수 성공]: {_code[code]}({buy_qty})")
                         # f"매매 목표가 변경 {tmp_sell_target_price} -> {dict_stock_info[code][5]}")
                     else:
+                        logger.info("매수실패 ")
                         send_message(f"[매수 실패]")
                     time.sleep(1)
 
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
-            logger.info("=====매매목표가 달성 시 매매 진행")
+            print("=====매매목표가 달성 시 매매 진행")
             for code in list(dict_stock_info.keys()):
                 arrTmp = dict_stock_info[code]
                 current_price = kis.get_current_price(code)
@@ -132,20 +139,26 @@ while True:
                 if int(arrTmp[5]) <= int(current_price):
                     send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {current_price}) 매매를 시도합니다.")
                     if code in symbol_list:
-                        if kis.sell(code, dict_bought_list[code]):
-                            send_message(f"[매매 성공]: {_code[code]}({dict_bought_list[code]})")
-                            del dict_bought_list[code]
-                            del dict_stock_info[code]
+                        try:
+                            if kis.sell(code, dict_bought_list[code]):
+                                send_message(f"[매매 성공]: {_code[code]}({dict_bought_list[code]})")
+                                del dict_bought_list[code]
+                                del dict_stock_info[code]
+                        except Exception as e:
+                            logger.error(f"[매매 오류 발생]{e}")
                         time.sleep(1)
         if t_sell < t_now < t_exit:  # PM 03:15 ~ PM 03:20 : 일괄 매도
             if len(dict_bought_list) > 0:
                 stock_dict = kis.get_stock_balance()
                 for code, qty in stock_dict.items():
                     if code in symbol_list:
-                        if kis.sell(code, dict_bought_list[code]):
-                            send_message(f"[매매 성공]: {_code[code]}({dict_bought_list[code]})")
-                            del dict_bought_list[code]
-                            del dict_stock_info[code]
+                        try:
+                            if kis.sell(code, dict_bought_list[code]):
+                                send_message(f"[매매 성공]: {_code[code]}({dict_bought_list[code]})")
+                                del dict_bought_list[code]
+                                del dict_stock_info[code]
+                        except Exception as e:
+                            logger.error(f"[일괄 매매 오류 발생]{e}")
             time.sleep(1)
         if t_exit < t_now:  # PM 03:20 ~ :프로그램 종료
             diff_cash = kis.get_balance() - total_cash

@@ -13,7 +13,7 @@ def log():
     streamHandler = logging.StreamHandler()
     today = datetime.today().strftime("%Y%m%d")
     print(today)
-    fileHandler = logging.FileHandler("././log/" + today + ".log", encoding='utf-8')    # 로그를 기록할 파일 이름 지정
+    fileHandler = logging.FileHandler("./../log/" + today + ".log", encoding='utf-8')    # 로그를 기록할 파일 이름 지정
 
     # 4. logger instance에 formatter 설정 (각각의 Handler에 formatter 설정 적용)
     streamHandler.setFormatter(formatter)

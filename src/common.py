@@ -1,7 +1,7 @@
 import yaml
 import requests
 
-with open('././config/security.yaml', encoding='UTF-8') as f:
+with open('./../config/security.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
 
 
