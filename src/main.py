@@ -1,4 +1,4 @@
-import sys
+import sys, os
 import datetime
 import KoreaInvestmentApi as kis
 
@@ -7,9 +7,14 @@ from common import *
 import time
 
 
-with open('./../config/stock_code.yaml', encoding='UTF-8') as f:
+with open('./config/stock_code.yaml', encoding='UTF-8') as f:
     _code = yaml.load(f, Loader=yaml.FullLoader)
 
+print(os.getcwd()
+
+
+
+      )
 logger = log()  # 로그 설정
 REPORT_STOCK_PRICE = False  # 프로그램 실행 시 주식 정보 레포트
 DEV_FLAG = True  # 개발을 위해 FLAG 설정 TRUE 인 경우 시간에 관계없이 수행

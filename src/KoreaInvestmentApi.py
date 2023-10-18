@@ -11,7 +11,7 @@ TARGET_MODE = "dev"
 
 
 if TARGET_MODE == "dev":
-    with open('./../config/dev_config.yaml', encoding='UTF-8') as f:
+    with open('././config/dev_config.yaml', encoding='UTF-8') as f:
         _cfg = yaml.load(f, Loader=yaml.FullLoader)
 else:
     with open('./../config/config.yaml', encoding='UTF-8') as f:
