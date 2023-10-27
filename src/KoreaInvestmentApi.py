@@ -206,9 +206,9 @@ def sell(code="005930", qty="1"):
                }
     res = requests.post(URL, headers=headers, data=json.dumps(data))
     if res.json()['rt_cd'] == '0':
-        send_message(f"[매도 성공]{str(res.json())}")
+
         return True
     else:
-        send_message(f"[매도 실패]{str(res.json())}")
+
         return False
 
