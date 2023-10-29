@@ -1,7 +1,8 @@
 import yaml
 import requests
 import datetime
-import KoreaInvestmentApi as kis
+import time
+from logger import *
 
 with open('././config/security.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
@@ -10,6 +11,10 @@ SLACK_WEBHOOK_URL = _cfg['SLACK_WEBHOOK_URL']
 SLACK_TOKEN = _cfg['SLACK_TOKEN']
 SLACK_CHANNEL = _cfg['SLACK_CHANNEL']
 
+logger = log()
+
+STANDARD_PRICE_STOCK = 200000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
+SELL_PER = 0.02 # 매수 목표 퍼센트
 
 def send_message(msg):
     """slack 메세지 전송"""
@@ -40,11 +45,6 @@ def get_target_price(num, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr):
     elif num == 1:
         val = stck_oprc + (stck_hgpr - stck_lwpr) * 0.5  # 오늘 시가 + (전일 고가 - 전일 저가)
     return val
-
-
-def sell_all_stocks(stock_dict):
-    return True
-
 
 def test():
     print("정시 테스트 ===================================")

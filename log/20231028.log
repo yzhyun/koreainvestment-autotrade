@@ -1,0 +1,695 @@
+2023-10-28 17:36:12 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:36:44 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:37:19 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:37:51 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:37:55 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:38:18 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:38:24 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:38:24 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:25 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:25 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:26 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:26 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:26 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:27 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:27 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:28 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:28 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:28 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:29 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:38:29 - ERROR - [<module>:171] - sellAllStocks() missing 2 required positional arguments: 'stock_dict' and 'symbol_list'
+2023-10-28 17:39:36 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:39:37 - ERROR - [<module>:171] - 'failCodes'
+2023-10-28 17:39:37 - ERROR - [<module>:171] - 'failCodes'
+2023-10-28 17:39:38 - ERROR - [<module>:171] - 'failCodes'
+2023-10-28 17:39:38 - ERROR - [<module>:171] - 'failCodes'
+2023-10-28 17:39:39 - ERROR - [<module>:171] - 'failCodes'
+2023-10-28 17:39:39 - ERROR - [<module>:171] - 'failCodes'
+2023-10-28 17:39:40 - ERROR - [<module>:171] - 'failCodes'
+2023-10-28 17:39:41 - ERROR - [<module>:171] - 'failCodes'
+2023-10-28 17:40:36 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:40:36 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:40:37 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:40:37 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:40:37 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:40:38 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:40:38 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:40:39 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:40:41 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:41:43 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:41:44 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:41:44 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:41:45 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:41:45 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:41:46 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:41:46 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:41:46 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:41:47 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:41:47 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:41:48 - ERROR - [<module>:171] - '234340'
+2023-10-28 17:42:24 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:42:42 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:43:04 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:43:04 - ERROR - [<module>:172] - '234340'
+2023-10-28 17:43:04 - ERROR - [<module>:172] - '234340'
+2023-10-28 17:43:05 - ERROR - [<module>:172] - '234340'
+2023-10-28 17:43:05 - ERROR - [<module>:172] - '234340'
+2023-10-28 17:43:06 - ERROR - [<module>:172] - '234340'
+2023-10-28 17:43:06 - ERROR - [<module>:172] - '234340'
+2023-10-28 17:44:02 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:53:25 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:53:36 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 17:53:39 - INFO - [<module>:61] - ===대상 종목 전일 종가 조회
+2023-10-28 17:53:39 - INFO - [<module>:63] - 세틀뱅크[234340]
+2023-10-28 18:59:51 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 18:59:52 - INFO - [<module>:61] - ===대상 종목 초기화
+2023-10-28 18:59:52 - ERROR - [<module>:142] - name 'logger' is not defined
+2023-10-28 18:59:54 - INFO - [<module>:61] - ===대상 종목 초기화
+2023-10-28 18:59:54 - ERROR - [<module>:142] - name 'logger' is not defined
+2023-10-28 18:59:55 - INFO - [<module>:61] - ===대상 종목 초기화
+2023-10-28 18:59:55 - ERROR - [<module>:142] - name 'logger' is not defined
+2023-10-28 18:59:56 - INFO - [<module>:61] - ===대상 종목 초기화
+2023-10-28 18:59:56 - ERROR - [<module>:142] - name 'logger' is not defined
+2023-10-28 18:59:58 - INFO - [<module>:61] - ===대상 종목 초기화
+2023-10-28 18:59:58 - ERROR - [<module>:142] - name 'logger' is not defined
+2023-10-28 19:00:25 - INFO - [<module>:25] - ======================Start the program. Let's be rich======================
+2023-10-28 19:00:26 - INFO - [<module>:61] - ===대상 종목 초기화
+2023-10-28 19:00:26 - ERROR - [<module>:142] - name 'logger' is not defined
+2023-10-28 19:00:27 - INFO - [<module>:61] - ===대상 종목 초기화
+2023-10-28 19:00:27 - ERROR - [<module>:142] - name 'logger' is not defined
+2023-10-28 19:00:29 - INFO - [<module>:61] - ===대상 종목 초기화
+2023-10-28 19:00:29 - ERROR - [<module>:142] - name 'logger' is not defined
+2023-10-28 19:02:01 - INFO - [<module>:23] - ======================Start the program. Let's be rich======================
+2023-10-28 19:02:03 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:02:03 - ERROR - [<module>:140] - name 'logger' is not defined
+2023-10-28 19:02:04 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:02:04 - ERROR - [<module>:140] - name 'logger' is not defined
+2023-10-28 19:02:05 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:02:05 - ERROR - [<module>:140] - name 'logger' is not defined
+2023-10-28 19:03:20 - INFO - [<module>:23] - ======================Start the program. Let's be rich======================
+2023-10-28 19:03:21 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:03:21 - INFO - [<module>:140] - name 'logger' is not defined
+2023-10-28 19:03:22 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:03:22 - INFO - [<module>:140] - name 'logger' is not defined
+2023-10-28 19:03:23 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:03:23 - INFO - [<module>:140] - name 'logger' is not defined
+2023-10-28 19:03:24 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:03:24 - INFO - [<module>:140] - name 'logger' is not defined
+2023-10-28 19:03:59 - INFO - [<module>:23] - ======================Start the program. Let's be rich======================
+2023-10-28 19:04:00 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:04:00 - INFO - [initTrgtStockList:69] - 세틀뱅크[234340]
+2023-10-28 19:04:00 - ERROR - [<module>:140] - name 'SELL_PER' is not defined
+2023-10-28 19:04:01 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:04:01 - INFO - [initTrgtStockList:69] - 세틀뱅크[234340]
+2023-10-28 19:04:01 - ERROR - [<module>:140] - name 'SELL_PER' is not defined
+2023-10-28 19:04:02 - INFO - [<module>:59] - ===대상 종목 초기화
+2023-10-28 19:04:02 - INFO - [initTrgtStockList:69] - 세틀뱅크[234340]
+2023-10-28 19:04:03 - ERROR - [<module>:140] - name 'SELL_PER' is not defined
+2023-10-28 19:05:37 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:05:38 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:05:38 - INFO - [initTrgtStockList:69] - 세틀뱅크[234340]
+2023-10-28 19:05:38 - INFO - [initTrgtStockList:88] - 오늘 시가: 14350
+2023-10-28 19:05:38 - INFO - [initTrgtStockList:89] - 전일 고가: 14510
+2023-10-28 19:05:38 - INFO - [initTrgtStockList:90] - 전일 저가: 14170
+2023-10-28 19:05:38 - INFO - [initTrgtStockList:91] - 전일 종가: 14370
+2023-10-28 19:05:38 - INFO - [initTrgtStockList:92] - 매수 목표가:    14513
+2023-10-28 19:05:38 - INFO - [initTrgtStockList:93] - 매도 목표가:    14803
+2023-10-28 19:05:38 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:05:40 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:05:40 - INFO - [initTrgtStockList:69] - 세틀뱅크[234340]
+2023-10-28 19:05:40 - INFO - [initTrgtStockList:88] - 오늘 시가: 14350
+2023-10-28 19:05:40 - INFO - [initTrgtStockList:89] - 전일 고가: 14510
+2023-10-28 19:05:40 - INFO - [initTrgtStockList:90] - 전일 저가: 14170
+2023-10-28 19:05:40 - INFO - [initTrgtStockList:91] - 전일 종가: 14370
+2023-10-28 19:05:40 - INFO - [initTrgtStockList:92] - 매수 목표가:    14513
+2023-10-28 19:05:40 - INFO - [initTrgtStockList:93] - 매도 목표가:    14803
+2023-10-28 19:05:40 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:06:58 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:06:59 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:06:59 - INFO - [initTrgtStockList:69] - 세틀뱅크[234340]
+2023-10-28 19:06:59 - INFO - [initTrgtStockList:88] - 오늘 시가: 14350
+2023-10-28 19:06:59 - INFO - [initTrgtStockList:89] - 전일 고가: 14510
+2023-10-28 19:06:59 - INFO - [initTrgtStockList:90] - 전일 저가: 14170
+2023-10-28 19:06:59 - INFO - [initTrgtStockList:91] - 전일 종가: 14370
+2023-10-28 19:06:59 - INFO - [initTrgtStockList:92] - 매수 목표가:    14513
+2023-10-28 19:06:59 - INFO - [initTrgtStockList:93] - 매도 목표가:    14803
+2023-10-28 19:06:59 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:07:01 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:07:01 - INFO - [initTrgtStockList:69] - 세틀뱅크[234340]
+2023-10-28 19:07:01 - INFO - [initTrgtStockList:88] - 오늘 시가: 14350
+2023-10-28 19:07:01 - INFO - [initTrgtStockList:89] - 전일 고가: 14510
+2023-10-28 19:07:01 - INFO - [initTrgtStockList:90] - 전일 저가: 14170
+2023-10-28 19:07:01 - INFO - [initTrgtStockList:91] - 전일 종가: 14370
+2023-10-28 19:07:01 - INFO - [initTrgtStockList:92] - 매수 목표가:    14513
+2023-10-28 19:07:01 - INFO - [initTrgtStockList:93] - 매도 목표가:    14803
+2023-10-28 19:07:02 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:07:03 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:07:03 - INFO - [initTrgtStockList:69] - 세틀뱅크[234340]
+2023-10-28 19:07:03 - INFO - [initTrgtStockList:88] - 오늘 시가: 14350
+2023-10-28 19:07:03 - INFO - [initTrgtStockList:89] - 전일 고가: 14510
+2023-10-28 19:07:03 - INFO - [initTrgtStockList:90] - 전일 저가: 14170
+2023-10-28 19:07:03 - INFO - [initTrgtStockList:91] - 전일 종가: 14370
+2023-10-28 19:07:03 - INFO - [initTrgtStockList:92] - 매수 목표가:    14513
+2023-10-28 19:07:03 - INFO - [initTrgtStockList:93] - 매도 목표가:    14803
+2023-10-28 19:07:04 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:08:36 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:08:36 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:08:36 - INFO - [initTrgtStockList:67] - 세틀뱅크[234340]
+2023-10-28 19:08:36 - INFO - [initTrgtStockList:86] - 오늘 시가: 14350
+2023-10-28 19:08:36 - INFO - [initTrgtStockList:87] - 전일 고가: 14510
+2023-10-28 19:08:36 - INFO - [initTrgtStockList:88] - 전일 저가: 14170
+2023-10-28 19:08:36 - INFO - [initTrgtStockList:89] - 전일 종가: 14370
+2023-10-28 19:08:36 - INFO - [initTrgtStockList:90] - 매수 목표가:    14513
+2023-10-28 19:08:36 - INFO - [initTrgtStockList:91] - 매도 목표가:    14803
+2023-10-28 19:08:37 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:08:38 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:08:38 - INFO - [initTrgtStockList:67] - 세틀뱅크[234340]
+2023-10-28 19:08:38 - INFO - [initTrgtStockList:86] - 오늘 시가: 14350
+2023-10-28 19:08:38 - INFO - [initTrgtStockList:87] - 전일 고가: 14510
+2023-10-28 19:08:38 - INFO - [initTrgtStockList:88] - 전일 저가: 14170
+2023-10-28 19:08:38 - INFO - [initTrgtStockList:89] - 전일 종가: 14370
+2023-10-28 19:08:38 - INFO - [initTrgtStockList:90] - 매수 목표가:    14513
+2023-10-28 19:08:38 - INFO - [initTrgtStockList:91] - 매도 목표가:    14803
+2023-10-28 19:08:39 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:08:39 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:08:39 - INFO - [initTrgtStockList:67] - 세틀뱅크[234340]
+2023-10-28 19:08:39 - INFO - [initTrgtStockList:86] - 오늘 시가: 14350
+2023-10-28 19:08:39 - INFO - [initTrgtStockList:87] - 전일 고가: 14510
+2023-10-28 19:08:39 - INFO - [initTrgtStockList:88] - 전일 저가: 14170
+2023-10-28 19:08:39 - INFO - [initTrgtStockList:89] - 전일 종가: 14370
+2023-10-28 19:08:39 - INFO - [initTrgtStockList:90] - 매수 목표가:    14513
+2023-10-28 19:08:39 - INFO - [initTrgtStockList:91] - 매도 목표가:    14803
+2023-10-28 19:08:40 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:08:41 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:08:41 - INFO - [initTrgtStockList:67] - 세틀뱅크[234340]
+2023-10-28 19:08:41 - INFO - [initTrgtStockList:86] - 오늘 시가: 14350
+2023-10-28 19:08:41 - INFO - [initTrgtStockList:87] - 전일 고가: 14510
+2023-10-28 19:08:41 - INFO - [initTrgtStockList:88] - 전일 저가: 14170
+2023-10-28 19:08:41 - INFO - [initTrgtStockList:89] - 전일 종가: 14370
+2023-10-28 19:08:41 - INFO - [initTrgtStockList:90] - 매수 목표가:    14513
+2023-10-28 19:08:41 - INFO - [initTrgtStockList:91] - 매도 목표가:    14803
+2023-10-28 19:08:41 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:08:42 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:08:42 - INFO - [initTrgtStockList:67] - 세틀뱅크[234340]
+2023-10-28 19:08:42 - INFO - [initTrgtStockList:86] - 오늘 시가: 14350
+2023-10-28 19:08:42 - INFO - [initTrgtStockList:87] - 전일 고가: 14510
+2023-10-28 19:08:42 - INFO - [initTrgtStockList:88] - 전일 저가: 14170
+2023-10-28 19:08:42 - INFO - [initTrgtStockList:89] - 전일 종가: 14370
+2023-10-28 19:08:42 - INFO - [initTrgtStockList:90] - 매수 목표가:    14513
+2023-10-28 19:08:42 - INFO - [initTrgtStockList:91] - 매도 목표가:    14803
+2023-10-28 19:08:43 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:08:43 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:08:43 - INFO - [initTrgtStockList:67] - 세틀뱅크[234340]
+2023-10-28 19:08:44 - INFO - [initTrgtStockList:86] - 오늘 시가: 14350
+2023-10-28 19:08:44 - INFO - [initTrgtStockList:87] - 전일 고가: 14510
+2023-10-28 19:08:44 - INFO - [initTrgtStockList:88] - 전일 저가: 14170
+2023-10-28 19:08:44 - INFO - [initTrgtStockList:89] - 전일 종가: 14370
+2023-10-28 19:08:44 - INFO - [initTrgtStockList:90] - 매수 목표가:    14513
+2023-10-28 19:08:44 - INFO - [initTrgtStockList:91] - 매도 목표가:    14803
+2023-10-28 19:10:09 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:10:09 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:10:09 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:10:09 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:10:09 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:10:09 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:10:09 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:10:09 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:10:09 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:10:10 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:10:11 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:10:11 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:10:11 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:10:11 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:10:11 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:10:11 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:10:11 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:10:11 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:10:11 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:11:02 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:11:02 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:11:02 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:11:02 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:11:02 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:11:02 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:11:02 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:11:02 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:11:02 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:11:03 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:11:03 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:11:03 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:11:03 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:11:03 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:11:03 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:11:03 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:11:03 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:11:03 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:11:04 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:11:05 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:11:05 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:11:05 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:11:05 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:11:05 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:11:05 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:11:05 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:11:05 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:11:05 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:11:06 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:11:06 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:11:06 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:11:06 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:11:06 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:11:06 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:11:06 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:11:06 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:11:06 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:13:28 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:13:29 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:13:29 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:13:29 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:13:29 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:13:29 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:13:29 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:13:29 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:13:29 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:13:30 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:13:30 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:13:30 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:13:30 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:13:30 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:13:30 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:13:30 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:13:30 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:13:30 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:13:31 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:13:31 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:13:31 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:13:31 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:13:31 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:13:31 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:13:31 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:13:31 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:13:31 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:16:16 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:16:16 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:16:16 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:16:16 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:16:16 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:16:16 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:16:16 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:16:16 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:16:16 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:16:17 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:16:20 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:16:20 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:16:20 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:16:20 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:16:20 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:16:20 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:16:20 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:16:20 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:16:21 - ERROR - [<module>:138] - 'Response' object does not support item assignment
+2023-10-28 19:17:02 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:17:02 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:17:02 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:17:03 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:17:03 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:17:03 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:17:03 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:17:03 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:17:03 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:17:03 - ERROR - [<module>:136] - 'Response' object does not support item assignment
+2023-10-28 19:17:04 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:17:04 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:17:05 - INFO - [initTrgtStockList:83] - 오늘 시가: 14350
+2023-10-28 19:17:05 - INFO - [initTrgtStockList:84] - 전일 고가: 14510
+2023-10-28 19:17:05 - INFO - [initTrgtStockList:85] - 전일 저가: 14170
+2023-10-28 19:17:05 - INFO - [initTrgtStockList:86] - 전일 종가: 14370
+2023-10-28 19:17:05 - INFO - [initTrgtStockList:87] - 매수 목표가:    14513
+2023-10-28 19:17:05 - INFO - [initTrgtStockList:88] - 매도 목표가:    14803
+2023-10-28 19:17:17 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:18:21 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:18:22 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:18:22 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:18:22 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:18:24 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:18:24 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:18:24 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:18:25 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:18:25 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:18:26 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:19:11 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:19:12 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:19:12 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:19:12 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:19:13 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:19:13 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:19:14 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:19:14 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:19:14 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:19:15 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:19:16 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:19:16 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:19:16 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:19:17 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:19:17 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:19:18 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:19:18 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:19:18 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:19:20 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:19:20 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:19:20 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:19:21 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:19:22 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:19:22 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:20:00 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:20:00 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:20:00 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:20:01 - ERROR - [<module>:137] - 'Response' object does not support item assignment
+2023-10-28 19:20:03 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:20:03 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:20:19 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:20:20 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:20:20 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:20:20 - INFO - [initTrgtStockList:64] - 하이닉스[000660]
+2023-10-28 19:20:22 - INFO - [initTrgtStockList:64] - 현대자동차[005380]
+2023-10-28 19:20:22 - INFO - [initTrgtStockList:64] - 카카오[035720]
+2023-10-28 19:20:24 - INFO - [initTrgtStockList:64] - 나이스정보통신[036800]
+2023-10-28 19:20:24 - INFO - [initTrgtStockList:64] - LG전자[066570]
+2023-10-28 19:20:25 - INFO - [initTrgtStockList:64] - LG유플러스[032640]
+2023-10-28 19:20:26 - INFO - [initTrgtStockList:64] - 한화[000880]
+2023-10-28 19:20:56 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:20:56 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:20:56 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:20:57 - INFO - [initTrgtStockList:95] - 세틀뱅크[234340]
+오늘 시가: 14170
+전일 종가: 14370
+매수목표가: 14513
+매도목표가: 14803
+2023-10-28 19:20:57 - INFO - [initTrgtStockList:64] - 하이닉스[000660]
+2023-10-28 19:20:58 - INFO - [initTrgtStockList:95] - 하이닉스[000660]
+오늘 시가: 119500
+전일 종가: 120000
+매수목표가: 121200
+매도목표가: 123624
+2023-10-28 19:20:58 - INFO - [initTrgtStockList:64] - 현대자동차[005380]
+2023-10-28 19:20:58 - INFO - [initTrgtStockList:95] - 현대자동차[005380]
+오늘 시가: 178500
+전일 종가: 179500
+매수목표가: 181295
+매도목표가: 184920
+2023-10-28 19:20:58 - INFO - [initTrgtStockList:64] - 카카오[035720]
+2023-10-28 19:20:59 - INFO - [initTrgtStockList:95] - 카카오[035720]
+오늘 시가: 37400
+전일 종가: 37650
+매수목표가: 38026
+매도목표가: 38786
+2023-10-28 19:20:59 - INFO - [initTrgtStockList:64] - 나이스정보통신[036800]
+2023-10-28 19:21:00 - INFO - [initTrgtStockList:95] - 나이스정보통신[036800]
+오늘 시가: 20100
+전일 종가: 20450
+매수목표가: 20654
+매도목표가: 21067
+2023-10-28 19:21:00 - INFO - [initTrgtStockList:64] - LG전자[066570]
+2023-10-28 19:21:00 - INFO - [initTrgtStockList:95] - LG전자[066570]
+오늘 시가: 104800
+전일 종가: 105300
+매수목표가: 106353
+매도목표가: 108480
+2023-10-28 19:21:00 - INFO - [initTrgtStockList:64] - LG유플러스[032640]
+2023-10-28 19:21:01 - INFO - [initTrgtStockList:95] - LG유플러스[032640]
+오늘 시가: 10050
+전일 종가: 10080
+매수목표가: 10180
+매도목표가: 10383
+2023-10-28 19:21:01 - INFO - [initTrgtStockList:64] - 한화[000880]
+2023-10-28 19:21:02 - INFO - [initTrgtStockList:95] - 한화[000880]
+오늘 시가: 22200
+전일 종가: 22300
+매수목표가: 22523
+매도목표가: 22973
+2023-10-28 19:21:02 - INFO - [initTrgtStockList:64] - 롯데정보통신[286940]
+2023-10-28 19:21:02 - INFO - [initTrgtStockList:95] - 롯데정보통신[286940]
+오늘 시가: 26100
+전일 종가: 26500
+매수목표가: 26765
+매도목표가: 27300
+2023-10-28 19:21:02 - INFO - [initTrgtStockList:64] - CJ CGV[079160]
+2023-10-28 19:21:03 - INFO - [initTrgtStockList:95] - CJ CGV[079160]
+오늘 시가: 4850
+전일 종가: 5010
+매수목표가: 5060
+매도목표가: 5161
+2023-10-28 19:21:03 - INFO - [initTrgtStockList:64] - 현대백화점[069960]
+2023-10-28 19:21:04 - INFO - [initTrgtStockList:95] - 현대백화점[069960]
+오늘 시가: 52700
+전일 종가: 53400
+매수목표가: 53934
+매도목표가: 55012
+2023-10-28 19:21:04 - INFO - [initTrgtStockList:64] - 롯데지주[004990]
+2023-10-28 19:21:04 - INFO - [initTrgtStockList:95] - 롯데지주[004990]
+오늘 시가: 25200
+전일 종가: 25300
+매수목표가: 25553
+매도목표가: 26064
+2023-10-28 19:21:04 - INFO - [initTrgtStockList:64] - 롯데지주[004990]
+2023-10-28 19:21:05 - INFO - [initTrgtStockList:95] - 롯데지주[004990]
+오늘 시가: 25200
+전일 종가: 25300
+매수목표가: 25553
+매도목표가: 26064
+2023-10-28 19:21:05 - INFO - [initTrgtStockList:64] - 삼천리[004690]
+2023-10-28 19:21:05 - INFO - [initTrgtStockList:95] - 삼천리[004690]
+오늘 시가: 92800
+전일 종가: 93800
+매수목표가: 94738
+매도목표가: 96632
+2023-10-28 19:21:05 - INFO - [initTrgtStockList:64] - 대한항공[003490]
+2023-10-28 19:21:06 - INFO - [initTrgtStockList:95] - 대한항공[003490]
+오늘 시가: 19360
+전일 종가: 19590
+매수목표가: 19785
+매도목표가: 20180
+2023-10-28 19:21:06 - INFO - [initTrgtStockList:64] - 네이버[035420]
+2023-10-28 19:21:06 - INFO - [initTrgtStockList:95] - 네이버[035420]
+오늘 시가: 181300
+전일 종가: 181900
+매수목표가: 183719
+매도목표가: 187393
+2023-10-28 19:21:06 - INFO - [initTrgtStockList:64] - 두산로보틱스[454910]
+2023-10-28 19:21:07 - INFO - [initTrgtStockList:95] - 두산로보틱스[454910]
+오늘 시가: 33200
+전일 종가: 33250
+매수목표가: 33582
+매도목표가: 34253
+2023-10-28 19:21:10 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:21:10 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:21:10 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:21:11 - INFO - [initTrgtStockList:95] - 세틀뱅크[234340]
+오늘 시가: 14170
+전일 종가: 14370
+매수목표가: 14513
+매도목표가: 14803
+2023-10-28 19:21:11 - INFO - [initTrgtStockList:64] - 하이닉스[000660]
+2023-10-28 19:21:12 - INFO - [initTrgtStockList:95] - 하이닉스[000660]
+오늘 시가: 119500
+전일 종가: 120000
+매수목표가: 121200
+매도목표가: 123624
+2023-10-28 19:21:12 - INFO - [initTrgtStockList:64] - 현대자동차[005380]
+2023-10-28 19:21:13 - INFO - [initTrgtStockList:95] - 현대자동차[005380]
+오늘 시가: 178500
+전일 종가: 179500
+매수목표가: 181295
+매도목표가: 184920
+2023-10-28 19:21:13 - INFO - [initTrgtStockList:64] - 카카오[035720]
+2023-10-28 19:21:14 - INFO - [initTrgtStockList:95] - 카카오[035720]
+오늘 시가: 37400
+전일 종가: 37650
+매수목표가: 38026
+매도목표가: 38786
+2023-10-28 19:21:14 - INFO - [initTrgtStockList:64] - 나이스정보통신[036800]
+2023-10-28 19:21:14 - INFO - [initTrgtStockList:95] - 나이스정보통신[036800]
+오늘 시가: 20100
+전일 종가: 20450
+매수목표가: 20654
+매도목표가: 21067
+2023-10-28 19:21:14 - INFO - [initTrgtStockList:64] - LG전자[066570]
+2023-10-28 19:21:15 - INFO - [initTrgtStockList:95] - LG전자[066570]
+오늘 시가: 104800
+전일 종가: 105300
+매수목표가: 106353
+매도목표가: 108480
+2023-10-28 19:21:15 - INFO - [initTrgtStockList:64] - LG유플러스[032640]
+2023-10-28 19:21:15 - INFO - [initTrgtStockList:95] - LG유플러스[032640]
+오늘 시가: 10050
+전일 종가: 10080
+매수목표가: 10180
+매도목표가: 10383
+2023-10-28 19:21:15 - INFO - [initTrgtStockList:64] - 한화[000880]
+2023-10-28 19:21:16 - INFO - [initTrgtStockList:95] - 한화[000880]
+오늘 시가: 22200
+전일 종가: 22300
+매수목표가: 22523
+매도목표가: 22973
+2023-10-28 19:21:16 - INFO - [initTrgtStockList:64] - 롯데정보통신[286940]
+2023-10-28 19:21:17 - INFO - [initTrgtStockList:95] - 롯데정보통신[286940]
+오늘 시가: 26100
+전일 종가: 26500
+매수목표가: 26765
+매도목표가: 27300
+2023-10-28 19:21:17 - INFO - [initTrgtStockList:64] - CJ CGV[079160]
+2023-10-28 19:21:17 - INFO - [initTrgtStockList:95] - CJ CGV[079160]
+오늘 시가: 4850
+전일 종가: 5010
+매수목표가: 5060
+매도목표가: 5161
+2023-10-28 19:21:17 - INFO - [initTrgtStockList:64] - 현대백화점[069960]
+2023-10-28 19:21:18 - INFO - [initTrgtStockList:95] - 현대백화점[069960]
+오늘 시가: 52700
+전일 종가: 53400
+매수목표가: 53934
+매도목표가: 55012
+2023-10-28 19:21:18 - INFO - [initTrgtStockList:64] - 롯데지주[004990]
+2023-10-28 19:21:19 - INFO - [initTrgtStockList:95] - 롯데지주[004990]
+오늘 시가: 25200
+전일 종가: 25300
+매수목표가: 25553
+매도목표가: 26064
+2023-10-28 19:21:19 - INFO - [initTrgtStockList:64] - 롯데지주[004990]
+2023-10-28 19:21:19 - INFO - [initTrgtStockList:95] - 롯데지주[004990]
+오늘 시가: 25200
+전일 종가: 25300
+매수목표가: 25553
+매도목표가: 26064
+2023-10-28 19:21:19 - INFO - [initTrgtStockList:64] - 삼천리[004690]
+2023-10-28 19:21:20 - INFO - [initTrgtStockList:95] - 삼천리[004690]
+오늘 시가: 92800
+전일 종가: 93800
+매수목표가: 94738
+매도목표가: 96632
+2023-10-28 19:21:20 - INFO - [initTrgtStockList:64] - 대한항공[003490]
+2023-10-28 19:21:21 - INFO - [initTrgtStockList:95] - 대한항공[003490]
+오늘 시가: 19360
+전일 종가: 19590
+매수목표가: 19785
+매도목표가: 20180
+2023-10-28 19:21:21 - INFO - [initTrgtStockList:64] - 네이버[035420]
+2023-10-28 19:21:22 - INFO - [initTrgtStockList:95] - 네이버[035420]
+오늘 시가: 181300
+전일 종가: 181900
+매수목표가: 183719
+매도목표가: 187393
+2023-10-28 19:21:22 - INFO - [initTrgtStockList:64] - 두산로보틱스[454910]
+2023-10-28 19:21:22 - INFO - [initTrgtStockList:95] - 두산로보틱스[454910]
+오늘 시가: 33200
+전일 종가: 33250
+매수목표가: 33582
+매도목표가: 34253
+2023-10-28 19:22:42 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:22:43 - ERROR - [<module>:137] - name 'INIT' is not defined
+2023-10-28 19:22:44 - ERROR - [<module>:137] - name 'INIT' is not defined
+2023-10-28 19:22:45 - ERROR - [<module>:137] - name 'INIT' is not defined
+2023-10-28 19:22:55 - INFO - [<module>:21] - ======================Start the program. Let's be rich======================
+2023-10-28 19:22:57 - INFO - [<module>:57] - ===대상 종목 초기화
+2023-10-28 19:22:57 - INFO - [initTrgtStockList:64] - 세틀뱅크[234340]
+2023-10-28 19:23:06 - INFO - [initTrgtStockList:95] - 세틀뱅크[234340]
+오늘 시가: 14170
+전일 종가: 14370
+매수목표가: 14513
+매도목표가: 14803
+2023-10-28 19:23:06 - INFO - [initTrgtStockList:64] - 하이닉스[000660]
+2023-10-28 19:23:06 - INFO - [initTrgtStockList:95] - 하이닉스[000660]
+오늘 시가: 119500
+전일 종가: 120000
+매수목표가: 121200
+매도목표가: 123624
+2023-10-28 19:23:06 - INFO - [initTrgtStockList:64] - 현대자동차[005380]
+2023-10-28 19:23:07 - INFO - [initTrgtStockList:95] - 현대자동차[005380]
+오늘 시가: 178500
+전일 종가: 179500
+매수목표가: 181295
+매도목표가: 184920
+2023-10-28 19:23:07 - INFO - [initTrgtStockList:64] - 카카오[035720]
+2023-10-28 19:23:07 - INFO - [initTrgtStockList:95] - 카카오[035720]
+오늘 시가: 37400
+전일 종가: 37650
+매수목표가: 38026
+매도목표가: 38786
+2023-10-28 19:23:07 - INFO - [initTrgtStockList:64] - 나이스정보통신[036800]
+2023-10-28 19:23:08 - INFO - [initTrgtStockList:95] - 나이스정보통신[036800]
+오늘 시가: 20100
+전일 종가: 20450
+매수목표가: 20654
+매도목표가: 21067
+2023-10-28 19:23:08 - INFO - [initTrgtStockList:64] - LG전자[066570]
+2023-10-28 19:23:09 - INFO - [initTrgtStockList:95] - LG전자[066570]
+오늘 시가: 104800
+전일 종가: 105300
+매수목표가: 106353
+매도목표가: 108480
+2023-10-28 19:23:09 - INFO - [initTrgtStockList:64] - LG유플러스[032640]
+2023-10-28 19:23:09 - INFO - [initTrgtStockList:95] - LG유플러스[032640]
+오늘 시가: 10050
+전일 종가: 10080
+매수목표가: 10180
+매도목표가: 10383
+2023-10-28 19:23:09 - INFO - [initTrgtStockList:64] - 한화[000880]
+2023-10-28 19:23:10 - INFO - [initTrgtStockList:95] - 한화[000880]
+오늘 시가: 22200
+전일 종가: 22300
+매수목표가: 22523
+매도목표가: 22973
+2023-10-28 19:23:10 - INFO - [initTrgtStockList:64] - 롯데정보통신[286940]
+2023-10-28 19:23:10 - INFO - [initTrgtStockList:95] - 롯데정보통신[286940]
+오늘 시가: 26100
+전일 종가: 26500
+매수목표가: 26765
+매도목표가: 27300
+2023-10-28 19:23:10 - INFO - [initTrgtStockList:64] - CJ CGV[079160]
+2023-10-28 19:23:11 - INFO - [initTrgtStockList:95] - CJ CGV[079160]
+오늘 시가: 4850
+전일 종가: 5010
+매수목표가: 5060
+매도목표가: 5161
+2023-10-28 19:23:11 - INFO - [initTrgtStockList:64] - 현대백화점[069960]
+2023-10-28 19:23:11 - INFO - [initTrgtStockList:95] - 현대백화점[069960]
+오늘 시가: 52700
+전일 종가: 53400
+매수목표가: 53934
+매도목표가: 55012
+2023-10-28 19:23:11 - INFO - [initTrgtStockList:64] - 롯데지주[004990]
+2023-10-28 19:23:12 - INFO - [initTrgtStockList:95] - 롯데지주[004990]
+오늘 시가: 25200
+전일 종가: 25300
+매수목표가: 25553
+매도목표가: 26064
+2023-10-28 19:23:12 - INFO - [initTrgtStockList:64] - 롯데지주[004990]
+2023-10-28 19:23:12 - INFO - [initTrgtStockList:95] - 롯데지주[004990]
+오늘 시가: 25200
+전일 종가: 25300
+매수목표가: 25553
+매도목표가: 26064
+2023-10-28 19:23:12 - INFO - [initTrgtStockList:64] - 삼천리[004690]
+2023-10-28 19:23:13 - INFO - [initTrgtStockList:95] - 삼천리[004690]
+오늘 시가: 92800
+전일 종가: 93800
+매수목표가: 94738
+매도목표가: 96632
+2023-10-28 19:23:13 - INFO - [initTrgtStockList:64] - 대한항공[003490]
+2023-10-28 19:23:13 - INFO - [initTrgtStockList:95] - 대한항공[003490]
+오늘 시가: 19360
+전일 종가: 19590
+매수목표가: 19785
+매도목표가: 20180
+2023-10-28 19:23:13 - INFO - [initTrgtStockList:64] - 네이버[035420]
+2023-10-28 19:23:14 - INFO - [initTrgtStockList:95] - 네이버[035420]
+오늘 시가: 181300
+전일 종가: 181900
+매수목표가: 183719
+매도목표가: 187393
+2023-10-28 19:23:14 - INFO - [initTrgtStockList:64] - 두산로보틱스[454910]
+2023-10-28 19:23:14 - INFO - [initTrgtStockList:95] - 두산로보틱스[454910]
+오늘 시가: 33200
+전일 종가: 33250
+매수목표가: 33582
+매도목표가: 34253

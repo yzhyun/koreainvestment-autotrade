@@ -22,6 +22,7 @@ else:
 APP_KEY = _cfg['APP_KEY']
 APP_SECRET = _cfg['APP_SECRET']
 ACCESS_TOKEN = ""
+
 CANO = _cfg['CANO']
 ACNT_PRDT_CD = _cfg['ACNT_PRDT_CD']
 TR_ID_TYPE = _cfg['TR_ID_TYPE']
@@ -90,9 +91,7 @@ def get_stock_price(code):
         "fid_period_div_code": "D"
     }
     res = requests.get(URL, headers=headers, params=params)
-
-    print(res.json())
-    return (res)
+    return res
 
 def get_stock_balance():
     """주식 잔고조회"""
@@ -119,21 +118,7 @@ def get_stock_balance():
         "CTX_AREA_NK100": ""
     }
     res = requests.get(URL, headers=headers, params=params)
-    stock_list = res.json()['output1']
-    evaluation = res.json()['output2']
-    stock_dict = {}
-    for stock in stock_list:
-        if int(stock['hldg_qty']) > 0:
-            stock_dict[stock['pdno']] = stock['hldg_qty']
-            send_message(f"{stock['prdt_name']}({stock['pdno']}): {stock['hldg_qty']}주")
-            time.sleep(0.1)
-    send_message(f"주식 평가 금액: {evaluation[0]['scts_evlu_amt']}원")
-    time.sleep(0.1)
-    send_message(f"평가 손익 합계: {evaluation[0]['evlu_pfls_smtl_amt']}원")
-    time.sleep(0.1)
-    send_message(f"총 평가 금액: {evaluation[0]['tot_evlu_amt']}원")
-    time.sleep(0.1)
-    return stock_dict
+    return res
 
 
 def get_balance():
@@ -157,8 +142,7 @@ def get_balance():
         "OVRS_ICLD_YN": "N"
     }
     res = requests.get(URL, headers=headers, params=params)
-    cash = res.json()['output']['ord_psbl_cash']
-    return int(cash)
+    return res
 
 
 def buy(code="005930", qty="1"):
@@ -205,10 +189,11 @@ def sell(code="005930", qty="1"):
                "hashkey": hashkey(data)
                }
     res = requests.post(URL, headers=headers, data=json.dumps(data))
-    if res.json()['rt_cd'] == '0':
-
-        return True
-    else:
-
-        return False
+    # if res.json()['rt_cd'] == '0':
+    #
+    #     return True
+    # else:
+    #
+    #     return False
+    return res
 
