@@ -5,15 +5,17 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
     _code = yaml.load(f, Loader=yaml.FullLoader)
 
 def initInvestement():
-    #kis.ACCESS_TOKEN = kis.get_access_token()
-    kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjI3MWU0MGNlLWM3ZGItNGIyOS04YTY2LWY4MWQyMDY0M2Q4NyIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk4NTY4NTcyLCJpYXQiOjE2OTg0ODIxNzIsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.0wTT5o3P0VswPXME9PVrif4X8NL3haSnF3TWwYXKEI7g0R66pILkFr01DMJb29kfNxnPyHMV5BOXafkwXr4HfQ"
-    print(kis.ACCESS_TOKEN)
+    kis.ACCESS_TOKEN = kis.get_access_token()
+    #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjI3MWU0MGNlLWM3ZGItNGIyOS04YTY2LWY4MWQyMDY0M2Q4NyIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk4NTY4NTcyLCJpYXQiOjE2OTg0ODIxNzIsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.0wTT5o3P0VswPXME9PVrif4X8NL3haSnF3TWwYXKEI7g0R66pILkFr01DMJb29kfNxnPyHMV5BOXafkwXr4HfQ"
+    #print(kis.ACCESS_TOKEN)
 
 # 보유 현금 조회
 def getBalanceCash():
     res = kis.get_balance()
     cash = res.json()['output']['ord_psbl_cash']
-    return cash
+    print("!!!!")
+    print(cash)
+    return int(cash)
 
 
 # 보유 주식 조회
@@ -58,6 +60,16 @@ def getStockPriceDailyInfo(code):
     res = kis.get_stock_price(code)
     return res
 
+def getStockCurPrice(code):
+    res = kis.get_current_price(code)
+    return res
+
+def buyStock(code, buy_qty):
+    res = kis.buy(code, buy_qty)
+    if res.json()['rt_cd'] == '0':
+        return True
+    return False
+
 def initTrgtStockList(symbol_list):
     rtnRes = {}
     for code in symbol_list:
@@ -94,3 +106,22 @@ def initTrgtStockList(symbol_list):
         send_message(msg)
         rtnRes[code] = arr
     return rtnRes
+
+
+def reportCurStockInfo(dict_bought_list, wish_stock_dict):
+    t_now = datetime.datetime.now()
+    for code in list(wish_stock_dict.keys()):
+        arrTmp = wish_stock_dict[code]
+        current_price = getPriceCurStock(code)
+        time.sleep(0.5)
+        write_report(f"[{t_now}] {_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
+        logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
+        send_message(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
+
+    return True
+
+def getRealProfit():
+    res = kis.get_Real_Profit()
+    logger.info(res)
+    write_report(res)
+    return True

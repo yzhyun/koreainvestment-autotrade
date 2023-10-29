@@ -197,3 +197,30 @@ def sell(code="005930", qty="1"):
     #     return False
     return res
 
+def get_Real_Profit():
+    """주식잔고조회_실현손익"""
+    PATH = "uapi/domestic-stock/v1/trading/inquire-balance-rlz-pl"
+    URL = f"{URL_BASE}/{PATH}"
+    headers = {"Content-Type": "application/json",
+               "authorization": f"Bearer {ACCESS_TOKEN}",
+               "appKey": APP_KEY,
+               "appSecret": APP_SECRET,
+               "tr_id": TR_ID_TYPE + "TTTC8494R",
+               "custtype": "P",
+               }
+    params = {
+        "CANO": CANO,
+        "ACNT_PRDT_CD": ACNT_PRDT_CD,
+        "AFHR_FLPR_YN": "N",
+        "OFL_YN": "",
+        "INQR_DVSN": "00",
+        "UNPR_DVSN": "01",
+        "FUND_STTL_ICLD_YN": "N",
+        "FNCG_AMT_AUTO_RDPT_YN": "N",
+        "PRCS_DVSN": "01",
+        "COST_ICLD_YN": "N",
+        "CTX_AREA_FK100": "",
+        "CTX_AREA_NK100": ""
+    }
+    res = requests.get(URL, headers=headers, params=params)
+    return res

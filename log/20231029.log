@@ -1,0 +1,88 @@
+2023-10-29 11:45:12 - INFO - [<module>:24] - ======================Start the program. Let's be rich======================
+2023-10-29 11:59:56 - INFO - [<module>:20] - ======================Start the program. Let's be rich======================
+2023-10-29 12:00:29 - INFO - [<module>:20] - ======================Start the program. Let's be rich======================
+2023-10-29 15:24:09 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 15:24:51 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 15:24:56 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:24:57 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:24:57 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:24:57 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:24:58 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:24:58 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:24:58 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:24:59 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:24:59 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:24:59 - ERROR - [<module>:136] - reportCurStockInfo() takes 0 positional arguments but 1 was given
+2023-10-29 15:26:14 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 15:26:44 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 15:27:47 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 15:27:57 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 15:28:02 - ERROR - [<module>:138] - name 'dict_bought_list' is not defined
+2023-10-29 15:28:03 - ERROR - [<module>:138] - name 'dict_bought_list' is not defined
+2023-10-29 15:28:03 - ERROR - [<module>:138] - name 'dict_bought_list' is not defined
+2023-10-29 15:28:04 - ERROR - [<module>:138] - name 'dict_bought_list' is not defined
+2023-10-29 15:28:04 - ERROR - [<module>:138] - name 'dict_bought_list' is not defined
+2023-10-29 15:28:05 - ERROR - [<module>:138] - name 'dict_bought_list' is not defined
+2023-10-29 15:28:05 - ERROR - [<module>:138] - name 'dict_bought_list' is not defined
+2023-10-29 15:28:15 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 15:55:15 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 15:55:34 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:35:39 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:35:39 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:40 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:40 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:40 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:41 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:41 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:42 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:42 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:43 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:43 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:43 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:44 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:35:44 - ERROR - [<module>:131] - unsupported operand type(s) for -: 'str' and 'str'
+2023-10-29 16:36:23 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:36:39 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:36:39 - ERROR - [<module>:131] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:36:39 - ERROR - [<module>:131] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:36:40 - ERROR - [<module>:131] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:36:40 - ERROR - [<module>:131] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:36:41 - ERROR - [<module>:131] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:36:41 - ERROR - [<module>:131] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:36:41 - ERROR - [<module>:131] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:37:19 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:37:30 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:37:31 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:37:31 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:37:32 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:37:32 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:37:33 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:37:33 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:37:34 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:38:11 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:38:11 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:38:12 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:38:12 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:38:13 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:38:13 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:38:14 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:38:14 - ERROR - [<module>:132] - ("unsupported operand type(s) for -: 'str' and 'str'",)
+2023-10-29 16:38:32 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:38:33 - ERROR - [<module>:132] - ("module 'KoreaInvestmentApi' has no attribute 'getRealProfit'",)
+2023-10-29 16:38:34 - ERROR - [<module>:132] - ("module 'KoreaInvestmentApi' has no attribute 'getRealProfit'",)
+2023-10-29 16:38:34 - ERROR - [<module>:132] - ("module 'KoreaInvestmentApi' has no attribute 'getRealProfit'",)
+2023-10-29 16:38:35 - ERROR - [<module>:132] - ("module 'KoreaInvestmentApi' has no attribute 'getRealProfit'",)
+2023-10-29 16:38:36 - ERROR - [<module>:132] - ("module 'KoreaInvestmentApi' has no attribute 'getRealProfit'",)
+2023-10-29 16:39:13 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:39:28 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:39:28 - INFO - [getRealProfit:128] - <Response [200]>
+2023-10-29 16:42:07 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:42:08 - INFO - [getRealProfit:125] - <Response [200]>
+2023-10-29 16:42:42 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:42:42 - INFO - [getRealProfit:126] - <Response [200]>
+2023-10-29 16:42:51 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:42:51 - INFO - [getRealProfit:126] - <Response [200]>
+2023-10-29 16:43:22 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:43:22 - INFO - [getRealProfit:126] - <Response [200]>
+2023-10-29 16:45:47 - INFO - [<module>:16] - ======================Start the program. Let's be rich======================
+2023-10-29 16:45:48 - INFO - [getRealProfit:127] - <Response [200]>
