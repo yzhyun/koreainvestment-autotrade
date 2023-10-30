@@ -13,8 +13,6 @@ def initInvestement():
 def getBalanceCash():
     res = kis.get_balance()
     cash = res.json()['output']['ord_psbl_cash']
-    print("!!!!")
-    print(cash)
     return int(cash)
 
 

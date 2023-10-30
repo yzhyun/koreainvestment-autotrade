@@ -5,6 +5,9 @@ from investmentApi import *
 from common import *
 import time
 
+with open('./config/stock_code.yaml', encoding='UTF-8') as f:
+    _code = yaml.load(f, Loader=yaml.FullLoader)
+
 # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640
 # 한화: 000880 롯데정보통신: 286940 CJ CGV: 079160 롯데지주: 004990 삼천리: 004690 대한항공: 003490 네이버: 035420 두산로보티스: 454910
 symbol_list = ["234340", "000660", "005380", "035720", "036800", "066570", "032640", "000880",
