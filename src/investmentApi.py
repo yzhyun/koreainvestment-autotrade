@@ -5,14 +5,16 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
     _code = yaml.load(f, Loader=yaml.FullLoader)
 
 def initInvestement():
-    kis.ACCESS_TOKEN = kis.get_access_token()
-    #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjI3MWU0MGNlLWM3ZGItNGIyOS04YTY2LWY4MWQyMDY0M2Q4NyIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk4NTY4NTcyLCJpYXQiOjE2OTg0ODIxNzIsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.0wTT5o3P0VswPXME9PVrif4X8NL3haSnF3TWwYXKEI7g0R66pILkFr01DMJb29kfNxnPyHMV5BOXafkwXr4HfQ"
-    #print(kis.ACCESS_TOKEN)
+    #kis.ACCESS_TOKEN = kis.get_access_token()
+    kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImQxZGFlMWYwLTNjYzEtNGViYS1hNDA1LTRiOTFjNjQ1ZjQ5MSIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk4NzUwMzU2LCJpYXQiOjE2OTg2NjM5NTYsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.9iGZlAuBtlGOWLVp-Zjgd2tpE-kKM1nowSgPKTwKEledO_BrmN9M6SIMrIBVm3_c99KHb4v5m58d1vj3cJN_Kg"
+    print(kis.ACCESS_TOKEN)
 
 # 보유 현금 조회
 def getBalanceCash():
     res = kis.get_balance()
+    print(res.text)
     cash = res.json()['output']['ord_psbl_cash']
+    print("cash =====> " + cash)
     return int(cash)
 
 

@@ -22,13 +22,14 @@ initInvestement()
 
 # 보유 현금 조회
 total_cash = getBalanceCash()
+print(total_cash)
 
 wish_stock_dict = {}   # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
 
 # 스케쥴러 초기화
-schedule.every(1).hour.do(reportCurStockInfo, dict_bought_list, wish_stock_dict) # 매시각 보고
-#schedule.every(5).seconds.do(reportCurStockInfo, dict_bought_list, wish_stock_dict) # 매시각 보고
+#schedule.every(1).hour.do(reportCurStockInfo, dict_bought_list, wish_stock_dict) # 매시각 보고
+schedule.every(2).seconds.do(reportCurStockInfo, dict_bought_list, wish_stock_dict) # 매시각 보고
 
 while True:
     try:
@@ -67,6 +68,9 @@ while True:
                 current_price = getStockCurPrice(code)
                 time.sleep(0.5)
                 logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
+                if code in dict_bought_list:
+                    logger.info("=====이미 매수한 종목 입니다.")
+                    continue
                 buy_qty = 0
                 # 목표가보다 현재가가 높은 경우 매수 진행
                 if arrTmp[4] <= current_price <= int(arrTmp[5] * 1.05): # 급등 항목은 제외 될 수 있도록
@@ -126,7 +130,7 @@ while True:
             send_message(f"금일 수익: {diff_cash}")
             write_report(f"금일 수익: {diff_cash}")
             getRealProfit()
-            break
+            #break
 
     except Exception as e:
         logger.error(e.args)

@@ -34,8 +34,7 @@ def write_report(memo):
     today = datetime.date.today()
     curTime = datetime.datetime.now()
     filepath = 'report/' + str(today)
-    f = open(filepath, 'a')
-
+    f = open(filepath+".txt", 'a')
     f.write(f"[{curTime}] {memo} \n")
     f.close()
 
