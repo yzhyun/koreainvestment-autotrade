@@ -41,7 +41,7 @@ def write_report(memo):
 def get_target_price(num, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr):
     val = ""
     if num == 0:
-        val = stck_clpr * 1.01  # 전일 종가 * 0.02
+        val = stck_clpr * 1.015  # 전일 종가 * 0.02
     elif num == 1:
         val = stck_oprc + (stck_hgpr - stck_lwpr) * 0.5  # 오늘 시가 + (전일 고가 - 전일 저가)
     return val
