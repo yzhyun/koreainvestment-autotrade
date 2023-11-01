@@ -8,8 +8,6 @@ from common import *
 TARGET_MODE = "dev"
 # 모의계좌 : dev / 실제계좌 : prd
 
-
-
 if TARGET_MODE == "dev":
     with open('././config/dev_config.yaml', encoding='UTF-8') as f:
         _cfg = yaml.load(f, Loader=yaml.FullLoader)
@@ -17,18 +15,14 @@ else:
     with open('./../config/config.yaml', encoding='UTF-8') as f:
         _cfg = yaml.load(f, Loader=yaml.FullLoader)
 
-
-
 APP_KEY = _cfg['APP_KEY']
 APP_SECRET = _cfg['APP_SECRET']
 ACCESS_TOKEN = ""
-
 CANO = _cfg['CANO']
 ACNT_PRDT_CD = _cfg['ACNT_PRDT_CD']
 TR_ID_TYPE = _cfg['TR_ID_TYPE']
-
-
 URL_BASE = _cfg['URL_BASE']
+
 
 def get_access_token():
     """토큰 발급"""
@@ -92,6 +86,7 @@ def get_stock_price(code):
     }
     res = requests.get(URL, headers=headers, params=params)
     return res
+
 
 def get_stock_balance():
     """주식 잔고조회"""
@@ -168,6 +163,7 @@ def buy(code="005930", qty="1"):
     res = requests.post(URL, headers=headers, data=json.dumps(data))
     return res
 
+
 def sell(code="005930", qty="1"):
     """주식 시장가 매도"""
     PATH = "uapi/domestic-stock/v1/trading/order-cash"
@@ -196,6 +192,7 @@ def sell(code="005930", qty="1"):
     #
     #     return False
     return res
+
 
 def get_Real_Profit():
     """주식잔고조회_실현손익"""

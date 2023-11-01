@@ -13067,3 +13067,479 @@
 2023-11-01 16:25:22 - INFO - [initTrgtStockList:85] - 대한항공[003490]
 2023-11-01 16:25:23 - INFO - [initTrgtStockList:85] - 네이버[035420]
 2023-11-01 16:25:23 - INFO - [initTrgtStockList:85] - 두산로보틱스[454910]
+2023-11-01 22:45:28 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 22:45:28 - INFO - [initTrgtStockList:85] - 세틀뱅크[234340]
+2023-11-01 22:45:28 - INFO - [initTrgtStockList:85] - 하이닉스[000660]
+2023-11-01 22:45:29 - INFO - [initTrgtStockList:85] - 현대자동차[005380]
+2023-11-01 22:45:29 - INFO - [initTrgtStockList:85] - 카카오[035720]
+2023-11-01 22:45:30 - INFO - [initTrgtStockList:85] - 나이스정보통신[036800]
+2023-11-01 22:45:30 - INFO - [initTrgtStockList:85] - LG전자[066570]
+2023-11-01 22:45:31 - INFO - [initTrgtStockList:85] - LG유플러스[032640]
+2023-11-01 22:45:31 - INFO - [initTrgtStockList:85] - 한화[000880]
+2023-11-01 22:45:31 - INFO - [initTrgtStockList:85] - 롯데정보통신[286940]
+2023-11-01 22:45:32 - INFO - [initTrgtStockList:85] - CJ CGV[079160]
+2023-11-01 22:45:32 - INFO - [initTrgtStockList:85] - 현대백화점[069960]
+2023-11-01 22:45:33 - INFO - [initTrgtStockList:85] - 롯데지주[004990]
+2023-11-01 22:45:33 - INFO - [initTrgtStockList:85] - 롯데지주[004990]
+2023-11-01 22:45:33 - INFO - [initTrgtStockList:85] - 삼천리[004690]
+2023-11-01 22:45:34 - INFO - [initTrgtStockList:85] - 대한항공[003490]
+2023-11-01 22:45:34 - INFO - [initTrgtStockList:85] - 네이버[035420]
+2023-11-01 22:45:35 - INFO - [initTrgtStockList:85] - 두산로보틱스[454910]
+2023-11-01 22:45:35 - INFO - [reportCurStockInfo:121] - =====reportCurStockInfo START =====
+2023-11-01 22:45:36 - INFO - [reportCurStockInfo:137] - =====reportCurStockInfo END =====
+2023-11-01 22:45:37 - INFO - [reportCurStockInfo:121] - =====reportCurStockInfo START =====
+2023-11-01 22:45:37 - INFO - [reportCurStockInfo:137] - =====reportCurStockInfo END =====
+2023-11-01 22:45:59 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 22:47:30 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 22:47:30 - INFO - [initTrgtStockList:85] - 세틀뱅크[234340]
+2023-11-01 22:47:31 - INFO - [initTrgtStockList:85] - 하이닉스[000660]
+2023-11-01 22:47:31 - INFO - [initTrgtStockList:85] - 현대자동차[005380]
+2023-11-01 22:47:31 - INFO - [initTrgtStockList:85] - 카카오[035720]
+2023-11-01 22:47:32 - INFO - [initTrgtStockList:85] - 나이스정보통신[036800]
+2023-11-01 22:47:32 - INFO - [initTrgtStockList:85] - LG전자[066570]
+2023-11-01 22:47:33 - INFO - [initTrgtStockList:85] - LG유플러스[032640]
+2023-11-01 22:47:33 - INFO - [initTrgtStockList:85] - 한화[000880]
+2023-11-01 22:47:34 - INFO - [initTrgtStockList:85] - 롯데정보통신[286940]
+2023-11-01 22:47:34 - INFO - [initTrgtStockList:85] - CJ CGV[079160]
+2023-11-01 22:47:34 - INFO - [initTrgtStockList:85] - 현대백화점[069960]
+2023-11-01 22:47:35 - INFO - [initTrgtStockList:85] - 롯데지주[004990]
+2023-11-01 22:47:35 - INFO - [initTrgtStockList:85] - 롯데지주[004990]
+2023-11-01 22:47:36 - INFO - [initTrgtStockList:85] - 삼천리[004690]
+2023-11-01 22:47:36 - INFO - [initTrgtStockList:85] - 대한항공[003490]
+2023-11-01 22:47:37 - INFO - [initTrgtStockList:85] - 네이버[035420]
+2023-11-01 22:47:37 - INFO - [initTrgtStockList:85] - 두산로보틱스[454910]
+2023-11-01 22:47:38 - INFO - [reportCurStockInfo:121] - =====reportCurStockInfo START =====
+2023-11-01 22:47:39 - INFO - [reportCurStockInfo:137] - =====reportCurStockInfo END =====
+2023-11-01 22:47:57 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 22:47:58 - INFO - [initTrgtStockList:85] - 세틀뱅크[234340]
+2023-11-01 22:47:58 - INFO - [initTrgtStockList:85] - 하이닉스[000660]
+2023-11-01 22:47:58 - INFO - [initTrgtStockList:85] - 현대자동차[005380]
+2023-11-01 22:47:59 - INFO - [initTrgtStockList:85] - 카카오[035720]
+2023-11-01 22:47:59 - INFO - [initTrgtStockList:85] - 나이스정보통신[036800]
+2023-11-01 22:48:00 - INFO - [initTrgtStockList:85] - LG전자[066570]
+2023-11-01 22:48:00 - INFO - [initTrgtStockList:85] - LG유플러스[032640]
+2023-11-01 22:48:00 - INFO - [initTrgtStockList:85] - 한화[000880]
+2023-11-01 22:48:01 - INFO - [initTrgtStockList:85] - 롯데정보통신[286940]
+2023-11-01 22:48:01 - INFO - [initTrgtStockList:85] - CJ CGV[079160]
+2023-11-01 22:48:02 - INFO - [initTrgtStockList:85] - 현대백화점[069960]
+2023-11-01 22:48:02 - INFO - [initTrgtStockList:85] - 롯데지주[004990]
+2023-11-01 22:48:02 - INFO - [initTrgtStockList:85] - 롯데지주[004990]
+2023-11-01 22:48:03 - INFO - [initTrgtStockList:85] - 삼천리[004690]
+2023-11-01 22:48:03 - INFO - [initTrgtStockList:85] - 대한항공[003490]
+2023-11-01 22:48:04 - INFO - [initTrgtStockList:85] - 네이버[035420]
+2023-11-01 22:48:04 - INFO - [initTrgtStockList:85] - 두산로보틱스[454910]
+2023-11-01 22:48:06 - INFO - [reportCurStockInfo:121] - =====reportCurStockInfo START =====
+2023-11-01 22:48:06 - INFO - [reportCurStockInfo:137] - =====reportCurStockInfo END =====
+2023-11-01 22:50:36 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 22:50:36 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 22:50:36 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 22:50:37 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 22:50:37 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 22:50:38 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 22:50:38 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 22:50:39 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 22:50:39 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 22:50:40 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 22:50:40 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 22:50:40 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 22:50:41 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 22:50:41 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 22:50:42 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 22:50:42 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 22:50:42 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 22:50:43 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 22:50:44 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 22:50:45 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 22:52:19 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 22:52:19 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 22:52:20 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 22:52:20 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 22:52:21 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 22:52:21 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 22:52:21 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 22:52:22 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 22:52:22 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 22:52:23 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 22:52:23 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 22:52:23 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 22:52:24 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 22:52:24 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 22:52:25 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 22:52:25 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 22:52:25 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 22:52:26 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 22:52:27 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 22:52:28 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:00:30 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:00:30 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:00:30 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:00:31 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:00:31 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:00:32 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:00:32 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:00:33 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:00:33 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:00:33 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:00:34 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:00:34 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:00:35 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:00:35 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:00:36 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:00:36 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:00:37 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:00:37 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:00:37 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:00:38 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:00:38 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:00:38 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:00:54 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:00:54 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:00:54 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:00:55 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:00:55 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:00:56 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:00:56 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:00:57 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:00:57 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:00:57 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:00:58 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:00:58 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:00:59 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:00:59 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:00:59 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:01:00 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:01:00 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:01:01 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:01:01 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:02 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:02 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:02 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:03 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:03 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:04 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:05 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:05 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:06 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:07 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:07 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:08 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:08 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:09 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:09 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:10 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:11 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:11 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:12 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:13 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:13 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:14 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:14 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:15 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:15 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:01:24 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:01:24 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:01:24 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:01:25 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:01:25 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:01:25 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:01:26 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:01:26 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:01:27 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:01:27 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:01:28 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:01:29 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:01:29 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:01:29 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:01:30 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:01:30 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:01:31 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:01:31 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:01:31 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:01:32 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:02:27 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:02:27 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:02:27 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:02:28 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:02:28 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:02:28 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:02:29 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:02:29 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:02:30 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:02:30 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:02:30 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:02:31 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:02:31 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:02:32 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:02:32 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:02:33 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:02:33 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:02:33 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:02:34 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:02:34 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:03:09 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:03:09 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:03:10 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:03:10 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:03:10 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:03:11 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:03:11 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:03:12 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:03:12 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:03:13 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:03:13 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:03:13 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:03:14 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:03:14 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:03:15 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:03:15 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:03:15 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:03:16 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:03:16 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:03:17 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:04:35 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:04:35 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:04:35 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:04:36 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:04:36 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:04:37 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:04:37 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:04:37 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:04:38 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:04:38 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:04:39 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:04:39 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:04:39 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:04:40 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:04:40 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:04:41 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:04:41 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:04:42 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:04:42 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:04:42 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:04:48 - ERROR - [<module>:152] - ("local variable 'isReportTime' referenced before assignment",)
+2023-11-01 23:04:48 - ERROR - [<module>:152] - ("local variable 'isReportTime' referenced before assignment",)
+2023-11-01 23:04:49 - ERROR - [<module>:152] - ("local variable 'isReportTime' referenced before assignment",)
+2023-11-01 23:04:49 - ERROR - [<module>:152] - ("local variable 'isReportTime' referenced before assignment",)
+2023-11-01 23:04:49 - ERROR - [<module>:152] - ("local variable 'isReportTime' referenced before assignment",)
+2023-11-01 23:04:50 - ERROR - [<module>:152] - ("local variable 'isReportTime' referenced before assignment",)
+2023-11-01 23:04:50 - ERROR - [<module>:152] - ("local variable 'isReportTime' referenced before assignment",)
+2023-11-01 23:04:50 - ERROR - [<module>:152] - ("local variable 'isReportTime' referenced before assignment",)
+2023-11-01 23:05:09 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:05:09 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:05:10 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:05:10 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:05:10 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:05:11 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:05:11 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:05:12 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:05:12 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:05:12 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:05:13 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:05:13 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:05:14 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:05:14 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:05:15 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:05:15 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:05:15 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:05:16 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:05:16 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:05:17 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:05:22 - ERROR - [<module>:153] - ('can only concatenate str (not "bool") to str',)
+2023-11-01 23:05:22 - ERROR - [<module>:153] - ('can only concatenate str (not "bool") to str',)
+2023-11-01 23:05:23 - ERROR - [<module>:153] - ('can only concatenate str (not "bool") to str',)
+2023-11-01 23:05:23 - ERROR - [<module>:153] - ('can only concatenate str (not "bool") to str',)
+2023-11-01 23:05:24 - ERROR - [<module>:153] - ('can only concatenate str (not "bool") to str',)
+2023-11-01 23:05:24 - ERROR - [<module>:153] - ('can only concatenate str (not "bool") to str',)
+2023-11-01 23:05:24 - ERROR - [<module>:153] - ('can only concatenate str (not "bool") to str',)
+2023-11-01 23:05:25 - ERROR - [<module>:153] - ('can only concatenate str (not "bool") to str',)
+2023-11-01 23:05:25 - ERROR - [<module>:153] - ('can only concatenate str (not "bool") to str',)
+2023-11-01 23:06:40 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:06:40 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:06:41 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:06:41 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:06:42 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:06:42 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:06:43 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:06:43 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:06:43 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:06:44 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:06:44 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:06:45 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:06:45 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:06:46 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:06:46 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:06:46 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:06:47 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:06:47 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:06:47 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:06:48 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:06:53 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:06:54 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:06:58 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:06:59 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:07:04 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:07:04 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:07:09 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:07:09 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:07:14 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:07:14 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:07:19 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:07:20 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:07:24 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:07:25 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:07:25 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:07:26 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:07:26 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:07:26 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:07:27 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:07:27 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:07:28 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:07:28 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:07:28 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:07:29 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:07:29 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:07:30 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:07:30 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:07:31 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:07:31 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:07:31 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:07:32 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:07:32 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:07:33 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:07:43 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:07:43 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:07:53 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:07:53 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:08:04 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:08:04 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:08:14 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:08:14 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:08:24 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:08:25 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:08:34 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:08:35 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:08:45 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:08:45 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:08:53 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:08:53 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:08:54 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:08:54 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:08:54 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:08:55 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:08:55 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:08:56 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:08:56 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:08:56 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:08:57 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:08:57 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:08:58 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:08:58 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:08:58 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:08:59 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:08:59 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:09:00 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:09:00 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:09:00 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:09:05 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:09:06 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:13:02 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:13:02 - INFO - [initTrgtStockList:84] - 세틀뱅크[234340]
+2023-11-01 23:13:02 - INFO - [initTrgtStockList:84] - 하이닉스[000660]
+2023-11-01 23:13:03 - INFO - [initTrgtStockList:84] - 현대자동차[005380]
+2023-11-01 23:13:03 - INFO - [initTrgtStockList:84] - 카카오[035720]
+2023-11-01 23:13:04 - INFO - [initTrgtStockList:84] - 나이스정보통신[036800]
+2023-11-01 23:13:04 - INFO - [initTrgtStockList:84] - LG전자[066570]
+2023-11-01 23:13:04 - INFO - [initTrgtStockList:84] - LG유플러스[032640]
+2023-11-01 23:13:05 - INFO - [initTrgtStockList:84] - 한화[000880]
+2023-11-01 23:13:05 - INFO - [initTrgtStockList:84] - 롯데정보통신[286940]
+2023-11-01 23:13:06 - INFO - [initTrgtStockList:84] - CJ CGV[079160]
+2023-11-01 23:13:06 - INFO - [initTrgtStockList:84] - 현대백화점[069960]
+2023-11-01 23:13:06 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:13:07 - INFO - [initTrgtStockList:84] - 롯데지주[004990]
+2023-11-01 23:13:07 - INFO - [initTrgtStockList:84] - 삼천리[004690]
+2023-11-01 23:13:07 - INFO - [initTrgtStockList:84] - 대한항공[003490]
+2023-11-01 23:13:08 - INFO - [initTrgtStockList:84] - 네이버[035420]
+2023-11-01 23:13:08 - INFO - [initTrgtStockList:84] - 두산로보틱스[454910]
+2023-11-01 23:13:10 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:13:10 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:13:15 - INFO - [reportCurStockInfo:120] - =====reportCurStockInfo START =====
+2023-11-01 23:13:16 - INFO - [reportCurStockInfo:136] - =====reportCurStockInfo END =====
+2023-11-01 23:30:17 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:30:17 - INFO - [initTrgtStockList:91] - 세틀뱅크[234340]
+2023-11-01 23:30:18 - INFO - [initTrgtStockList:91] - 하이닉스[000660]
+2023-11-01 23:30:18 - INFO - [initTrgtStockList:91] - 현대자동차[005380]
+2023-11-01 23:30:19 - INFO - [initTrgtStockList:91] - 카카오[035720]
+2023-11-01 23:30:19 - INFO - [initTrgtStockList:91] - 나이스정보통신[036800]
+2023-11-01 23:30:20 - INFO - [initTrgtStockList:91] - LG전자[066570]
+2023-11-01 23:30:20 - INFO - [initTrgtStockList:91] - LG유플러스[032640]
+2023-11-01 23:30:20 - INFO - [initTrgtStockList:91] - 한화[000880]
+2023-11-01 23:30:21 - INFO - [initTrgtStockList:91] - 롯데정보통신[286940]
+2023-11-01 23:30:22 - INFO - [initTrgtStockList:91] - CJ CGV[079160]
+2023-11-01 23:30:22 - INFO - [initTrgtStockList:91] - 현대백화점[069960]
+2023-11-01 23:30:22 - INFO - [initTrgtStockList:91] - 롯데지주[004990]
+2023-11-01 23:30:23 - INFO - [initTrgtStockList:91] - 롯데지주[004990]
+2023-11-01 23:30:23 - INFO - [initTrgtStockList:91] - 삼천리[004690]
+2023-11-01 23:30:24 - INFO - [initTrgtStockList:91] - 대한항공[003490]
+2023-11-01 23:30:24 - INFO - [initTrgtStockList:91] - 네이버[035420]
+2023-11-01 23:30:24 - INFO - [initTrgtStockList:91] - 두산로보틱스[454910]
+2023-11-01 23:30:25 - INFO - [reportCurStockInfo:127] - =====reportCurStockInfo START =====
+2023-11-01 23:30:25 - INFO - [reportCurStockInfo:143] - =====reportCurStockInfo END =====
+2023-11-01 23:30:25 - INFO - [reportCurStockInfo:127] - =====reportCurStockInfo START =====
+2023-11-01 23:30:26 - INFO - [reportCurStockInfo:143] - =====reportCurStockInfo END =====
+2023-11-01 23:30:26 - INFO - [reportCurStockInfo:127] - =====reportCurStockInfo START =====
+2023-11-01 23:30:27 - INFO - [reportCurStockInfo:143] - =====reportCurStockInfo END =====
+2023-11-01 23:30:28 - INFO - [reportCurStockInfo:127] - =====reportCurStockInfo START =====
+2023-11-01 23:30:28 - INFO - [reportCurStockInfo:143] - =====reportCurStockInfo END =====
+2023-11-01 23:30:29 - INFO - [reportCurStockInfo:127] - =====reportCurStockInfo START =====
+2023-11-01 23:30:29 - INFO - [reportCurStockInfo:143] - =====reportCurStockInfo END =====
+2023-11-01 23:30:30 - INFO - [reportCurStockInfo:127] - =====reportCurStockInfo START =====
+2023-11-01 23:30:30 - INFO - [reportCurStockInfo:143] - =====reportCurStockInfo END =====
+2023-11-01 23:30:31 - INFO - [reportCurStockInfo:127] - =====reportCurStockInfo START =====
+2023-11-01 23:30:32 - INFO - [reportCurStockInfo:143] - =====reportCurStockInfo END =====
+2023-11-01 23:30:33 - INFO - [reportCurStockInfo:127] - =====reportCurStockInfo START =====
+2023-11-01 23:30:33 - INFO - [reportCurStockInfo:143] - =====reportCurStockInfo END =====
+2023-11-01 23:30:34 - INFO - [reportCurStockInfo:127] - =====reportCurStockInfo START =====
+2023-11-01 23:31:10 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:31:10 - INFO - [initTrgtStockList:92] - 세틀뱅크[234340]
+2023-11-01 23:31:11 - INFO - [initTrgtStockList:92] - 하이닉스[000660]
+2023-11-01 23:31:11 - INFO - [initTrgtStockList:92] - 현대자동차[005380]
+2023-11-01 23:31:12 - INFO - [initTrgtStockList:92] - 카카오[035720]
+2023-11-01 23:31:12 - INFO - [initTrgtStockList:92] - 나이스정보통신[036800]
+2023-11-01 23:31:12 - INFO - [initTrgtStockList:92] - LG전자[066570]
+2023-11-01 23:31:13 - INFO - [initTrgtStockList:92] - LG유플러스[032640]
+2023-11-01 23:31:13 - INFO - [initTrgtStockList:92] - 한화[000880]
+2023-11-01 23:31:14 - INFO - [initTrgtStockList:92] - 롯데정보통신[286940]
+2023-11-01 23:31:14 - INFO - [initTrgtStockList:92] - CJ CGV[079160]
+2023-11-01 23:31:14 - INFO - [initTrgtStockList:92] - 현대백화점[069960]
+2023-11-01 23:31:15 - INFO - [initTrgtStockList:92] - 롯데지주[004990]
+2023-11-01 23:31:15 - INFO - [initTrgtStockList:92] - 롯데지주[004990]
+2023-11-01 23:31:16 - INFO - [initTrgtStockList:92] - 삼천리[004690]
+2023-11-01 23:31:16 - INFO - [initTrgtStockList:92] - 대한항공[003490]
+2023-11-01 23:31:17 - INFO - [initTrgtStockList:92] - 네이버[035420]
+2023-11-01 23:31:17 - INFO - [initTrgtStockList:92] - 두산로보틱스[454910]
+2023-11-01 23:31:17 - INFO - [reportCurStockInfo:128] - =====reportCurStockInfo START =====
+2023-11-01 23:31:18 - INFO - [reportCurStockInfo:144] - =====reportCurStockInfo END =====
+2023-11-01 23:31:18 - INFO - [reportCurStockInfo:128] - =====reportCurStockInfo START =====
+2023-11-01 23:31:19 - INFO - [reportCurStockInfo:144] - =====reportCurStockInfo END =====
+2023-11-01 23:31:35 - INFO - [<module>:17] - ======================Start the program. Let's be rich======================
+2023-11-01 23:31:35 - INFO - [initTrgtStockList:92] - 세틀뱅크[234340]
+2023-11-01 23:31:36 - INFO - [initTrgtStockList:92] - 하이닉스[000660]
+2023-11-01 23:31:38 - INFO - [initTrgtStockList:92] - 현대자동차[005380]
+2023-11-01 23:31:38 - INFO - [initTrgtStockList:92] - 카카오[035720]
+2023-11-01 23:31:38 - INFO - [initTrgtStockList:92] - 나이스정보통신[036800]
+2023-11-01 23:31:39 - INFO - [initTrgtStockList:92] - LG전자[066570]
+2023-11-01 23:31:39 - INFO - [initTrgtStockList:92] - LG유플러스[032640]
+2023-11-01 23:31:40 - INFO - [initTrgtStockList:92] - 한화[000880]
+2023-11-01 23:31:40 - INFO - [initTrgtStockList:92] - 롯데정보통신[286940]
+2023-11-01 23:32:02 - INFO - [initTrgtStockList:92] - CJ CGV[079160]
+2023-11-01 23:32:02 - INFO - [initTrgtStockList:92] - 현대백화점[069960]
+2023-11-01 23:32:03 - INFO - [initTrgtStockList:92] - 롯데지주[004990]
+2023-11-01 23:32:03 - INFO - [initTrgtStockList:92] - 롯데지주[004990]
+2023-11-01 23:32:03 - INFO - [initTrgtStockList:92] - 삼천리[004690]
+2023-11-01 23:32:04 - INFO - [initTrgtStockList:92] - 대한항공[003490]
+2023-11-01 23:32:04 - INFO - [initTrgtStockList:92] - 네이버[035420]
+2023-11-01 23:32:05 - INFO - [initTrgtStockList:92] - 두산로보틱스[454910]
+2023-11-01 23:32:05 - INFO - [reportCurStockInfo:128] - =====reportCurStockInfo START =====
+2023-11-01 23:32:06 - INFO - [reportCurStockInfo:144] - =====reportCurStockInfo END =====
+2023-11-01 23:32:06 - INFO - [reportCurStockInfo:128] - =====reportCurStockInfo START =====
+2023-11-01 23:32:06 - INFO - [reportCurStockInfo:144] - =====reportCurStockInfo END =====

@@ -4,10 +4,12 @@ from common import *
 with open('./config/stock_code.yaml', encoding='UTF-8') as f:
     _code = yaml.load(f, Loader=yaml.FullLoader)
 
+
 def initInvestement():
     kis.ACCESS_TOKEN = kis.get_access_token()
-    #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjYyYzUxNTM2LTJmNjUtNGU3NS1hYTg1LTM4ZTM5ZmU0YjE1NyIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk4ODQ4ODY1LCJpYXQiOjE2OTg3NjI0NjUsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.prze7G5Q6cT0L75LeLYX9Bv2ovAKJMkm2UxmCYjoLvFLJjUXVnlpOitHZW3SzllEKy1GrjSyrpXVw284IcLcBA"
+    #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjM3OTQzNGQ5LTBlYjEtNDJjMi05NWM3LTIyODIwZmFjOGQ5ZSIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk4OTMyNzI4LCJpYXQiOjE2OTg4NDYzMjgsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.G4oNfsgAPfjolaHu8de47bzhzS2ZWdTg4am4BIo0A16Ck_y0K6nNynIHX1CymO_ngJ-3qWG0gKeeoIg-sdUehA"
     print(kis.ACCESS_TOKEN)
+
 
 # 보유 현금 조회
 def getBalanceCash():
@@ -37,6 +39,7 @@ def getBalanceStock():
     # time.sleep(0.1)
     return stock_dict
 
+
 # 주식 매도
 def sellAllStocks(stock_dict, wish_stock_dict):
     failCodes = []
@@ -56,20 +59,24 @@ def sellAllStocks(stock_dict, wish_stock_dict):
 
     return res
 
+
 def getStockPriceDailyInfo(code):
     res = kis.get_stock_price(code)
     return res
+
 
 def getStockCurPrice(code):
     res = kis.get_current_price(code)
     time.sleep(1)
     return res
 
+
 def buyStock(code, buy_qty):
     res = kis.buy(code, buy_qty)
     if res.json()['rt_cd'] == '0':
         return True
     return False
+
 
 def initTrgtStockList(symbol_list):
     rtnRes = {}
@@ -118,13 +125,13 @@ def initTrgtStockList(symbol_list):
 
 
 def reportCurStockInfo(dict_bought_list, wish_stock_dict):
-
+    logger.info("=====reportCurStockInfo START =====")
     res = kis.get_stock_balance()
     stock_list = res.json()['output1']
     evaluation = res.json()['output2']
 
     t_now = datetime.datetime.now()
-    sMessage = "보유주식: "
+    sMessage = "보유주식: \n"
     for stock in stock_list:
         if stock['pdno'] in wish_stock_dict.keys():
             arrTmp = wish_stock_dict[stock['pdno']]
@@ -134,7 +141,9 @@ def reportCurStockInfo(dict_bought_list, wish_stock_dict):
     write_report(f"[{t_now}] {sMessage}")
     send_message(f"{sMessage}")
 
+    logger.info("=====reportCurStockInfo END =====")
     return True
+
 
 def getRealProfit():
     res = kis.get_Real_Profit()
@@ -142,9 +151,9 @@ def getRealProfit():
     write_report(res)
     return True
 
+
 def TEST():
     ttime = datetime.datetime.now()
     global REPORT
     REPORT = "nononono"
-    print(f"{ttime} {REPORT}" )
-
+    print(f"{ttime} {REPORT}")
