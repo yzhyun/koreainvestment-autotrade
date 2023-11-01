@@ -49,7 +49,7 @@ while True:
         t_now = datetime.datetime.now()
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
         t_start = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
-        t_buy = t_now.replace(hour=11, minute=0, second=0, microsecond=0)
+        t_buy = t_now.replace(hour=10, minute=30, second=0, microsecond=0)
         t_sell = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=25, second=0, microsecond=0)
 
@@ -74,7 +74,7 @@ while True:
 
         # send_message("보유현금: " + str(total_cash))
 
-        if t_start <= t_now <= t_buy:  # 09:05 ~ 11:00 까지만 매수
+        if t_start <= t_now <= t_buy:  # 09:05 ~ 10:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
             for code in list(wish_stock_dict.keys()):
                 arrTmp = wish_stock_dict[code]
@@ -103,7 +103,7 @@ while True:
                             write_report(f"[매수 성공]: {_code[code]}({buy_qty})")
                             # f"매도 목표가 변경 {tmp_sell_target_price} -> {wish_stock_dict[code][5]}")
                         else:
-                            logger.info(f"[매수실패]: {_code[code]}({buy_qty})")
+                            logger.info(f"[매수 실패]: {_code[code]}({buy_qty})")
                             send_message(f"[매수 실패]: {_code[code]}({buy_qty})")
                     except Exception as e:
                         logger.error(f"[매수 오류 발생]{e}")
