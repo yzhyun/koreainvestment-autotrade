@@ -118,13 +118,13 @@ def initTrgtStockList(symbol_list):
 
 
 def reportCurStockInfo(dict_bought_list, wish_stock_dict):
-
+    logger.info("=====중간보고 레포트 수행")
     res = kis.get_stock_balance()
     stock_list = res.json()['output1']
     evaluation = res.json()['output2']
 
     t_now = datetime.datetime.now()
-    sMessage = "보유주식: "
+    sMessage = f"보유주식: \n"
     for stock in stock_list:
         if stock['pdno'] in wish_stock_dict.keys():
             arrTmp = wish_stock_dict[stock['pdno']]
