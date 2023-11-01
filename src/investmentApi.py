@@ -124,11 +124,10 @@ def reportCurStockInfo(dict_bought_list, wish_stock_dict):
     evaluation = res.json()['output2']
 
     t_now = datetime.datetime.now()
-    sMessage = "보유주식 없음"
+    sMessage = "보유주식: "
     for stock in stock_list:
         if stock['pdno'] in wish_stock_dict.keys():
             arrTmp = wish_stock_dict[stock['pdno']]
-            sMessage = ""
             sMessage += f"*{stock['prdt_name']}\n매입[{stock['pchs_amt']}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n"
             dict_bought_list[stock['pdno']] = stock['hldg_qty']
 
