@@ -136,7 +136,7 @@ def reportCurStockInfo(dict_bought_list, wish_stock_dict):
     for stock in stock_list:
         if stock['pdno'] in wish_stock_dict.keys():
             arrTmp = wish_stock_dict[stock['pdno']]
-            sMessage += f"*{stock['prdt_name']}\n매입[{stock['pchs_amt']}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n"
+            sMessage += f"*{stock['prdt_name']}\n매입[{stock['pchs_amt']}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n"
             dict_bought_list[stock['pdno']] = stock['hldg_qty']
             sum_pfls_amt += int(stock['evlu_pfls_amt'])
     write_report(f"{sMessage}\n총평가손익금액: {sum_pfls_amt}")
