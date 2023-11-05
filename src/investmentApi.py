@@ -7,7 +7,7 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 def initInvestement():
     kis.ACCESS_TOKEN = kis.get_access_token()
-    #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjM3OTQzNGQ5LTBlYjEtNDJjMi05NWM3LTIyODIwZmFjOGQ5ZSIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk4OTMyNzI4LCJpYXQiOjE2OTg4NDYzMjgsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.G4oNfsgAPfjolaHu8de47bzhzS2ZWdTg4am4BIo0A16Ck_y0K6nNynIHX1CymO_ngJ-3qWG0gKeeoIg-sdUehA"
+    #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImExNDEyMWJkLWRjZmMtNDYyNi1hNWViLThiNTNmZWI5ZmUwYiIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk5MjcyNjk2LCJpYXQiOjE2OTkxODYyOTYsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.DrGvvSPP_pOrYZbqBDfBLJQoA0E2BX1JgCdquHxFblWU3rA2ZbpzePNjV_C15fS8HN7K66ZfEu7qDNgfpDlSTQ"
     print(kis.ACCESS_TOKEN)
 
 
@@ -37,6 +37,7 @@ def getBalanceStock():
     # time.sleep(0.1)
     # send_message(f"총 평가 금액: {evaluation[0]['tot_evlu_amt']}원")
     # time.sleep(0.1)
+    print(stock_list)
     return stock_dict
 
 
@@ -50,7 +51,7 @@ def sellAllStocks(stock_dict, wish_stock_dict):
             try:
                 res = kis.sell(code, qty)
                 if res.json()['rt_cd'] != '0':
-                    logger.error("[매도 실패]")
+                    logger.error("[매도 실패]" + res.json()['msg'])
                     failCodes.append(code)
                     res["rtnCd"] = "F"
             except Exception as e:

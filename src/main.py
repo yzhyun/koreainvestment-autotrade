@@ -137,11 +137,12 @@ while True:
                             except Exception as e:
                                 logger.error(f"[매도 오류 발생]{e}")
                 # time.sleep(1)
-        if t_sell < t_now < t_exit:  # PM 03:20 ~ PM 03:25 : 일괄 매도
+        if t_sell < t_now :  # PM 03:20 ~ PM 03:25 : 일괄 매도
             if len(dict_bought_list) > 0:
                 # 잔여 수량 매도
                 stock_dict = getBalanceStock()  # 보유 주식 조회
                 res = sellAllStocks(stock_dict, wish_stock_dict)
+                print(res)
                 if res["rtnCd"] != "S":
                     msg = ""
                     for code in res["failCodes"]:
