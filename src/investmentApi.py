@@ -73,9 +73,22 @@ def getStockCurPrice(code):
 
 
 def buyStock(code, buy_qty):
-    res = kis.buy(code, buy_qty)
-    if res.json()['rt_cd'] == '0':
-        return True
+    try:
+        res = kis.buy(code, buy_qty)
+        if res.json()['rt_cd'] == '0':
+            return True
+    except Exception as e:
+        logger.error(f"[주식매매 오류 발생]{e}")
+    return False
+
+def sellStrock(code, buy_qty):
+    try:
+        res = kis.sell(code, buy_qty)
+        if res.json()['rt_cd'] == '0':
+            return True
+    except Exception as e:
+        logger.error(f"[주식매매 오류 발생]{e}")
+
     return False
 
 
@@ -127,25 +140,42 @@ def initTrgtStockList(symbol_list):
 
 def reportCurStockInfo(dict_bought_list, wish_stock_dict):
     logger.info("=====reportCurStockInfo START =====")
-    res = kis.get_stock_balance()
-    stock_list = res.json()['output1']
-    evaluation = res.json()['output2']
+    try:
+        res = kis.get_stock_balance()
+        stock_list = res.json()['output1']
+        evaluation = res.json()['output2']
 
-    t_now = datetime.datetime.now()
-    sMessage = "보유주식: \n"
-    sum_pfls_amt = 0
-    for stock in stock_list:
-        if stock['pdno'] in wish_stock_dict.keys():
-            arrTmp = wish_stock_dict[stock['pdno']]
-            sMessage += f"*{stock['prdt_name']}\n매입[{stock['pchs_amt']}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n"
-            dict_bought_list[stock['pdno']] = stock['hldg_qty']
-            sum_pfls_amt += int(stock['evlu_pfls_amt'])
-    write_report(f"{sMessage}\n총평가손익금액: {sum_pfls_amt}")
-    send_message(f"{sMessage}\n총평가손익금액: {sum_pfls_amt}")
-
+        t_now = datetime.datetime.now()
+        sMessage = "보유주식: \n"
+        sum_pfls_amt = 0
+        for stock in stock_list:
+            if stock['pdno'] in wish_stock_dict.keys():
+                arrTmp = wish_stock_dict[stock['pdno']]
+                sMessage += f"*{stock['prdt_name']}\n매입[{stock['pchs_amt']}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n"
+                dict_bought_list[stock['pdno']] = stock['hldg_qty']
+                sum_pfls_amt += int(stock['evlu_pfls_amt'])
+        write_report(f"{sMessage}\n총평가손익금액: {sum_pfls_amt}")
+        send_message(f"{sMessage}\n총평가손익금액: {sum_pfls_amt}")
+    except Exception as e:
+        logger.error(f"[레포트 오류 발생]{e}")
     logger.info("=====reportCurStockInfo END =====")
     return True
 
+def get_my_stock_cur_amt(wish_stock_dict):
+    try:
+        rtnRes = {}
+        tmpList = []
+        res = kis.get_stock_balance()
+        stock_list = res.json()['output1']
+        evaluation = res.json()['output2']
+
+        for stock in stock_list:
+            if stock['pdno'] in wish_stock_dict.keys():
+                print(f"*{stock['prdt_name']}\n매입[{stock['pchs_amt']}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n")
+                rtnRes[stock['pdno']] = stock['prpr']
+    except Exception as e:
+        logger.error(f"[보유 주식 현재가 조회 오류 발생]{e}")
+    return rtnRes
 
 def getRealProfit():
     res = kis.get_Real_Profit()

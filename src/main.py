@@ -10,7 +10,7 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640
 # 한화: 000880 롯데정보통신: 286940 CJ CGV: 079160 롯데지주: 004990 삼천리: 004690 대한항공: 003490 네이버: 035420 두산로보티스: 454910
-symbol_list = ["234340", "000660", "005380", "035720", "036800", "066570", "032640", "000880",
+symbol_list = ["234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380"
                "286940", "079160", "069960", "004990", "004990", "004690", "003490", "035420",
                "454910"]  # 매수 희망 종목 리스트
 
@@ -117,20 +117,24 @@ while True:
         if t_buy <= t_now <= t_sell:    # 11:00 ~ 15:20 까지 매도 진행
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")
+            if isReportTime:
+                time.sleep(2)
+            dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)    # 매수 종목 현재가 가져오기
+            time.sleep(1)
+            if len(dict_cur_amt) == 0:
+                continue    # 보유 주식 없는 경우 PASS
 
             for code in list(wish_stock_dict.keys()):
                 if code in dict_bought_list:
                     arrTmp = wish_stock_dict[code]
-                    if isReportTime:
-                        time.sleep(3)
-                    current_price = getStockCurPrice(code)
+                    current_price = dict_cur_amt[code]
                     # time.sleep(1)
                     logger.info(f"{_code[code]} 현재가 [{current_price}] / 매도목표가 [{arrTmp[5]}]")
                     if int(arrTmp[5]) <= int(current_price):
                         send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {current_price}) 매도를 시도합니다.")
                         if code in symbol_list:
                             try:
-                                if kis.sell(code, dict_bought_list[code]):
+                                if sellStrock(code, dict_bought_list[code]):
                                     send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
                                     del dict_bought_list[code]
                                     del wish_stock_dict[code]
@@ -140,21 +144,24 @@ while True:
         if t_sell < t_now :  # PM 03:20 ~ PM 03:25 : 일괄 매도
             if len(dict_bought_list) > 0:
                 # 잔여 수량 매도
-                stock_dict = getBalanceStock()  # 보유 주식 조회
-                res = sellAllStocks(stock_dict, wish_stock_dict)
-                print(res)
-                if res["rtnCd"] != "S":
-                    msg = ""
-                    for code in res["failCodes"]:
-                        msg += f"{_code[code]}/"
-                    send_message(f"[매도 실패]: {msg}")
+                for code in list(wish_stock_dict.keys()):
+                    if code in dict_bought_list:
+                        arrTmp = wish_stock_dict[code]
+                        if code in symbol_list:
+                            try:
+                                if sellStrock(code, dict_bought_list[code]):
+                                    send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
+                                    del dict_bought_list[code]
+                                    del wish_stock_dict[code]
+                                    time.sleep(0.5)
+                            except Exception as e:
+                                logger.error(f"[매도 오류 발생]{e}")
         if t_exit < t_now :  # PM 03:20 ~ :프로그램 종료
             reportCurStockInfo(dict_bought_list, wish_stock_dict)
             diff_cash = getBalanceCash() - total_cash
             send_message(f"금일 수익: {diff_cash}")
             write_report(f"금일 수익: {diff_cash}")
             break
-        time.sleep(0.2)
 
     except Exception as e:
         logger.error(e.args)
