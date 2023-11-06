@@ -25,7 +25,7 @@ wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
 
 wish_stock_dict = initTrgtStockList(symbol_list)
-reportCurStockInfo(dict_bought_list, wish_stock_dict)
+report_cur_stock_info(dict_bought_list, wish_stock_dict)
 
 isReportTime = False
 
@@ -42,7 +42,7 @@ while True:
     try:
 
         if isReportTime:    # 스케쥴러로 정해진 시간에 중간 보유 주식 보고
-            reportCurStockInfo(dict_bought_list, wish_stock_dict)
+            report_cur_stock_info(dict_bought_list, wish_stock_dict)
             isReportTime = False
 
         t_now = datetime.datetime.now()
@@ -157,7 +157,7 @@ while True:
                             except Exception as e:
                                 logger.error(f"[매도 오류 발생]{e}")
         if t_exit < t_now :  # PM 03:20 ~ :프로그램 종료
-            reportCurStockInfo(dict_bought_list, wish_stock_dict)
+            report_cur_stock_info(dict_bought_list, wish_stock_dict)
             diff_cash = getBalanceCash() - total_cash
             send_message(f"금일 수익: {diff_cash}")
             write_report(f"금일 수익: {diff_cash}")

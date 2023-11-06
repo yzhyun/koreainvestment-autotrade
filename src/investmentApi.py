@@ -138,7 +138,7 @@ def initTrgtStockList(symbol_list):
     return rtnRes
 
 
-def reportCurStockInfo(dict_bought_list, wish_stock_dict):
+def report_cur_stock_info(dict_bought_list, wish_stock_dict):
     logger.info("=====reportCurStockInfo START =====")
     try:
         res = kis.get_stock_balance()
