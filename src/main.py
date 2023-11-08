@@ -14,6 +14,7 @@ symbol_list = ["234340", "000660", "035720", "036800", "066570", "032640", "0008
                "004990", "004990", "004690", "003490", "035420", "454910"]  # 매수 희망 종목 리스트
 
 logger.info("======================Start the program. Let's be rich======================")
+send_message("===Start the program. Let's be rich===")
 # KIS 초기화
 init_investment()
 
@@ -24,10 +25,10 @@ wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
 
 wish_stock_dict = init_trgt_stock_list(symbol_list)
-report_cur_stock_info(dict_bought_list, wish_stock_dict)
+# report_cur_stock_info(dict_bought_list, wish_stock_dict)
 
 isReportTime = False
-
+isInit = True
 
 def set_report_time():
     global isReportTime
@@ -39,6 +40,7 @@ def set_report_time():
 schedule.every(30).minutes.do(set_report_time)  # 30분마다 보고
 # schedule.every(5).seconds.do(setReportTime)  # 30분마다 보고
 # schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
+
 while True:
     try:
 
@@ -61,12 +63,16 @@ while True:
         # if t_9 <= t_now <= t_start:
 
         if t_start <= t_now:
+            time.sleep(10)  # 시가 조회 시간 여유 부여
+            if isInit:  # 첫 1회 초기화
+                wish_stock_dict = init_trgt_stock_list(symbol_list)
+                report_cur_stock_info(dict_bought_list, wish_stock_dict)
+                isInit = False
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
         if t_start <= t_now <= t_buy:  # 09:00 ~ 10:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
 
             # 매수 종목 7개인 경우, 매수 활동 중지
-            print(len(dict_bought_list))
             if len(dict_bought_list) == 7:
                 continue
             for code in list(wish_stock_dict.keys()):

@@ -17,7 +17,8 @@ SLACK_CHANNEL = _cfg['SLACK_CHANNEL']
 logger = log()
 
 STANDARD_PRICE_STOCK = 300000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
-SELL_PER = 0.02 # 매수 목표 퍼센트
+SELL_PER = 0.02  # 매도 목표 퍼센트
+BUY_PER = 0.01  # 매수 목표 퍼센트
 
 
 def send_message(msg):
@@ -31,19 +32,20 @@ def send_message(msg):
                         data={"channel": channel, "text": msg})
     # print(res.json())
 
+
 def write_report(memo):
     today = datetime.date.today()
     curTime = datetime.datetime.now()
     filepath = 'report/' + str(today)
-    f = open(filepath+".txt", 'a')
+    f = open(filepath + ".txt", 'a')
     f.write(f"[{curTime}] {memo} \n")
     f.close()
+
 
 def get_target_price(num, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr):
     val = ""
     if num == 0:
-        val = stck_clpr * 1.015  # 전일 종가 * 0.02
+        val = stck_oprc * (1 + BUY_PER)  # 금일 시가 1.5%
     elif num == 1:
         val = stck_oprc + (stck_hgpr - stck_lwpr) * 0.5  # 오늘 시가 + (전일 고가 - 전일 저가)
     return val
-
