@@ -11,7 +11,7 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640
 # 한화: 000880 롯데정보통신: 286940 CJ CGV: 079160 롯데지주: 004990 삼천리: 004690 대한항공: 003490 네이버: 035420 두산로보티스: 454910
 symbol_list = ["234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380", "286940", "079160", "069960",
-               "004990", "004990", "004690", "003490", "035420", "454910"]  # 매수 희망 종목 리스트
+               "004990", "004690", "003490", "035420", "454910"]  # 매수 희망 종목 리스트
 
 logger.info("======================Start the program. Let's be rich======================")
 send_message("===Start the program. Let's be rich===")
@@ -24,7 +24,7 @@ total_cash = get_balance_cash()
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
 
-wish_stock_dict = init_trgt_stock_list(symbol_list)
+# wish_stock_dict = init_trgt_stock_list(symbol_list)
 # report_cur_stock_info(dict_bought_list, wish_stock_dict)
 
 isReportTime = False
@@ -50,7 +50,7 @@ while True:
 
         t_now = datetime.datetime.now()
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
-        t_start = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
+        t_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
         t_buy = t_now.replace(hour=10, minute=30, second=0, microsecond=0)
         t_sell = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=25, second=0, microsecond=0)
@@ -71,14 +71,14 @@ while True:
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
         if t_start <= t_now <= t_buy:  # 09:00 ~ 10:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
-
+            print(len(wish_stock_dict))
             # 매수 종목 7개인 경우, 매수 활동 중지
             if len(dict_bought_list) == 7:
                 continue
             for code in list(wish_stock_dict.keys()):
                 arrTmp = wish_stock_dict[code]
                 if code in dict_bought_list:
-                    logger.info("=====이미 매수한 종목 입니다.")
+                    logger.info(f"{_code[code]}=====이미 매수한 종목 입니다.")
                     continue
 
                 # 종목 현재가 조회

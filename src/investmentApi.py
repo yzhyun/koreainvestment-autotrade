@@ -43,6 +43,7 @@ def get_balance_cash():
 
 
 def get_stock_price_daily_info(code):
+    res = ""
     try:
         res = kis.get_stock_price(code)
     except Exception as e:
@@ -145,9 +146,9 @@ def report_cur_stock_info(dict_bought_list, wish_stock_dict):
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
                 arrTmp = wish_stock_dict[stock['pdno']]
-                stock_amt = int(stock['pchs_amt']) / int(stock['hldg_qty'])
+                stock_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
                 # rate = (int(stock['prpr']) - int(arrTmp[0])) / int(arrTmp[0])
-                sMessage += f"*{stock['prdt_name']}\n매입[{stock_amt}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}] / 평가손익금액[{stock['evlu_pfls_amt']} / 평균매입금액[{stock['pchs_avg_pric']}]\n"
+                sMessage += f"*{stock['prdt_name']}\n매입[{stock_amt}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}] / 평가손익금액[{stock['evlu_pfls_amt']} / 평균매입금액[{int(stock['pchs_avg_pric'])}]\n"
                 dict_bought_list[stock['pdno']] = stock['hldg_qty']
                 sum_pfls_amt += int(stock['evlu_pfls_amt'])
         write_report(f"{sMessage}\n총평가손익금액: {sum_pfls_amt}")
