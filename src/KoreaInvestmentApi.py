@@ -194,7 +194,7 @@ def sell(code="005930", qty="1"):
     return res
 
 
-def get_Real_Profit():
+def get_real_profit():
     """주식잔고조회_실현손익"""
     PATH = "uapi/domestic-stock/v1/trading/inquire-balance-rlz-pl"
     URL = f"{URL_BASE}/{PATH}"
@@ -202,7 +202,9 @@ def get_Real_Profit():
                "authorization": f"Bearer {ACCESS_TOKEN}",
                "appKey": APP_KEY,
                "appSecret": APP_SECRET,
-               "tr_id": TR_ID_TYPE + "TTTC8494R",
+               # "tr_id": TR_ID_TYPE + "TTC8494R",
+               "tr_id": "TTTC8494R",
+               "tr_cont": "",
                "custtype": "P",
                }
     params = {

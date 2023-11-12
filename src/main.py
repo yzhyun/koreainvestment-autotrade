@@ -19,10 +19,11 @@ send_message("===Start the program. Let's be rich===")
 init_investment()
 
 # 보유 현금 조회
-total_cash = get_balance_cash()
+# total_cash = get_balance_cash()
 
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
+real_profit_amt = 0 # 금일 이익 실현 금액
 
 # wish_stock_dict = init_trgt_stock_list(symbol_list)
 # report_cur_stock_info(dict_bought_list, wish_stock_dict)
@@ -63,7 +64,7 @@ while True:
         # if t_9 <= t_now <= t_start:
 
         if t_start <= t_now:
-            time.sleep(10)  # 시가 조회 시간 여유 부여
+            # time.sleep(10)  # 시가 조회 시간 여유 부여
             if isInit:  # 첫 1회 초기화
                 wish_stock_dict = init_trgt_stock_list(symbol_list)
                 report_cur_stock_info(dict_bought_list, wish_stock_dict)
@@ -71,7 +72,6 @@ while True:
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
         if t_start <= t_now <= t_buy:  # 09:00 ~ 10:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
-            print(len(wish_stock_dict))
             # 매수 종목 7개인 경우, 매수 활동 중지
             if len(dict_bought_list) == 7:
                 continue
@@ -108,7 +108,7 @@ while True:
                             send_message(f"[매수 실패]: {_code[code]}({buy_qty})")
                     except Exception as e:
                         logger.error(f"[매수 오류 발생]{e}")
-        if t_buy <= t_now <= t_sell:  # 11:00 ~ 15:20 까지 매도 진행
+        if t_buy <= t_now :  # 11:00 ~ 15:20 까지 매도 진행
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")
             if isReportTime:
@@ -121,11 +121,10 @@ while True:
             for code in list(wish_stock_dict.keys()):
                 if code in dict_bought_list:
                     arrTmp = wish_stock_dict[code]
-                    current_price = dict_cur_amt[code]
-                    # time.sleep(1)
-                    logger.info(f"{_code[code]} 현재가 [{current_price}] / 매도목표가 [{arrTmp[5]}]")
-                    if int(arrTmp[5]) <= int(current_price):
-                        send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {current_price}) 매도를 시도합니다.")
+                    cur_price_info_list = dict_cur_amt[code]
+                    logger.info(f"{_code[code]} 현재가 [{cur_price_info_list[0]} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
+                    if int(arrTmp[5]) <= int(cur_price_info_list[0]):
+                        send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {cur_price_info_list[0]}) 매도를 시도합니다.")
                         if code in symbol_list:
                             try:
                                 if sell_stock(code, dict_bought_list[code]):
@@ -152,9 +151,6 @@ while True:
                                 logger.error(f"[매도 오류 발생]{e}")
         if t_exit < t_now:  # PM 03:20 ~ :프로그램 종료
             report_cur_stock_info(dict_bought_list, wish_stock_dict)
-            diff_cash = get_balance_cash() - total_cash
-            send_message(f"금일 수익: {diff_cash}")
-            write_report(f"금일 수익: {diff_cash}")
             break
 
     except Exception as e:
