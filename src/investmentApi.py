@@ -6,8 +6,8 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 
 def init_investment():
-    #kis.ACCESS_TOKEN = kis.get_access_token()
-    kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjI1OGU5NzVmLTY5YTItNGVhMi05NTM2LWEyZjJhNWFiNmM4NSIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk5ODY0NDQ2LCJpYXQiOjE2OTk3NzgwNDYsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.A1DSlzrb2mAp1VgzWNbWT2E8iR5b_TmdKn02zElKsDaKr6L93anBDm5NlDaH3NtQAWPwzfNp_2l6Q9N17k-TGQ"
+    kis.ACCESS_TOKEN = kis.get_access_token()
+    # kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjI1OGU5NzVmLTY5YTItNGVhMi05NTM2LWEyZjJhNWFiNmM4NSIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk5ODY0NDQ2LCJpYXQiOjE2OTk3NzgwNDYsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.A1DSlzrb2mAp1VgzWNbWT2E8iR5b_TmdKn02zElKsDaKr6L93anBDm5NlDaH3NtQAWPwzfNp_2l6Q9N17k-TGQ"
     print(kis.ACCESS_TOKEN)
 
 

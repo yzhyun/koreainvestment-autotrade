@@ -108,7 +108,7 @@ while True:
                             send_message(f"[매수 실패]: {_code[code]}({buy_qty})")
                     except Exception as e:
                         logger.error(f"[매수 오류 발생]{e}")
-        if t_buy <= t_now :  # 11:00 ~ 15:20 까지 매도 진행
+        if t_buy <= t_now <= t_sell:  # 11:00 ~ 15:20 까지 매도 진행
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")
             if isReportTime:
