@@ -52,8 +52,10 @@ while True:
         t_now = datetime.datetime.now()
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
         t_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
-        t_buy = t_now.replace(hour=10, minute=30, second=0, microsecond=0)
-        t_sell = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
+        t_buy_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
+        t_buy_end = t_now.replace(hour=10, minute=30, second=0, microsecond=0)
+        t_sell_start = t_now.replace(hour=10, minute=00, second=0, microsecond=0)
+        t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=25, second=0, microsecond=0)
 
         today = datetime.datetime.today().weekday()
@@ -70,7 +72,7 @@ while True:
                 report_cur_stock_info(dict_bought_list, wish_stock_dict)
                 isInit = False
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
-        if t_start <= t_now <= t_buy:  # 09:00 ~ 10:30 까지만 매수
+        if t_buy_start <= t_now <= t_buy_end:  # 09:02 ~ 10:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
             # 매수 종목 7개인 경우, 매수 활동 중지
             if len(dict_bought_list) == 7:
@@ -108,12 +110,12 @@ while True:
                             send_message(f"[매수 실패]: {_code[code]}({buy_qty})")
                     except Exception as e:
                         logger.error(f"[매수 오류 발생]{e}")
-        if t_buy <= t_now <= t_sell:  # 11:00 ~ 15:20 까지 매도 진행
+        if t_sell_start <= t_now <= t_sell_end:  # 10:00 ~ 15:20 까지 매도 진행
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")
             time.sleep(1)
             real_profit_amt += sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list)
-        if t_sell < t_now:  # PM 03:20 ~ PM 03:25 : 일괄 매도
+        if t_sell_end < t_now:  # PM 03:20 ~ PM 03:25 : 일괄 매도
             time.sleep(1)
             real_profit_amt += sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list)
         if t_exit < t_now:  # PM 03:20 ~ :프로그램 종료
