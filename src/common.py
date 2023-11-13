@@ -16,10 +16,10 @@ SLACK_CHANNEL = _cfg['SLACK_CHANNEL']
 
 logger = log()
 
-STANDARD_PRICE_STOCK = 100000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
+STANDARD_PRICE_STOCK = 300000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
 SELL_PER = 0.02  # 매도 목표 퍼센트
-# BUY_PER = 0.01  # 매수 목표 퍼센트
-BUY_PER = 0  # 매수 목표 퍼센트
+BUY_PER = 0.01  # 매수 목표 퍼센트
+# BUY_PER = 0  # 매수 목표 퍼센트
 MAX_STOCK_NUM = 7
 
 def send_message(msg):
