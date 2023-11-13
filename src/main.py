@@ -10,8 +10,14 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640
 # 한화: 000880 롯데정보통신: 286940 CJ CGV: 079160 롯데지주: 004990 삼천리: 004690 대한항공: 003490 네이버: 035420 두산로보티스: 454910
-symbol_list = ["234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380", "286940", "079160", "069960",
-               "004990", "004690", "003490", "035420", "454910"]  # 매수 희망 종목 리스트
+symbol_list = [
+                "084730"    # [블랙박스] 팅크웨어
+                ,"158430"   # [보안] 아톤
+                ,"399720"   # [반도체] 가온칩스
+                ,"126700"   # [2차전지] 하이비젼시스템
+                ,"068240"   # [철도]  다원시스
+                ,"234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380", "286940", "079160", "069960"
+                ,"004990", "004690", "003490", "035420", "454910", "323410"]  # 매수 희망 종목 리스트
 
 logger.info("======================Start the program. Let's be rich======================")
 send_message("===Start the program. Let's be rich===")
@@ -74,42 +80,7 @@ while True:
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
         if t_buy_start <= t_now <= t_buy_end:  # 09:02 ~ 10:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
-            # 매수 종목 7개인 경우, 매수 활동 중지
-            if len(dict_bought_list) == 7:
-                continue
-            for code in list(wish_stock_dict.keys()):
-                arrTmp = wish_stock_dict[code]
-                if code in dict_bought_list:
-                    logger.info(f"{_code[code]}=====이미 매수한 종목 입니다.")
-                    continue
-
-                # 종목 현재가 조회
-                current_price = get_stock_cur_price(code)
-                logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
-
-                buy_qty = 0
-                # 목표가보다 현재가가 높은 경우 매수 진행
-                if arrTmp[4] <= current_price:  # <= int(arrTmp[5] * 1.05):        # 급등 항목은 제외 될 수 있도록
-                    # target_buy_count = current_price // standard_price_stock      # 1주당 금액 기준으로 매수 수량 선택
-                    target_buy_count = STANDARD_PRICE_STOCK // current_price
-                    if target_buy_count == 0:
-                        buy_qty = 1
-                    else:
-                        buy_qty = target_buy_count
-                    try:
-                        send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {current_price}) 매수를 시도합니다.")
-                        if buy_stock(code, buy_qty):
-                            dict_bought_list[code] = buy_qty
-                            tmp_sell_target_price = wish_stock_dict[code][5]
-                            wish_stock_dict[code][5] = int(current_price * (1 + SELL_PER))  # 매수 금액으로 매도 목표 금액 재설정 (2%)
-                            send_message(f"[매수 성공]: {_code[code]}({buy_qty})")
-                            write_report(f"[매수 성공]: {_code[code]}({buy_qty})")
-                            # f"매도 목표가 변경 {tmp_sell_target_price} -> {wish_stock_dict[code][5]}")
-                        else:
-                            logger.info(f"[매수 실패]: {_code[code]}({buy_qty})")
-                            send_message(f"[매수 실패]: {_code[code]}({buy_qty})")
-                    except Exception as e:
-                        logger.error(f"[매수 오류 발생]{e}")
+            buy_stock_by_condition(wish_stock_dict, dict_bought_list)
         if t_sell_start <= t_now <= t_sell_end:  # 10:00 ~ 15:20 까지 매도 진행
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")

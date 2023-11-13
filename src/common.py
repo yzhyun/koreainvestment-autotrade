@@ -16,10 +16,11 @@ SLACK_CHANNEL = _cfg['SLACK_CHANNEL']
 
 logger = log()
 
-STANDARD_PRICE_STOCK = 300000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
+STANDARD_PRICE_STOCK = 100000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
 SELL_PER = 0.02  # 매도 목표 퍼센트
-BUY_PER = 0.01  # 매수 목표 퍼센트
-
+# BUY_PER = 0.01  # 매수 목표 퍼센트
+BUY_PER = 0  # 매수 목표 퍼센트
+MAX_STOCK_NUM = 7
 
 def send_message(msg):
     """slack 메세지 전송"""
@@ -45,7 +46,8 @@ def write_report(memo):
 def get_target_price(num, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr):
     val = ""
     if num == 0:
-        val = stck_oprc * (1 + BUY_PER)  # 금일 시가 1.5%
+        val = stck_oprc * (1 + BUY_PER)  # 금일 시가 1%
+        # val = stck_oprc
     elif num == 1:
         val = stck_oprc + (stck_hgpr - stck_lwpr) * 0.5  # 오늘 시가 + (전일 고가 - 전일 저가)
     return val

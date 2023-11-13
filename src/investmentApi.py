@@ -191,6 +191,44 @@ def get_real_profit():
     return rtnRes
 
 
+def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
+    if len(dict_bought_list) >= MAX_STOCK_NUM:
+        print(f"매수 목표량 도달")
+        return
+    for code in list(wish_stock_dict.keys()):
+        arrTmp = wish_stock_dict[code]
+        if code in dict_bought_list:
+            logger.info(f"{_code[code]}=====이미 매수한 종목 입니다.")
+            continue
+
+        # 종목 현재가 조회
+        current_price = get_stock_cur_price(code)
+        logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
+
+        buy_qty = 0
+        # 목표가보다 현재가가 높은 경우 매수 진행
+        if arrTmp[4] <= current_price:  # <= int(arrTmp[5] * 1.05):        # 급등 항목은 제외 될 수 있도록
+            # target_buy_count = current_price // standard_price_stock      # 1주당 금액 기준으로 매수 수량 선택
+            target_buy_count = STANDARD_PRICE_STOCK // current_price
+            if target_buy_count == 0:
+                buy_qty = 1
+            else:
+                buy_qty = target_buy_count
+            try:
+                send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {current_price}) 매수를 시도합니다.")
+                if buy_stock(code, buy_qty):
+                    dict_bought_list[code] = buy_qty
+                    tmp_sell_target_price = wish_stock_dict[code][5]
+                    wish_stock_dict[code][5] = int(current_price * (1 + SELL_PER))  # 매수 금액으로 매도 목표 금액 재설정 (2%)
+                    send_message(f"[매수 성공]: {_code[code]}({buy_qty})")
+                    write_report(f"[매수 성공]: {_code[code]}({buy_qty})")
+                    # f"매도 목표가 변경 {tmp_sell_target_price} -> {wish_stock_dict[code][5]}")
+                else:
+                    logger.info(f"[매수 실패]: {_code[code]}({buy_qty})")
+                    send_message(f"[매수 실패]: {_code[code]}({buy_qty})")
+            except Exception as e:
+                logger.error(f"[매수 오류 발생]{e}")
+
 def sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list):
     dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
     benefit_amt = 0
@@ -200,8 +238,9 @@ def sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list):
         if code in dict_bought_list:
             arrTmp = wish_stock_dict[code]
             cur_price_info_list = dict_cur_amt[code]
+            cur_amt = int(int(cur_price_info_list[0]) / int(cur_price_info_list[1]))
             logger.info(
-                f"{_code[code]} 현재가 [{cur_price_info_list[0]} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
+                f"{_code[code]} 현재가 [{cur_amt} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
             if int(arrTmp[5]) <= int(cur_price_info_list[0]):
                 send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {cur_price_info_list[0]}) 매도를 시도합니다.")
                 if code in symbol_list:
