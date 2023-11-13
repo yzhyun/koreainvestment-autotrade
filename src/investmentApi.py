@@ -170,8 +170,9 @@ def get_my_stock_cur_amt(wish_stock_dict):
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
                 tmpList = []
+                cur_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
                 print(
-                    f"*{stock['prdt_name']}\n매입[{stock['pchs_amt']}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n")
+                    f"*{stock['prdt_name']}\n매입[{cur_amt}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n")
                 tmpList.append(stock['prpr'])  # [0] 현재가
                 tmpList.append(stock['hldg_qty'])  # [1] 수량
                 tmpList.append(stock['evlu_pfls_amt'])  # [2] 평가손익금액
@@ -221,7 +222,7 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
                     tmp_sell_target_price = wish_stock_dict[code][5]
                     wish_stock_dict[code][5] = int(current_price * (1 + SELL_PER))  # 매수 금액으로 매도 목표 금액 재설정 (2%)
                     send_message(f"[매수 성공]: {_code[code]}({buy_qty})")
-                    write_report(f"[매수 성공]: {_code[code]}({buy_qty})")
+                    # write_report(f"[매수 성공]: {_code[code]}({buy_qty})")
                     # f"매도 목표가 변경 {tmp_sell_target_price} -> {wish_stock_dict[code][5]}")
                 else:
                     logger.info(f"[매수 실패]: {_code[code]}({buy_qty})")
@@ -247,6 +248,7 @@ def sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list):
                     try:
                         if sell_stock(code, dict_bought_list[code]):
                             send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
+                            write_report(f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
                             benefit_amt += int(cur_price_info_list[2])
                             del dict_bought_list[code]
                             del wish_stock_dict[code]
@@ -271,6 +273,8 @@ def sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list):
                 try:
                     if sell_stock(code, dict_bought_list[code]):
                         send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
+                        write_report(
+                            f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
                         benefit_amt += int(cur_price_info_list[2])
                         del dict_bought_list[code]
                         del wish_stock_dict[code]
