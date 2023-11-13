@@ -103,25 +103,25 @@ def init_trgt_stock_list(symbol_list):
             stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
             stck_lwpr = int(res.json()['output'][1]['stck_lwpr'])  # 전일 저가
             stck_clpr = int(res.json()['output'][1]['stck_clpr'])  # 전일 종가
-    
+
             # 0 : 시가의 1% 상승 시 목표가
             target_price = int(get_target_price(0, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr))
             sell_target_price = int(target_price + target_price * SELL_PER)
-    
+
             arr.append(stck_oprc)  # 오늘 시가
             arr.append(stck_hgpr)  # 전일 고가
             arr.append(stck_lwpr)  # 전일 저가
             arr.append(stck_clpr)  # 전일 종가
             arr.append(target_price)  # 매수 목표가
             arr.append(sell_target_price)  # 매매 목표가
-    
+
             logger.info(f"오늘 시가: {stck_oprc}")
             logger.info(f"전일 고가: {stck_hgpr}")
             logger.info(f"전일 저가: {stck_lwpr}")
             logger.info(f"전일 종가: {stck_clpr}")
             logger.info(f"매수 목표가:    {target_price}")
             logger.info(f"매도 목표가:    {sell_target_price}")
-    
+
             msg = _code[code] + "[" + code + "]" + "\n" + "오늘 시가: " + str(stck_oprc) + "\n" + "전일 종가: " \
                   + str(stck_clpr) + "\n" + "매수목표가: " + str(target_price) + "\n" + "매도목표가: " + str(
                 sell_target_price)
@@ -170,9 +170,10 @@ def get_my_stock_cur_amt(wish_stock_dict):
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
                 tmpList = []
-                print(f"*{stock['prdt_name']}\n매입[{stock['pchs_amt']}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n")
-                tmpList.append(stock['prpr'])           # [0] 현재가
-                tmpList.append(stock['hldg_qty'])       # [1] 수량
+                print(
+                    f"*{stock['prdt_name']}\n매입[{stock['pchs_amt']}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n")
+                tmpList.append(stock['prpr'])  # [0] 현재가
+                tmpList.append(stock['hldg_qty'])  # [1] 수량
                 tmpList.append(stock['evlu_pfls_amt'])  # [2] 평가손익금액
                 rtnRes[stock['pdno']] = tmpList
     except Exception as e:
@@ -188,3 +189,52 @@ def get_real_profit():
     except Exception as e:
         logger.error(f"[실현손익 조회 오류 발생]{e}")
     return rtnRes
+
+
+def sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list):
+    dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
+    benefit_amt = 0
+    if len(dict_cur_amt) == 0:
+        return 0
+    for code in list(wish_stock_dict.keys()):
+        if code in dict_bought_list:
+            arrTmp = wish_stock_dict[code]
+            cur_price_info_list = dict_cur_amt[code]
+            logger.info(
+                f"{_code[code]} 현재가 [{cur_price_info_list[0]} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
+            if int(arrTmp[5]) <= int(cur_price_info_list[0]):
+                send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {cur_price_info_list[0]}) 매도를 시도합니다.")
+                if code in symbol_list:
+                    try:
+                        if sell_stock(code, dict_bought_list[code]):
+                            send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
+                            benefit_amt += int(cur_price_info_list[2])
+                            del dict_bought_list[code]
+                            del wish_stock_dict[code]
+                    except Exception as e:
+                        logger.error(f"[매도 오류 발생]{e}")
+    return benefit_amt
+
+
+def sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list):
+    dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
+    benefit_amt = 0
+    if len(dict_cur_amt) == 0:
+        return 0
+    for code in list(wish_stock_dict.keys()):
+        if code in dict_bought_list:
+            arrTmp = wish_stock_dict[code]
+            cur_price_info_list = dict_cur_amt[code]
+            logger.info(
+                f"{_code[code]} 현재가 [{cur_price_info_list[0]} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
+            send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {cur_price_info_list[0]}) 매도를 시도합니다.")
+            if code in symbol_list:
+                try:
+                    if sell_stock(code, dict_bought_list[code]):
+                        send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
+                        benefit_amt += int(cur_price_info_list[2])
+                        del dict_bought_list[code]
+                        del wish_stock_dict[code]
+                except Exception as e:
+                    logger.error(f"[매도 오류 발생]{e}")
+    return benefit_amt

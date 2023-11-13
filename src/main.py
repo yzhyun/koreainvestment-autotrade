@@ -111,46 +111,14 @@ while True:
         if t_buy <= t_now <= t_sell:  # 11:00 ~ 15:20 까지 매도 진행
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")
-            if isReportTime:
-                time.sleep(2)
-            dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
             time.sleep(1)
-            if len(dict_cur_amt) == 0:
-                continue  # 보유 주식 없는 경우 PASS
-
-            for code in list(wish_stock_dict.keys()):
-                if code in dict_bought_list:
-                    arrTmp = wish_stock_dict[code]
-                    cur_price_info_list = dict_cur_amt[code]
-                    logger.info(f"{_code[code]} 현재가 [{cur_price_info_list[0]} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
-                    if int(arrTmp[5]) <= int(cur_price_info_list[0]):
-                        send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {cur_price_info_list[0]}) 매도를 시도합니다.")
-                        if code in symbol_list:
-                            try:
-                                if sell_stock(code, dict_bought_list[code]):
-                                    send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
-                                    del dict_bought_list[code]
-                                    del wish_stock_dict[code]
-                            except Exception as e:
-                                logger.error(f"[매도 오류 발생]{e}")
-                # time.sleep(1)
+            real_profit_amt += sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list)
         if t_sell < t_now:  # PM 03:20 ~ PM 03:25 : 일괄 매도
-            if len(dict_bought_list) > 0:
-                # 잔여 수량 매도
-                for code in list(wish_stock_dict.keys()):
-                    if code in dict_bought_list:
-                        arrTmp = wish_stock_dict[code]
-                        if code in symbol_list:
-                            try:
-                                if sell_stock(code, dict_bought_list[code]):
-                                    send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
-                                    del dict_bought_list[code]
-                                    del wish_stock_dict[code]
-                                    time.sleep(0.5)
-                            except Exception as e:
-                                logger.error(f"[매도 오류 발생]{e}")
+            time.sleep(1)
+            real_profit_amt += sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list)
         if t_exit < t_now:  # PM 03:20 ~ :프로그램 종료
             report_cur_stock_info(dict_bought_list, wish_stock_dict)
+            send_message(f"금일 실현손익 합계: {real_profit_amt}")
             break
 
     except Exception as e:
