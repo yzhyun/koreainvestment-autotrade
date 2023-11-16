@@ -1,6 +1,5 @@
 import sys, os
 import datetime, schedule
-import KoreaInvestmentApi as kis
 from investmentApi import *
 from common import *
 import time
@@ -29,7 +28,6 @@ init_investment()
 
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
-real_profit_amt = 0  # 금일 이익 실현 금액
 
 # wish_stock_dict = init_trgt_stock_list(symbol_list)
 # report_cur_stock_info(dict_bought_list, wish_stock_dict)
@@ -47,7 +45,6 @@ def set_report_time():
 schedule.every(30).minutes.do(set_report_time)  # 30분마다 보고
 while True:
     try:
-
         if isReportTime:  # 스케쥴러로 정해진 시간에 중간 보유 주식 보고
             report_cur_stock_info(dict_bought_list, wish_stock_dict)
             isReportTime = False
@@ -77,20 +74,24 @@ while True:
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
         if t_buy_start <= t_now <= t_buy_end:  # 09:02 ~ 10:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
+            time.sleep(1)
             buy_stock_by_condition(wish_stock_dict, dict_bought_list)
         if t_sell_start <= t_now <= t_sell_end:  # 10:00 ~ 15:20 까지 매도 진행
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")
             time.sleep(1)
-            real_profit_amt += sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list)
+            sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list)
         if t_sell_end <= t_now <= t_exit:  # PM 03:20 ~ PM 03:25 : 일괄 매도
             time.sleep(1)
-            real_profit_amt += sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list)
+            sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list)
         if t_exit < t_now:  # PM 03:25 ~ :프로그램 종료
             report_cur_stock_info(dict_bought_list, wish_stock_dict)
-            send_message(f"금일 실현손익 합계: {real_profit_amt}")
-            break
 
+            profit_amt = get_real_profit()
+            result_msg = "금일 실현손익 합계: " + str(profit_amt)
+            send_message(result_msg)
+            write_report(result_msg)
+            break
     except Exception as e:
         logger.error(e.args)
         send_message(f"[오류 발생]{e}")

@@ -1,3 +1,6 @@
+import os
+import sys
+
 import KoreaInvestmentApi as kis
 from common import *
 
@@ -7,9 +10,9 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 def init_investment():
     kis.ACCESS_TOKEN = kis.get_access_token()
-    # kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImFlYTcxMzNmLTQ3M2QtNDhhMi05Yzk4LTFhYWNhMTBiZmYwMCIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk5OTQ2MTgyLCJpYXQiOjE2OTk4NTk3ODIsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.duY3P-_gh0R79xvcQuZmPaeOYSlecYm0MQtWtWnZV_OHk4rR2FTHa9NAQnhfI0RLvRhV_Ce4p5zr1GAm5JmgtQ"
+    # kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImM0MmIxNzE2LTgyOTctNDVlNS04MmI2LTdiOWFjMTg2Y2MxNiIsImlzcyI6InVub2d3IiwiZXhwIjoxNzAwMjI3OTMxLCJpYXQiOjE3MDAxNDE1MzEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.BQhn8IDqQ-KTSie_gY559RqT5cu4xCuIbp17ZKrVPxtXgPcohQPlVF8c2ul78_KCdlh2xECCSwbDxaTPpJiuHw"
     print(kis.ACCESS_TOKEN)
-
+    return
 
 # 보유 현금 조회
 def get_balance_cash():
@@ -124,6 +127,8 @@ def init_trgt_stock_list(symbol_list):
             logger.info(f"매수 목표가:    {target_price}")
             logger.info(f"매도 목표가:    {sell_target_price}")
 
+            # write_profit_amt(stck_oprc)
+
             msg = _code[code] + "[" + code + "]" + "\n" + "오늘 시가: " + str(stck_oprc) + "\n" + "전일 종가: " \
                   + str(stck_clpr) + "\n" + "매수목표가: " + str(target_price) + "\n" + "매도목표가: " + str(
                 sell_target_price)
@@ -188,13 +193,19 @@ def get_my_stock_cur_amt(wish_stock_dict):
 
 
 def get_real_profit():
-    rtnRes = ""
     try:
-        rtnRes = kis.get_real_profit()
-        print(rtnRes.text)
+        today = datetime.date.today()
+        filepath = 'report/profit_' + str(today)
+        if os.path.isfile(filepath + ".txt"):
+            sys.stdin = open(filepath + ".txt", "rt")
+            input = sys.stdin.readline
+            profit_amt_list = list(map(int, input().split()))
+            profit_amt = sum(profit_amt_list)
+        else:
+            profit_amt = 0
     except Exception as e:
         logger.error(f"[실현손익 조회 오류 발생]{e}")
-    return rtnRes
+    return profit_amt
 
 
 def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
@@ -237,7 +248,6 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
 
 def sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list):
     dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
-    benefit_amt = 0
     if len(dict_cur_amt) == 0:
         return 0
     for code in list(wish_stock_dict.keys()):
@@ -254,17 +264,15 @@ def sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list):
                         if sell_stock(code, dict_bought_list[code]):
                             send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
                             write_report(f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
-                            benefit_amt += int(cur_price_info_list[2])
+                            write_profit_amt(int(cur_price_info_list[2]))
                             del dict_bought_list[code]
                             del wish_stock_dict[code]
                     except Exception as e:
                         logger.error(f"[매도 오류 발생]{e}")
-    return benefit_amt
-
+    return
 
 def sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list):
     dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
-    benefit_amt = 0
     if len(dict_cur_amt) == 0:
         return 0
     for code in list(wish_stock_dict.keys()):
@@ -280,9 +288,9 @@ def sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list):
                         send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
                         write_report(
                             f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
-                        benefit_amt += int(cur_price_info_list[2])
+                        write_profit_amt(int(cur_price_info_list[2]))
                         del dict_bought_list[code]
                         del wish_stock_dict[code]
                 except Exception as e:
                     logger.error(f"[매도 오류 발생]{e}")
-    return benefit_amt
+    return
