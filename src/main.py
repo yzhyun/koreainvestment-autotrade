@@ -11,13 +11,13 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 # 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640
 # 한화: 000880 롯데정보통신: 286940 CJ CGV: 079160 롯데지주: 004990 삼천리: 004690 대한항공: 003490 네이버: 035420 두산로보티스: 454910
 symbol_list = [
-                "084730"    # [블랙박스] 팅크웨어
-                ,"158430"   # [보안] 아톤
-                ,"399720"   # [반도체] 가온칩스
-                ,"126700"   # [2차전지] 하이비젼시스템
-                ,"068240"   # [철도]  다원시스
-                ,"234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380", "286940", "079160", "069960"
-                ,"004990", "004690", "003490", "035420", "454910", "323410"]  # 매수 희망 종목 리스트
+      "084730"  # [블랙박스] 팅크웨어
+    , "158430"  # [보안] 아톤
+    , "399720"  # [반도체] 가온칩스
+    , "126700"  # [2차전지] 하이비젼시스템
+    , "068240"  # [철도]  다원시스
+    , "234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380", "286940", "079160", "069960"
+    , "004990", "004690", "003490", "035420", "454910", "323410"]  # 매수 희망 종목 리스트
 
 logger.info("======================Start the program. Let's be rich======================")
 send_message("===Start the program. Let's be rich===")
@@ -29,7 +29,7 @@ init_investment()
 
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
-real_profit_amt = 0 # 금일 이익 실현 금액
+real_profit_amt = 0  # 금일 이익 실현 금액
 
 # wish_stock_dict = init_trgt_stock_list(symbol_list)
 # report_cur_stock_info(dict_bought_list, wish_stock_dict)
@@ -37,17 +37,14 @@ real_profit_amt = 0 # 금일 이익 실현 금액
 isReportTime = False
 isInit = True
 
+
 def set_report_time():
     global isReportTime
     isReportTime = True
 
 
 # 스케쥴러 초기화
-# schedule.every(1).hour.do(reportCurStockInfo, dict_bought_list, wish_stock_dict) # 매시각 보고
 schedule.every(30).minutes.do(set_report_time)  # 30분마다 보고
-# schedule.every(5).seconds.do(setReportTime)  # 30분마다 보고
-# schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
-
 while True:
     try:
 
@@ -86,10 +83,10 @@ while True:
             print("=====매도목표가 달성 시 매도 진행")
             time.sleep(1)
             real_profit_amt += sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list)
-        if t_sell_end < t_now:  # PM 03:20 ~ PM 03:25 : 일괄 매도
+        if t_sell_end <= t_now <= t_exit:  # PM 03:20 ~ PM 03:25 : 일괄 매도
             time.sleep(1)
             real_profit_amt += sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list)
-        if t_exit < t_now:  # PM 03:20 ~ :프로그램 종료
+        if t_exit < t_now:  # PM 03:25 ~ :프로그램 종료
             report_cur_stock_info(dict_bought_list, wish_stock_dict)
             send_message(f"금일 실현손익 합계: {real_profit_amt}")
             break

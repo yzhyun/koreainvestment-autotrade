@@ -7,7 +7,7 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 def init_investment():
     kis.ACCESS_TOKEN = kis.get_access_token()
-    # kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjI1OGU5NzVmLTY5YTItNGVhMi05NTM2LWEyZjJhNWFiNmM4NSIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk5ODY0NDQ2LCJpYXQiOjE2OTk3NzgwNDYsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.A1DSlzrb2mAp1VgzWNbWT2E8iR5b_TmdKn02zElKsDaKr6L93anBDm5NlDaH3NtQAWPwzfNp_2l6Q9N17k-TGQ"
+    # kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImFlYTcxMzNmLTQ3M2QtNDhhMi05Yzk4LTFhYWNhMTBiZmYwMCIsImlzcyI6InVub2d3IiwiZXhwIjoxNjk5OTQ2MTgyLCJpYXQiOjE2OTk4NTk3ODIsImp0aSI6IlBTc1lIdk9yMTBUSkFnbW9uOTN6TWhrUk84ZTZBcHl6YjZubCJ9.duY3P-_gh0R79xvcQuZmPaeOYSlecYm0MQtWtWnZV_OHk4rR2FTHa9NAQnhfI0RLvRhV_Ce4p5zr1GAm5JmgtQ"
     print(kis.ACCESS_TOKEN)
 
 
@@ -62,6 +62,7 @@ def get_stock_cur_price(code):
 def buy_stock(code, buy_qty):
     try:
         res = kis.buy(code, buy_qty)
+        print(res.text)
         if res.json()['rt_cd'] == '0':
             return True
     except Exception as e:
@@ -72,6 +73,7 @@ def buy_stock(code, buy_qty):
 def sell_stock(code, buy_qty):
     try:
         res = kis.sell(code, buy_qty)
+        print(res.text)
         if res.json()['rt_cd'] == '0':
             return True
     except Exception as e:
@@ -145,14 +147,17 @@ def report_cur_stock_info(dict_bought_list, wish_stock_dict):
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
                 arrTmp = wish_stock_dict[stock['pdno']]
-                stock_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
-                # rate = (int(stock['prpr']) - int(arrTmp[0])) / int(arrTmp[0])
-                sMessage += f"*{stock['prdt_name']}\n매입[{stock_amt}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n"
+                cur_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
+                cur_rate = round(((int(stock['prpr']) - cur_amt) / cur_amt * 100), 2)
+                sMessage += f"*{stock['prdt_name']}\n" \
+                            f"매입[{cur_amt}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 증감율[{cur_rate}%]\n" \
+                            f"매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}]\n" \
+                            f"평가손익금액[{stock['evlu_pfls_amt']}]\n\n"
                 dict_bought_list[stock['pdno']] = stock['hldg_qty']
                 sum_pfls_amt += int(stock['evlu_pfls_amt'])
 
-        write_report(f"{sMessage}\n총평가손익금액: {sum_pfls_amt}")
-        send_message(f"{sMessage}\n총평가손익금액: {sum_pfls_amt}")
+        write_report(f"{sMessage}총평가손익금액: {sum_pfls_amt}")
+        send_message(f"{sMessage}총평가손익금액: {sum_pfls_amt}")
     except Exception as e:
         logger.error(f"[레포트 오류 발생]{e}")
     logger.info("=====reportCurStockInfo END =====")
@@ -193,9 +198,6 @@ def get_real_profit():
 
 
 def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
-    if len(dict_bought_list) >= MAX_STOCK_NUM:
-        print(f"매수 목표량 도달")
-        return
     for code in list(wish_stock_dict.keys()):
         arrTmp = wish_stock_dict[code]
         if code in dict_bought_list:
@@ -206,6 +208,9 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
         current_price = get_stock_cur_price(code)
         logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
 
+        if len(dict_bought_list) >= MAX_STOCK_NUM:
+            print(f"매수 목표량 도달")
+            return
         buy_qty = 0
         # 목표가보다 현재가가 높은 경우 매수 진행
         if arrTmp[4] <= current_price:  # <= int(arrTmp[5] * 1.05):        # 급등 항목은 제외 될 수 있도록
