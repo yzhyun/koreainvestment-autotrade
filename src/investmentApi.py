@@ -9,8 +9,8 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 
 def init_investment():
-    kis.ACCESS_TOKEN = kis.get_access_token()
-    # kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImM0MmIxNzE2LTgyOTctNDVlNS04MmI2LTdiOWFjMTg2Y2MxNiIsImlzcyI6InVub2d3IiwiZXhwIjoxNzAwMjI3OTMxLCJpYXQiOjE3MDAxNDE1MzEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.BQhn8IDqQ-KTSie_gY559RqT5cu4xCuIbp17ZKrVPxtXgPcohQPlVF8c2ul78_KCdlh2xECCSwbDxaTPpJiuHw"
+    #kis.ACCESS_TOKEN = kis.get_access_token()
+    kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImE1YTlkMmEyLTMwNWEtNDdmMi1hZTlhLTQyODYwNjk4ODllZSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzAwMzE1MjY0LCJpYXQiOjE3MDAyMjg4NjQsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.sqzV9C0ndnJhrZudzjzznieKbYSu-LzaBC8677OvwmEiU5QiFmmdSs0-0izDr12ZCbgLrP7Lczrwx7jd_GLbQQ"
     print(kis.ACCESS_TOKEN)
     return
 
@@ -85,6 +85,18 @@ def sell_stock(code, buy_qty):
     return False
 
 
+def get_stock_cur_info(code):
+    rtnRes = {}
+    try:
+        res = kis.get_current_stock_info(code)
+        stck_oprc = int(res.json()['output']['stck_oprc'])
+        stck_prpr = int(res.json()['output']['stck_prpr'])
+        rtnRes['stck_oprc'] = stck_oprc
+        rtnRes['stck_prpr'] = stck_prpr
+
+    except Exception as e:
+        logger.error(f"[주식 현재 정보 조회 오류 발생]{e}")
+    return rtnRes
 def init_trgt_stock_list(symbol_list):
     rtnRes = {}
     """ 
@@ -95,10 +107,20 @@ def init_trgt_stock_list(symbol_list):
     4: 매수 목표가
     5: 매매 목표가    
     """
+    sort_dict = {}
     try:
+        # 초기화 시, 시가보다 증가율이 높은 순서대로 매매 할 수 있도록 한다.
         for code in symbol_list:
             logger.info(f"{_code[code]}[{code}]")
             arr = []
+            stock_info = get_stock_cur_info(code)
+            time.sleep(0.2)
+            diff = stock_info['stck_prpr'] - stock_info['stck_oprc']
+            sort_dict[code] = diff
+
+        sort_dict = dict(sorted(sort_dict.items(), key = lambda x : x[1], reverse=True))
+
+        for code in list(sort_dict.keys()):
             res = get_stock_price_daily_info(code)
             # res2 = get_stock_cur_price(code)
             # print(res2)
@@ -246,7 +268,7 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
             except Exception as e:
                 logger.error(f"[매수 오류 발생]{e}")
 
-def sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list):
+def sell_stock_by_condition(wish_stock_dict, dict_bought_list):
     dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
     if len(dict_cur_amt) == 0:
         return 0
@@ -259,19 +281,18 @@ def sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list):
                 f"{_code[code]} 현재가 [{cur_amt} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
             if int(arrTmp[5]) <= int(cur_price_info_list[0]):
                 send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {cur_price_info_list[0]}) 매도를 시도합니다.")
-                if code in symbol_list:
-                    try:
-                        if sell_stock(code, dict_bought_list[code]):
-                            send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
-                            write_report(f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
-                            write_profit_amt(int(cur_price_info_list[2]))
-                            del dict_bought_list[code]
-                            del wish_stock_dict[code]
-                    except Exception as e:
-                        logger.error(f"[매도 오류 발생]{e}")
+                try:
+                    if sell_stock(code, dict_bought_list[code]):
+                        send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
+                        write_report(f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
+                        write_profit_amt(int(cur_price_info_list[2]))
+                        del dict_bought_list[code]
+                        del wish_stock_dict[code]
+                except Exception as e:
+                    logger.error(f"[매도 오류 발생]{e}")
     return
 
-def sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list):
+def sell_stock_all(wish_stock_dict, dict_bought_list):
     dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
     if len(dict_cur_amt) == 0:
         return 0
@@ -282,15 +303,14 @@ def sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list):
             logger.info(
                 f"{_code[code]} 현재가 [{cur_price_info_list[0]} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
             send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {cur_price_info_list[0]}) 매도를 시도합니다.")
-            if code in symbol_list:
-                try:
-                    if sell_stock(code, dict_bought_list[code]):
-                        send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
-                        write_report(
-                            f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
-                        write_profit_amt(int(cur_price_info_list[2]))
-                        del dict_bought_list[code]
-                        del wish_stock_dict[code]
-                except Exception as e:
-                    logger.error(f"[매도 오류 발생]{e}")
+            try:
+                if sell_stock(code, dict_bought_list[code]):
+                    send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
+                    write_report(
+                        f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
+                    write_profit_amt(int(cur_price_info_list[2]))
+                    del dict_bought_list[code]
+                    del wish_stock_dict[code]
+            except Exception as e:
+                logger.error(f"[매도 오류 발생]{e}")
     return

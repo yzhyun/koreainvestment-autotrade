@@ -14,7 +14,7 @@ symbol_list = [
     , "158430"  # [보안] 아톤
     , "399720"  # [반도체] 가온칩스
     , "126700"  # [2차전지] 하이비젼시스템
-    , "068240"  # [철도]  다원시스
+    , "068240"  # [철도] 다원시스
     , "418470"  # [출판] 밀리의서재
     , "234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380", "286940", "079160", "069960"
     , "004990", "004690", "003490", "035420", "454910", "323410"]  # 매수 희망 종목 리스트
@@ -41,7 +41,7 @@ def set_report_time():
     global isReportTime
     isReportTime = True
 
-
+wish_stock_dict = init_trgt_stock_list(symbol_list)
 # 스케쥴러 초기화
 schedule.every(30).minutes.do(set_report_time)  # 30분마다 보고
 while True:
@@ -70,6 +70,7 @@ while True:
             # time.sleep(10)  # 시가 조회 시간 여유 부여
             if isInit:  # 첫 1회 초기화
                 wish_stock_dict = init_trgt_stock_list(symbol_list)
+                print(wish_stock_dict)
                 time.sleep(3)
                 report_cur_stock_info(dict_bought_list, wish_stock_dict)
                 isInit = False

@@ -1,0 +1,493 @@
+2023-11-18 00:00:30 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:01:07 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:01:08 - INFO - [init_trgt_stock_list:114] - 팅크웨어[084730]
+2023-11-18 00:01:08 - INFO - [init_trgt_stock_list:114] - 아톤[158430]
+2023-11-18 00:01:08 - INFO - [init_trgt_stock_list:114] - 가온칩스[399720]
+2023-11-18 00:01:09 - INFO - [init_trgt_stock_list:114] - 하이비젼시스템[126700]
+2023-11-18 00:01:09 - INFO - [init_trgt_stock_list:114] - 다원시스[068240]
+2023-11-18 00:01:09 - INFO - [init_trgt_stock_list:114] - 밀리의서재[418470]
+2023-11-18 00:01:09 - INFO - [init_trgt_stock_list:114] - 세틀뱅크[234340]
+2023-11-18 00:01:10 - INFO - [init_trgt_stock_list:114] - 하이닉스[000660]
+2023-11-18 00:01:10 - INFO - [init_trgt_stock_list:114] - 카카오[035720]
+2023-11-18 00:01:10 - INFO - [init_trgt_stock_list:114] - 나이스정보통신[036800]
+2023-11-18 00:01:10 - INFO - [init_trgt_stock_list:114] - LG전자[066570]
+2023-11-18 00:01:11 - INFO - [init_trgt_stock_list:114] - LG유플러스[032640]
+2023-11-18 00:01:11 - INFO - [init_trgt_stock_list:114] - 한화[000880]
+2023-11-18 00:01:11 - INFO - [init_trgt_stock_list:114] - 현대자동차[005380]
+2023-11-18 00:01:11 - INFO - [init_trgt_stock_list:114] - 롯데정보통신[286940]
+2023-11-18 00:01:12 - INFO - [init_trgt_stock_list:114] - CJ CGV[079160]
+2023-11-18 00:01:12 - INFO - [init_trgt_stock_list:114] - 현대백화점[069960]
+2023-11-18 00:01:12 - INFO - [init_trgt_stock_list:114] - 롯데지주[004990]
+2023-11-18 00:01:12 - INFO - [init_trgt_stock_list:114] - 삼천리[004690]
+2023-11-18 00:01:13 - INFO - [init_trgt_stock_list:114] - 대한항공[003490]
+2023-11-18 00:01:13 - INFO - [init_trgt_stock_list:114] - 네이버[035420]
+2023-11-18 00:01:13 - INFO - [init_trgt_stock_list:114] - 두산로보틱스[454910]
+2023-11-18 00:01:13 - INFO - [init_trgt_stock_list:114] - 카카오뱅크[323410]
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 16300
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:147] - 전일 고가: 16470
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:148] - 전일 저가: 15700
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:149] - 전일 종가: 16120
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    16463
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    16792
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 3775
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:147] - 전일 고가: 3890
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:148] - 전일 저가: 3585
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:149] - 전일 종가: 3775
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    3812
+2023-11-18 00:01:14 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    3888
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 41250
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:147] - 전일 고가: 41400
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:148] - 전일 저가: 38700
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:149] - 전일 종가: 41000
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    41662
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    42495
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 19380
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:147] - 전일 고가: 19500
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:148] - 전일 저가: 19180
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:149] - 전일 종가: 19310
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    19573
+2023-11-18 00:01:15 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    19964
+2023-11-18 00:01:56 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:01:57 - INFO - [init_trgt_stock_list:114] - 팅크웨어[084730]
+2023-11-18 00:01:57 - INFO - [init_trgt_stock_list:114] - 아톤[158430]
+2023-11-18 00:01:57 - INFO - [init_trgt_stock_list:114] - 가온칩스[399720]
+2023-11-18 00:01:57 - INFO - [init_trgt_stock_list:114] - 하이비젼시스템[126700]
+2023-11-18 00:01:58 - INFO - [init_trgt_stock_list:114] - 다원시스[068240]
+2023-11-18 00:01:58 - INFO - [init_trgt_stock_list:114] - 밀리의서재[418470]
+2023-11-18 00:01:58 - INFO - [init_trgt_stock_list:114] - 세틀뱅크[234340]
+2023-11-18 00:01:58 - INFO - [init_trgt_stock_list:114] - 하이닉스[000660]
+2023-11-18 00:01:59 - INFO - [init_trgt_stock_list:114] - 카카오[035720]
+2023-11-18 00:01:59 - INFO - [init_trgt_stock_list:114] - 나이스정보통신[036800]
+2023-11-18 00:01:59 - INFO - [init_trgt_stock_list:114] - LG전자[066570]
+2023-11-18 00:01:59 - INFO - [init_trgt_stock_list:114] - LG유플러스[032640]
+2023-11-18 00:02:00 - INFO - [init_trgt_stock_list:114] - 한화[000880]
+2023-11-18 00:02:00 - INFO - [init_trgt_stock_list:114] - 현대자동차[005380]
+2023-11-18 00:02:00 - INFO - [init_trgt_stock_list:114] - 롯데정보통신[286940]
+2023-11-18 00:02:00 - INFO - [init_trgt_stock_list:114] - CJ CGV[079160]
+2023-11-18 00:02:01 - INFO - [init_trgt_stock_list:114] - 현대백화점[069960]
+2023-11-18 00:02:01 - INFO - [init_trgt_stock_list:114] - 롯데지주[004990]
+2023-11-18 00:02:01 - INFO - [init_trgt_stock_list:114] - 삼천리[004690]
+2023-11-18 00:02:01 - INFO - [init_trgt_stock_list:114] - 대한항공[003490]
+2023-11-18 00:02:02 - INFO - [init_trgt_stock_list:114] - 네이버[035420]
+2023-11-18 00:02:02 - INFO - [init_trgt_stock_list:114] - 두산로보틱스[454910]
+2023-11-18 00:02:02 - INFO - [init_trgt_stock_list:114] - 카카오뱅크[323410]
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 16300
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:147] - 전일 고가: 16470
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:148] - 전일 저가: 15700
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:149] - 전일 종가: 16120
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    16463
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    16792
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 3775
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:147] - 전일 고가: 3890
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:148] - 전일 저가: 3585
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:149] - 전일 종가: 3775
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    3812
+2023-11-18 00:02:03 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    3888
+2023-11-18 00:02:25 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:02:25 - INFO - [init_trgt_stock_list:114] - 팅크웨어[084730]
+2023-11-18 00:02:26 - INFO - [init_trgt_stock_list:114] - 아톤[158430]
+2023-11-18 00:02:26 - INFO - [init_trgt_stock_list:114] - 가온칩스[399720]
+2023-11-18 00:02:26 - INFO - [init_trgt_stock_list:114] - 하이비젼시스템[126700]
+2023-11-18 00:02:26 - INFO - [init_trgt_stock_list:114] - 다원시스[068240]
+2023-11-18 00:02:27 - INFO - [init_trgt_stock_list:114] - 밀리의서재[418470]
+2023-11-18 00:02:27 - INFO - [init_trgt_stock_list:114] - 세틀뱅크[234340]
+2023-11-18 00:02:27 - INFO - [init_trgt_stock_list:114] - 하이닉스[000660]
+2023-11-18 00:02:27 - INFO - [init_trgt_stock_list:114] - 카카오[035720]
+2023-11-18 00:02:28 - INFO - [init_trgt_stock_list:114] - 나이스정보통신[036800]
+2023-11-18 00:02:28 - INFO - [init_trgt_stock_list:114] - LG전자[066570]
+2023-11-18 00:02:28 - INFO - [init_trgt_stock_list:114] - LG유플러스[032640]
+2023-11-18 00:02:28 - INFO - [init_trgt_stock_list:114] - 한화[000880]
+2023-11-18 00:02:29 - INFO - [init_trgt_stock_list:114] - 현대자동차[005380]
+2023-11-18 00:02:29 - INFO - [init_trgt_stock_list:114] - 롯데정보통신[286940]
+2023-11-18 00:02:29 - INFO - [init_trgt_stock_list:114] - CJ CGV[079160]
+2023-11-18 00:02:29 - INFO - [init_trgt_stock_list:114] - 현대백화점[069960]
+2023-11-18 00:02:30 - INFO - [init_trgt_stock_list:114] - 롯데지주[004990]
+2023-11-18 00:02:30 - INFO - [init_trgt_stock_list:114] - 삼천리[004690]
+2023-11-18 00:02:30 - INFO - [init_trgt_stock_list:114] - 대한항공[003490]
+2023-11-18 00:02:30 - INFO - [init_trgt_stock_list:114] - 네이버[035420]
+2023-11-18 00:02:31 - INFO - [init_trgt_stock_list:114] - 두산로보틱스[454910]
+2023-11-18 00:02:31 - INFO - [init_trgt_stock_list:114] - 카카오뱅크[323410]
+2023-11-18 00:02:31 - ERROR - [init_trgt_stock_list:161] - [목표 주식 초기화 오류 발생]'list' object has no attribute 'keys'
+2023-11-18 00:02:58 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:02:59 - INFO - [init_trgt_stock_list:114] - 팅크웨어[084730]
+2023-11-18 00:02:59 - INFO - [init_trgt_stock_list:114] - 아톤[158430]
+2023-11-18 00:02:59 - INFO - [init_trgt_stock_list:114] - 가온칩스[399720]
+2023-11-18 00:02:59 - INFO - [init_trgt_stock_list:114] - 하이비젼시스템[126700]
+2023-11-18 00:03:00 - INFO - [init_trgt_stock_list:114] - 다원시스[068240]
+2023-11-18 00:03:00 - INFO - [init_trgt_stock_list:114] - 밀리의서재[418470]
+2023-11-18 00:03:00 - INFO - [init_trgt_stock_list:114] - 세틀뱅크[234340]
+2023-11-18 00:03:00 - INFO - [init_trgt_stock_list:114] - 하이닉스[000660]
+2023-11-18 00:03:01 - INFO - [init_trgt_stock_list:114] - 카카오[035720]
+2023-11-18 00:03:01 - INFO - [init_trgt_stock_list:114] - 나이스정보통신[036800]
+2023-11-18 00:03:01 - INFO - [init_trgt_stock_list:114] - LG전자[066570]
+2023-11-18 00:03:01 - INFO - [init_trgt_stock_list:114] - LG유플러스[032640]
+2023-11-18 00:03:02 - INFO - [init_trgt_stock_list:114] - 한화[000880]
+2023-11-18 00:03:02 - INFO - [init_trgt_stock_list:114] - 현대자동차[005380]
+2023-11-18 00:03:02 - INFO - [init_trgt_stock_list:114] - 롯데정보통신[286940]
+2023-11-18 00:03:02 - INFO - [init_trgt_stock_list:114] - CJ CGV[079160]
+2023-11-18 00:03:03 - INFO - [init_trgt_stock_list:114] - 현대백화점[069960]
+2023-11-18 00:03:03 - INFO - [init_trgt_stock_list:114] - 롯데지주[004990]
+2023-11-18 00:03:03 - INFO - [init_trgt_stock_list:114] - 삼천리[004690]
+2023-11-18 00:03:03 - INFO - [init_trgt_stock_list:114] - 대한항공[003490]
+2023-11-18 00:03:04 - INFO - [init_trgt_stock_list:114] - 네이버[035420]
+2023-11-18 00:03:04 - INFO - [init_trgt_stock_list:114] - 두산로보틱스[454910]
+2023-11-18 00:03:04 - INFO - [init_trgt_stock_list:114] - 카카오뱅크[323410]
+2023-11-18 00:03:04 - ERROR - [init_trgt_stock_list:161] - [목표 주식 초기화 오류 발생]'list' object has no attribute 'keys'
+2023-11-18 00:03:48 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:03:48 - INFO - [init_trgt_stock_list:114] - 팅크웨어[084730]
+2023-11-18 00:03:49 - INFO - [init_trgt_stock_list:114] - 아톤[158430]
+2023-11-18 00:03:49 - INFO - [init_trgt_stock_list:114] - 가온칩스[399720]
+2023-11-18 00:03:49 - INFO - [init_trgt_stock_list:114] - 하이비젼시스템[126700]
+2023-11-18 00:03:49 - INFO - [init_trgt_stock_list:114] - 다원시스[068240]
+2023-11-18 00:03:50 - INFO - [init_trgt_stock_list:114] - 밀리의서재[418470]
+2023-11-18 00:03:50 - INFO - [init_trgt_stock_list:114] - 세틀뱅크[234340]
+2023-11-18 00:03:50 - INFO - [init_trgt_stock_list:114] - 하이닉스[000660]
+2023-11-18 00:03:50 - INFO - [init_trgt_stock_list:114] - 카카오[035720]
+2023-11-18 00:03:51 - INFO - [init_trgt_stock_list:114] - 나이스정보통신[036800]
+2023-11-18 00:03:51 - INFO - [init_trgt_stock_list:114] - LG전자[066570]
+2023-11-18 00:03:51 - INFO - [init_trgt_stock_list:114] - LG유플러스[032640]
+2023-11-18 00:03:51 - INFO - [init_trgt_stock_list:114] - 한화[000880]
+2023-11-18 00:03:52 - INFO - [init_trgt_stock_list:114] - 현대자동차[005380]
+2023-11-18 00:03:52 - INFO - [init_trgt_stock_list:114] - 롯데정보통신[286940]
+2023-11-18 00:03:52 - INFO - [init_trgt_stock_list:114] - CJ CGV[079160]
+2023-11-18 00:03:52 - INFO - [init_trgt_stock_list:114] - 현대백화점[069960]
+2023-11-18 00:03:53 - INFO - [init_trgt_stock_list:114] - 롯데지주[004990]
+2023-11-18 00:03:53 - INFO - [init_trgt_stock_list:114] - 삼천리[004690]
+2023-11-18 00:03:53 - INFO - [init_trgt_stock_list:114] - 대한항공[003490]
+2023-11-18 00:03:53 - INFO - [init_trgt_stock_list:114] - 네이버[035420]
+2023-11-18 00:03:54 - INFO - [init_trgt_stock_list:114] - 두산로보틱스[454910]
+2023-11-18 00:03:54 - INFO - [init_trgt_stock_list:114] - 카카오뱅크[323410]
+2023-11-18 00:03:54 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 16300
+2023-11-18 00:03:54 - INFO - [init_trgt_stock_list:147] - 전일 고가: 16470
+2023-11-18 00:03:54 - INFO - [init_trgt_stock_list:148] - 전일 저가: 15700
+2023-11-18 00:03:54 - INFO - [init_trgt_stock_list:149] - 전일 종가: 16120
+2023-11-18 00:03:54 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    16463
+2023-11-18 00:03:54 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    16792
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 3775
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:147] - 전일 고가: 3890
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:148] - 전일 저가: 3585
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:149] - 전일 종가: 3775
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    3812
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    3888
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 41250
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:147] - 전일 고가: 41400
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:148] - 전일 저가: 38700
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:149] - 전일 종가: 41000
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    41662
+2023-11-18 00:03:55 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    42495
+2023-11-18 00:05:22 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:05:23 - INFO - [init_trgt_stock_list:114] - 팅크웨어[084730]
+2023-11-18 00:05:23 - INFO - [init_trgt_stock_list:114] - 아톤[158430]
+2023-11-18 00:05:23 - INFO - [init_trgt_stock_list:114] - 가온칩스[399720]
+2023-11-18 00:05:23 - INFO - [init_trgt_stock_list:114] - 하이비젼시스템[126700]
+2023-11-18 00:05:24 - INFO - [init_trgt_stock_list:114] - 다원시스[068240]
+2023-11-18 00:05:24 - INFO - [init_trgt_stock_list:114] - 밀리의서재[418470]
+2023-11-18 00:05:24 - INFO - [init_trgt_stock_list:114] - 세틀뱅크[234340]
+2023-11-18 00:05:25 - INFO - [init_trgt_stock_list:114] - 하이닉스[000660]
+2023-11-18 00:05:25 - INFO - [init_trgt_stock_list:114] - 카카오[035720]
+2023-11-18 00:05:25 - INFO - [init_trgt_stock_list:114] - 나이스정보통신[036800]
+2023-11-18 00:05:25 - INFO - [init_trgt_stock_list:114] - LG전자[066570]
+2023-11-18 00:05:26 - INFO - [init_trgt_stock_list:114] - LG유플러스[032640]
+2023-11-18 00:05:26 - INFO - [init_trgt_stock_list:114] - 한화[000880]
+2023-11-18 00:05:26 - INFO - [init_trgt_stock_list:114] - 현대자동차[005380]
+2023-11-18 00:05:26 - INFO - [init_trgt_stock_list:114] - 롯데정보통신[286940]
+2023-11-18 00:05:27 - INFO - [init_trgt_stock_list:114] - CJ CGV[079160]
+2023-11-18 00:05:27 - INFO - [init_trgt_stock_list:114] - 현대백화점[069960]
+2023-11-18 00:05:27 - INFO - [init_trgt_stock_list:114] - 롯데지주[004990]
+2023-11-18 00:05:27 - INFO - [init_trgt_stock_list:114] - 삼천리[004690]
+2023-11-18 00:05:28 - INFO - [init_trgt_stock_list:114] - 대한항공[003490]
+2023-11-18 00:05:28 - INFO - [init_trgt_stock_list:114] - 네이버[035420]
+2023-11-18 00:05:28 - INFO - [init_trgt_stock_list:114] - 두산로보틱스[454910]
+2023-11-18 00:05:28 - INFO - [init_trgt_stock_list:114] - 카카오뱅크[323410]
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 50500
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:147] - 전일 고가: 51300
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:148] - 전일 저가: 48250
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:149] - 전일 종가: 51100
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    51005
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    52025
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 22200
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:147] - 전일 고가: 22350
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:148] - 전일 저가: 21900
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:149] - 전일 종가: 21950
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    22422
+2023-11-18 00:05:29 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    22870
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 18630
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:147] - 전일 고가: 18730
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:148] - 전일 저가: 16940
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:149] - 전일 종가: 18640
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    18816
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    19192
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 14390
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:147] - 전일 고가: 14660
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:148] - 전일 저가: 14300
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:149] - 전일 종가: 14550
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    14533
+2023-11-18 00:05:30 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    14823
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 10350
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:147] - 전일 고가: 10430
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:148] - 전일 저가: 10330
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:149] - 전일 종가: 10350
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    10453
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    10662
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 3775
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:147] - 전일 고가: 3890
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:148] - 전일 저가: 3585
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:149] - 전일 종가: 3775
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    3812
+2023-11-18 00:05:31 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    3888
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 5470
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:147] - 전일 고가: 5480
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:148] - 전일 저가: 5410
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:149] - 전일 종가: 5470
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    5524
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    5634
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 24550
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:147] - 전일 고가: 24700
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:148] - 전일 저가: 24250
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:149] - 전일 종가: 24550
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    24795
+2023-11-18 00:05:32 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    25290
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 29300
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:147] - 전일 고가: 29450
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:148] - 전일 저가: 29000
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:149] - 전일 종가: 29250
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    29593
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    30184
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 15110
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:147] - 전일 고가: 15070
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:148] - 전일 저가: 14630
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:149] - 전일 종가: 15040
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    15261
+2023-11-18 00:05:33 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    15566
+2023-11-18 00:05:34 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 41250
+2023-11-18 00:05:34 - INFO - [init_trgt_stock_list:147] - 전일 고가: 41400
+2023-11-18 00:05:34 - INFO - [init_trgt_stock_list:148] - 전일 저가: 38700
+2023-11-18 00:05:34 - INFO - [init_trgt_stock_list:149] - 전일 종가: 41000
+2023-11-18 00:05:34 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    41662
+2023-11-18 00:05:34 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    42495
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 19380
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:147] - 전일 고가: 19500
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:148] - 전일 저가: 19180
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:149] - 전일 종가: 19310
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    19573
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    19964
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 21100
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:147] - 전일 고가: 21100
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:148] - 전일 저가: 20500
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:149] - 전일 종가: 21100
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    21311
+2023-11-18 00:05:35 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    21737
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 24200
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:147] - 전일 고가: 24350
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:148] - 전일 저가: 23750
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:149] - 전일 종가: 24350
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    24442
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    24930
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 51800
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:147] - 전일 고가: 51800
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:148] - 전일 저가: 51200
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:149] - 전일 종가: 51700
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    52318
+2023-11-18 00:05:36 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    53364
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 95900
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:147] - 전일 고가: 95900
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:148] - 전일 저가: 94700
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:149] - 전일 종가: 95800
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    96859
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    98796
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 48150
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:147] - 전일 고가: 48250
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:148] - 전일 저가: 46850
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:149] - 전일 종가: 48200
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    48631
+2023-11-18 00:05:37 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    49603
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 16300
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:147] - 전일 고가: 16470
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:148] - 전일 저가: 15700
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:149] - 전일 종가: 16120
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    16463
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    16792
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 28650
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:147] - 전일 고가: 28900
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:148] - 전일 저가: 28150
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:149] - 전일 종가: 28700
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    28936
+2023-11-18 00:05:38 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    29514
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 203000
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:147] - 전일 고가: 204500
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:148] - 전일 저가: 200500
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:149] - 전일 종가: 203000
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    205030
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    209130
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 185900
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:147] - 전일 고가: 186400
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:148] - 전일 저가: 181800
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:149] - 전일 종가: 184800
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    187759
+2023-11-18 00:05:39 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    191514
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 131500
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:147] - 전일 고가: 134400
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:148] - 전일 저가: 131200
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:149] - 전일 종가: 132300
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    132815
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    135471
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 109100
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:147] - 전일 고가: 111800
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:148] - 전일 저가: 106500
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:149] - 전일 종가: 108400
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    110191
+2023-11-18 00:05:40 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    112394
+2023-11-18 00:10:28 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:10:28 - INFO - [init_trgt_stock_list:115] - 팅크웨어[084730]
+2023-11-18 00:10:29 - INFO - [init_trgt_stock_list:115] - 아톤[158430]
+2023-11-18 00:10:29 - INFO - [init_trgt_stock_list:115] - 가온칩스[399720]
+2023-11-18 00:10:29 - INFO - [init_trgt_stock_list:115] - 하이비젼시스템[126700]
+2023-11-18 00:10:29 - INFO - [init_trgt_stock_list:115] - 다원시스[068240]
+2023-11-18 00:10:29 - INFO - [init_trgt_stock_list:115] - 밀리의서재[418470]
+2023-11-18 00:10:29 - INFO - [init_trgt_stock_list:115] - 세틀뱅크[234340]
+2023-11-18 00:10:29 - ERROR - [get_stock_cur_info:99] - [주식 현재 정보 조회 오류 발생]'output'
+2023-11-18 00:10:30 - ERROR - [init_trgt_stock_list:161] - [목표 주식 초기화 오류 발생]'stck_prpr'
+2023-11-18 00:10:37 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:10:38 - INFO - [init_trgt_stock_list:115] - 팅크웨어[084730]
+2023-11-18 00:10:38 - INFO - [init_trgt_stock_list:115] - 아톤[158430]
+2023-11-18 00:10:38 - INFO - [init_trgt_stock_list:115] - 가온칩스[399720]
+2023-11-18 00:10:39 - INFO - [init_trgt_stock_list:115] - 하이비젼시스템[126700]
+2023-11-18 00:10:39 - INFO - [init_trgt_stock_list:115] - 다원시스[068240]
+2023-11-18 00:10:39 - INFO - [init_trgt_stock_list:115] - 밀리의서재[418470]
+2023-11-18 00:10:39 - INFO - [init_trgt_stock_list:115] - 세틀뱅크[234340]
+2023-11-18 00:10:40 - INFO - [init_trgt_stock_list:115] - 하이닉스[000660]
+2023-11-18 00:10:40 - INFO - [init_trgt_stock_list:115] - 카카오[035720]
+2023-11-18 00:10:40 - INFO - [init_trgt_stock_list:115] - 나이스정보통신[036800]
+2023-11-18 00:10:40 - INFO - [init_trgt_stock_list:115] - LG전자[066570]
+2023-11-18 00:10:41 - INFO - [init_trgt_stock_list:115] - LG유플러스[032640]
+2023-11-18 00:10:41 - INFO - [init_trgt_stock_list:115] - 한화[000880]
+2023-11-18 00:10:41 - INFO - [init_trgt_stock_list:115] - 현대자동차[005380]
+2023-11-18 00:10:41 - INFO - [init_trgt_stock_list:115] - 롯데정보통신[286940]
+2023-11-18 00:10:42 - INFO - [init_trgt_stock_list:115] - CJ CGV[079160]
+2023-11-18 00:10:42 - INFO - [init_trgt_stock_list:115] - 현대백화점[069960]
+2023-11-18 00:10:42 - INFO - [init_trgt_stock_list:115] - 롯데지주[004990]
+2023-11-18 00:10:42 - INFO - [init_trgt_stock_list:115] - 삼천리[004690]
+2023-11-18 00:10:43 - INFO - [init_trgt_stock_list:115] - 대한항공[003490]
+2023-11-18 00:10:43 - INFO - [init_trgt_stock_list:115] - 네이버[035420]
+2023-11-18 00:10:43 - INFO - [init_trgt_stock_list:115] - 두산로보틱스[454910]
+2023-11-18 00:10:43 - INFO - [init_trgt_stock_list:115] - 카카오뱅크[323410]
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 50500
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:147] - 전일 고가: 51300
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:148] - 전일 저가: 48250
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:149] - 전일 종가: 51100
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    51005
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    52025
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 22200
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:147] - 전일 고가: 22350
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:148] - 전일 저가: 21900
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:149] - 전일 종가: 21950
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    22422
+2023-11-18 00:10:44 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    22870
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 18630
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:147] - 전일 고가: 18730
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:148] - 전일 저가: 16940
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:149] - 전일 종가: 18640
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    18816
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    19192
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 14390
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:147] - 전일 고가: 14660
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:148] - 전일 저가: 14300
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:149] - 전일 종가: 14550
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    14533
+2023-11-18 00:10:45 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    14823
+2023-11-18 00:10:46 - INFO - [init_trgt_stock_list:146] - 오늘 시가: 10350
+2023-11-18 00:10:46 - INFO - [init_trgt_stock_list:147] - 전일 고가: 10430
+2023-11-18 00:10:46 - INFO - [init_trgt_stock_list:148] - 전일 저가: 10330
+2023-11-18 00:10:46 - INFO - [init_trgt_stock_list:149] - 전일 종가: 10350
+2023-11-18 00:10:46 - INFO - [init_trgt_stock_list:150] - 매수 목표가:    10453
+2023-11-18 00:10:46 - INFO - [init_trgt_stock_list:151] - 매도 목표가:    10662
+2023-11-18 00:11:36 - INFO - [<module>:22] - ======================Start the program. Let's be rich======================
+2023-11-18 00:11:36 - INFO - [init_trgt_stock_list:114] - 팅크웨어[084730]
+2023-11-18 00:11:36 - INFO - [init_trgt_stock_list:114] - 아톤[158430]
+2023-11-18 00:11:37 - INFO - [init_trgt_stock_list:114] - 가온칩스[399720]
+2023-11-18 00:11:37 - INFO - [init_trgt_stock_list:114] - 하이비젼시스템[126700]
+2023-11-18 00:11:37 - INFO - [init_trgt_stock_list:114] - 다원시스[068240]
+2023-11-18 00:11:37 - INFO - [init_trgt_stock_list:114] - 밀리의서재[418470]
+2023-11-18 00:11:38 - INFO - [init_trgt_stock_list:114] - 세틀뱅크[234340]
+2023-11-18 00:11:38 - INFO - [init_trgt_stock_list:114] - 하이닉스[000660]
+2023-11-18 00:11:38 - INFO - [init_trgt_stock_list:114] - 카카오[035720]
+2023-11-18 00:11:39 - INFO - [init_trgt_stock_list:114] - 나이스정보통신[036800]
+2023-11-18 00:11:39 - INFO - [init_trgt_stock_list:114] - LG전자[066570]
+2023-11-18 00:11:39 - INFO - [init_trgt_stock_list:114] - LG유플러스[032640]
+2023-11-18 00:11:39 - INFO - [init_trgt_stock_list:114] - 한화[000880]
+2023-11-18 00:11:40 - INFO - [init_trgt_stock_list:114] - 현대자동차[005380]
+2023-11-18 00:11:40 - INFO - [init_trgt_stock_list:114] - 롯데정보통신[286940]
+2023-11-18 00:11:40 - INFO - [init_trgt_stock_list:114] - CJ CGV[079160]
+2023-11-18 00:11:40 - INFO - [init_trgt_stock_list:114] - 현대백화점[069960]
+2023-11-18 00:11:41 - INFO - [init_trgt_stock_list:114] - 롯데지주[004990]
+2023-11-18 00:11:41 - INFO - [init_trgt_stock_list:114] - 삼천리[004690]
+2023-11-18 00:11:41 - INFO - [init_trgt_stock_list:114] - 대한항공[003490]
+2023-11-18 00:11:41 - INFO - [init_trgt_stock_list:114] - 네이버[035420]
+2023-11-18 00:11:42 - INFO - [init_trgt_stock_list:114] - 두산로보틱스[454910]
+2023-11-18 00:11:42 - INFO - [init_trgt_stock_list:114] - 카카오뱅크[323410]
+2023-11-18 00:11:42 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 50500
+2023-11-18 00:11:42 - INFO - [init_trgt_stock_list:146] - 전일 고가: 51300
+2023-11-18 00:11:42 - INFO - [init_trgt_stock_list:147] - 전일 저가: 48250
+2023-11-18 00:11:42 - INFO - [init_trgt_stock_list:148] - 전일 종가: 51100
+2023-11-18 00:11:42 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    51005
+2023-11-18 00:11:42 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    52025
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 22200
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:146] - 전일 고가: 22350
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:147] - 전일 저가: 21900
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:148] - 전일 종가: 21950
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    22422
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    22870
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 18630
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:146] - 전일 고가: 18730
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:147] - 전일 저가: 16940
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:148] - 전일 종가: 18640
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    18816
+2023-11-18 00:11:43 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    19192
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 14390
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:146] - 전일 고가: 14660
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:147] - 전일 저가: 14300
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:148] - 전일 종가: 14550
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    14533
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    14823
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 10350
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:146] - 전일 고가: 10430
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:147] - 전일 저가: 10330
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:148] - 전일 종가: 10350
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    10453
+2023-11-18 00:11:44 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    10662
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 3775
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:146] - 전일 고가: 3890
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:147] - 전일 저가: 3585
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:148] - 전일 종가: 3775
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    3812
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    3888
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 5470
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:146] - 전일 고가: 5480
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:147] - 전일 저가: 5410
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:148] - 전일 종가: 5470
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    5524
+2023-11-18 00:11:45 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    5634
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 24550
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:146] - 전일 고가: 24700
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:147] - 전일 저가: 24250
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:148] - 전일 종가: 24550
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    24795
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    25290
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 29300
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:146] - 전일 고가: 29450
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:147] - 전일 저가: 29000
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:148] - 전일 종가: 29250
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    29593
+2023-11-18 00:11:46 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    30184
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 15110
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:146] - 전일 고가: 15070
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:147] - 전일 저가: 14630
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:148] - 전일 종가: 15040
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    15261
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    15566
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:145] - 오늘 시가: 41250
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:146] - 전일 고가: 41400
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:147] - 전일 저가: 38700
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:148] - 전일 종가: 41000
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:149] - 매수 목표가:    41662
+2023-11-18 00:11:47 - INFO - [init_trgt_stock_list:150] - 매도 목표가:    42495
