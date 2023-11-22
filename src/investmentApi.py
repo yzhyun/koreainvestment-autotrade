@@ -9,8 +9,9 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 
 def init_investment():
-    #kis.ACCESS_TOKEN = kis.get_access_token()
-    kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImE1YTlkMmEyLTMwNWEtNDdmMi1hZTlhLTQyODYwNjk4ODllZSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzAwMzE1MjY0LCJpYXQiOjE3MDAyMjg4NjQsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.sqzV9C0ndnJhrZudzjzznieKbYSu-LzaBC8677OvwmEiU5QiFmmdSs0-0izDr12ZCbgLrP7Lczrwx7jd_GLbQQ"
+
+    kis.ACCESS_TOKEN = kis.get_access_token()
+    #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjY1MThjZDU5LWE5MDMtNDcxMS05NTAwLTg2OGYyZTM3NDQ2MiIsImlzcyI6InVub2d3IiwiZXhwIjoxNzAwNTIzODc5LCJpYXQiOjE3MDA0Mzc0NzksImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.kaIoY6EVoyXJ0lJeiuAcCgI-VMt1HCntaOHXhCjr0EGG0eIMMWzF7PEhkhgMj3enPWc35tmMgdihVLggog0zzw"
     print(kis.ACCESS_TOKEN)
     return
 
@@ -112,20 +113,24 @@ def init_trgt_stock_list(symbol_list):
         # 초기화 시, 시가보다 증가율이 높은 순서대로 매매 할 수 있도록 한다.
         for code in symbol_list:
             logger.info(f"{_code[code]}[{code}]")
-            arr = []
             stock_info = get_stock_cur_info(code)
             time.sleep(0.2)
             diff = stock_info['stck_prpr'] - stock_info['stck_oprc']
             sort_dict[code] = diff
-
+        print("111111")
+        print(sort_dict)
         sort_dict = dict(sorted(sort_dict.items(), key = lambda x : x[1], reverse=True))
-
+        print("111111")
+        print(sort_dict)
+        time.sleep(0.2)
         for code in list(sort_dict.keys()):
+            print("code ========" + code)
             res = get_stock_price_daily_info(code)
+            print(res.text)
             # res2 = get_stock_cur_price(code)
             # print(res2)
             # 주식 현재가 조회로 변경해야할 것 같은데..?
-
+            arr = []
             stck_oprc = int(res.json()['output'][0]['stck_oprc'])  # 오늘 시가
             stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
             stck_lwpr = int(res.json()['output'][1]['stck_lwpr'])  # 전일 저가
@@ -270,13 +275,14 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
 
 def sell_stock_by_condition(wish_stock_dict, dict_bought_list):
     dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
+    print(wish_stock_dict)
     if len(dict_cur_amt) == 0:
         return 0
     for code in list(wish_stock_dict.keys()):
         if code in dict_bought_list:
             arrTmp = wish_stock_dict[code]
             cur_price_info_list = dict_cur_amt[code]
-            cur_amt = int(int(cur_price_info_list[0]) / int(cur_price_info_list[1]))
+            cur_amt = int(cur_price_info_list[0])
             logger.info(
                 f"{_code[code]} 현재가 [{cur_amt} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
             if int(arrTmp[5]) <= int(cur_price_info_list[0]):

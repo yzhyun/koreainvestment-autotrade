@@ -41,7 +41,6 @@ def set_report_time():
     global isReportTime
     isReportTime = True
 
-wish_stock_dict = init_trgt_stock_list(symbol_list)
 # 스케쥴러 초기화
 schedule.every(30).minutes.do(set_report_time)  # 30분마다 보고
 while True:
@@ -71,7 +70,7 @@ while True:
             if isInit:  # 첫 1회 초기화
                 wish_stock_dict = init_trgt_stock_list(symbol_list)
                 print(wish_stock_dict)
-                time.sleep(3)
+                time.sleep(1)
                 report_cur_stock_info(dict_bought_list, wish_stock_dict)
                 isInit = False
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
@@ -83,10 +82,10 @@ while True:
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")
             time.sleep(1)
-            sell_stock_by_condition(symbol_list, wish_stock_dict, dict_bought_list)
+            sell_stock_by_condition(wish_stock_dict, dict_bought_list)
         if t_sell_end <= t_now <= t_exit:  # PM 03:20 ~ PM 03:25 : 일괄 매도
             time.sleep(1)
-            sell_stock_all(symbol_list, wish_stock_dict, dict_bought_list)
+            sell_stock_all(wish_stock_dict, dict_bought_list)
         if t_exit < t_now:  # PM 03:25 ~ :프로그램 종료
             report_cur_stock_info(dict_bought_list, wish_stock_dict)
 
