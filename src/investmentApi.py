@@ -4,8 +4,13 @@ import sys
 import KoreaInvestmentApi as kis
 from common import *
 
-with open('./config/stock_code.yaml', encoding='UTF-8') as f:
-    _code = yaml.load(f, Loader=yaml.FullLoader)
+def init():
+    # 코드 정보 Load
+    with open('./config/stock_code.yaml', encoding='UTF-8') as f:
+        _code = yaml.load(f, Loader=yaml.FullLoader)
+
+    # 기록 파일 생성 (당일 날짜 기준 파일 생성 유무 확인)
+
 
 
 def init_investment():

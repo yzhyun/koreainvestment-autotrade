@@ -37,6 +37,7 @@ def send_message(msg):
 def write_report(memo):
     today = datetime.date.today()
     curTime = datetime.datetime.now()
+
     filepath = 'report/' + str(today)
     f = open(filepath + ".txt", 'a', encoding='UTF-8')
     f.write(f"[{curTime}] {memo} \n")
