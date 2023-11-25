@@ -4,14 +4,9 @@ import sys
 import KoreaInvestmentApi as kis
 from common import *
 
-def init():
-    # 코드 정보 Load
-    with open('./config/stock_code.yaml', encoding='UTF-8') as f:
-        _code = yaml.load(f, Loader=yaml.FullLoader)
-
-    # 기록 파일 생성 (당일 날짜 기준 파일 생성 유무 확인)
-
-
+# 코드 정보 Load
+with open('./config/stock_code.yaml', encoding='UTF-8') as f:
+    _code = yaml.load(f, Loader=yaml.FullLoader)
 
 def init_investment():
 
@@ -256,7 +251,7 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
             return
         buy_qty = 0
         # 목표가보다 현재가가 높은 경우 매수 진행
-        if arrTmp[4] <= current_price:  # <= int(arrTmp[5] * 1.05):        # 급등 항목은 제외 될 수 있도록
+        if arrTmp[4] <= current_price:
             # target_buy_count = current_price // standard_price_stock      # 1주당 금액 기준으로 매수 수량 선택
             target_buy_count = STANDARD_PRICE_STOCK // current_price
             if target_buy_count == 0:

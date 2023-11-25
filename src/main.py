@@ -19,23 +19,17 @@ symbol_list = [
     , "234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380", "286940", "079160", "069960"
     , "004990", "004690", "003490", "035420", "454910", "323410"]  # 매수 희망 종목 리스트
 
-logger.info("======================Start the program. Let's be rich======================")
-send_message("===Start the program. Let's be rich===")
-# KIS 초기화
-init_investment()
-
-# 보유 현금 조회
-# total_cash = get_balance_cash()
-
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
 
-# wish_stock_dict = init_trgt_stock_list(symbol_list)
-# report_cur_stock_info(dict_bought_list, wish_stock_dict)
-
-isReportTime = False
+isReportTime = False    # 중간 보고 용 flag
 isInit = True
 
+logger.info("======================Start the program. Let's be rich======================")
+send_message("===Start the program. Let's be rich===")
+
+# KIS 초기화
+init_investment()
 
 def set_report_time():
     global isReportTime
@@ -93,6 +87,7 @@ while True:
             result_msg = "금일 실현손익 합계: " + str(profit_amt)
             send_message(result_msg)
             write_report(result_msg)
+            write_monthly_report(str(profit_amt))
             break
     except Exception as e:
         logger.error(e.args)

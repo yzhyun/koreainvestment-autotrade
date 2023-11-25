@@ -37,7 +37,6 @@ def send_message(msg):
 def write_report(memo):
     today = datetime.date.today()
     curTime = datetime.datetime.now()
-
     filepath = 'report/' + str(today)
     f = open(filepath + ".txt", 'a', encoding='UTF-8')
     f.write(f"[{curTime}] {memo} \n")
@@ -45,9 +44,16 @@ def write_report(memo):
 
 def write_profit_amt(amt):
     today = datetime.date.today()
-    filepath = 'report/profit_'  + str(today)
+    filepath = 'report/profit_' + str(today)
     f = open(filepath + ".txt", 'a', encoding='UTF-8')
     f.write(f" {amt}")
+    f.close()
+
+def write_monthly_report(amt):
+    today = datetime.date.today()
+    filepath = 'report/monthly/' + str(today.year) +  str(today.month)
+    f = open(filepath + ".txt", 'a', encoding='UTF-8')
+    f.write(f"{str(today.day)} {amt}\n")
     f.close()
 
 def get_target_price(num, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr):
