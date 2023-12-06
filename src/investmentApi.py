@@ -245,7 +245,7 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
         # 종목 현재가 조회
         current_price = get_stock_cur_price(code)
         logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
-
+        
         if len(dict_bought_list) >= MAX_STOCK_NUM:
             print(f"매수 목표량 도달")
             return
@@ -265,7 +265,7 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
                     tmp_sell_target_price = wish_stock_dict[code][5]
                     wish_stock_dict[code][5] = int(current_price * (1 + SELL_PER))  # 매수 금액으로 매도 목표 금액 재설정 (2%)
                     send_message(f"[매수 성공]: {_code[code]}({buy_qty})")
-                    # write_report(f"[매수 성공]: {_code[code]}({buy_qty})")
+                    write_report(f"[매수 성공]: {_code[code]}({buy_qty})")
                     # f"매도 목표가 변경 {tmp_sell_target_price} -> {wish_stock_dict[code][5]}")
                 else:
                     logger.info(f"[매수 실패]: {_code[code]}({buy_qty})")

@@ -11,8 +11,8 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 # 한화: 000880 롯데정보통신: 286940 CJ CGV: 079160 롯데지주: 004990 삼천리: 004690 대한항공: 003490 네이버: 035420 두산로보티스: 454910
 symbol_list = [
       "084730"  # [블랙박스] 팅크웨어
-    , "158430"  # [보안] 아톤
-    , "399720"  # [반도체] 가온칩스
+    #, "158430"  # [보안] 아톤
+    , "399720", "005290"  # [반도체] 가온칩스, 동진쎄미켐
     , "126700"  # [2차전지] 하이비젼시스템
     , "068240"  # [철도] 다원시스
     , "418470"  # [출판] 밀리의서재
@@ -47,7 +47,7 @@ while True:
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
         t_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
         t_buy_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
-        t_buy_end = t_now.replace(hour=10, minute=30, second=0, microsecond=0)
+        t_buy_end = t_now.replace(hour=10, minute=00, second=0, microsecond=0)
         t_sell_start = t_now.replace(hour=10, minute=00, second=0, microsecond=0)
         t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=25, second=0, microsecond=0)
@@ -68,19 +68,19 @@ while True:
                 report_cur_stock_info(dict_bought_list, wish_stock_dict)
                 isInit = False
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
-        if t_buy_start <= t_now <= t_buy_end:  # 09:02 ~ 10:30 까지만 매수
+        if t_buy_start <= t_now < t_buy_end:  # 09:02 ~ 10:00 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
             time.sleep(1)
             buy_stock_by_condition(wish_stock_dict, dict_bought_list)
-        if t_sell_start <= t_now <= t_sell_end:  # 10:00 ~ 15:20 까지 매도 진행
+        if t_sell_start <= t_now < t_sell_end:  # 10:00 ~ 15:20 까지 매도 진행
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")
             time.sleep(1)
             sell_stock_by_condition(wish_stock_dict, dict_bought_list)
-        if t_sell_end <= t_now <= t_exit:  # PM 03:20 ~ PM 03:25 : 일괄 매도
+        if t_sell_end <= t_now < t_exit:  # PM 03:20 ~ PM 03:25 : 일괄 매도
             time.sleep(1)
             sell_stock_all(wish_stock_dict, dict_bought_list)
-        if t_exit < t_now:  # PM 03:25 ~ :프로그램 종료
+        if t_exit <= t_now:  # PM 03:25 ~ :프로그램 종료
             report_cur_stock_info(dict_bought_list, wish_stock_dict)
 
             profit_amt = get_real_profit()
