@@ -19,6 +19,7 @@ logger = log()
 STANDARD_PRICE_STOCK = 300000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
 SELL_PER = 0.02  # 매도 목표 퍼센트
 BUY_PER = 0.01  # 매수 목표 퍼센트
+STOP_LOSS_PER = 0.05 # 손절 목표 퍼센트
 # BUY_PER = 0  # 매수 목표 퍼센트
 MAX_STOCK_NUM = 7
 
@@ -58,9 +59,9 @@ def write_monthly_report(amt):
 
 def get_target_price(num, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr):
     val = ""
-    if num == 0:
+    if num == 0:    # 매수 목표가
         val = stck_oprc * (1 + BUY_PER)  # 금일 시가 1%
         # val = stck_oprc
-    elif num == 1:
-        val = stck_oprc + (stck_hgpr - stck_lwpr) * 0.5  # 오늘 시가 + (전일 고가 - 전일 저가)
+    elif num == 1:  # 손절 매매가
+        val = stck_oprc + (1 - STOP_LOSS_PER) # 금일 시가의 5% 하락 시 매매 (손절)
     return val

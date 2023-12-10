@@ -106,7 +106,8 @@ def init_trgt_stock_list(symbol_list):
     2: 전일 저가
     3: 전일 종가
     4: 매수 목표가
-    5: 매매 목표가    
+    5: 매매 목표가
+    6: 손절 목표가    
     """
     sort_dict = {}
     try:
@@ -117,11 +118,7 @@ def init_trgt_stock_list(symbol_list):
             time.sleep(0.2)
             diff = stock_info['stck_prpr'] - stock_info['stck_oprc']
             sort_dict[code] = diff
-        print("111111")
-        print(sort_dict)
         sort_dict = dict(sorted(sort_dict.items(), key = lambda x : x[1], reverse=True))
-        print("111111")
-        print(sort_dict)
         time.sleep(0.2)
         for code in list(sort_dict.keys()):
             print("code ========" + code)
@@ -140,12 +137,16 @@ def init_trgt_stock_list(symbol_list):
             target_price = int(get_target_price(0, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr))
             sell_target_price = int(target_price + target_price * SELL_PER)
 
+            # 손절 목표가 (시가의 5%)
+            stop_loss_price = int(get_target_price(1, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr))
+
             arr.append(stck_oprc)  # 오늘 시가
             arr.append(stck_hgpr)  # 전일 고가
             arr.append(stck_lwpr)  # 전일 저가
             arr.append(stck_clpr)  # 전일 종가
             arr.append(target_price)  # 매수 목표가
             arr.append(sell_target_price)  # 매매 목표가
+            arr.append(stop_loss_price) # 손절가
 
             logger.info(f"오늘 시가: {stck_oprc}")
             logger.info(f"전일 고가: {stck_hgpr}")
@@ -153,12 +154,15 @@ def init_trgt_stock_list(symbol_list):
             logger.info(f"전일 종가: {stck_clpr}")
             logger.info(f"매수 목표가:    {target_price}")
             logger.info(f"매도 목표가:    {sell_target_price}")
-
+            logger.info(f"손절 목표가:    {stop_loss_price}")
             # write_profit_amt(stck_oprc)
 
-            msg = _code[code] + "[" + code + "]" + "\n" + "오늘 시가: " + str(stck_oprc) + "\n" + "전일 종가: " \
-                  + str(stck_clpr) + "\n" + "매수목표가: " + str(target_price) + "\n" + "매도목표가: " + str(
-                sell_target_price)
+            msg = _code[code] + "[" + code + "]" + "\n" \
+                  + "오늘 시가: " + str(stck_oprc) + "\n" \
+                  + "전일 종가: " + str(stck_clpr) + "\n" \
+                  + "매수목표가: " + str(target_price) + "\n" \
+                  + "매도목표가: " + str(sell_target_price) + "\n" \
+                  + "손절목표가: " + str(stop_loss_price) + "\n"
             send_message(msg)
             rtnRes[code] = arr
     except Exception as e:
@@ -287,6 +291,18 @@ def sell_stock_by_condition(wish_stock_dict, dict_bought_list):
                 f"{_code[code]} 현재가 [{cur_amt} * {cur_price_info_list[1]}] / 매도목표가 [{arrTmp[5]}] / 평가손익금액 [{cur_price_info_list[2]}]")
             if int(arrTmp[5]) <= int(cur_price_info_list[0]):
                 send_message(f"{_code[code]} 목표가 달성({arrTmp[4]} <= {cur_price_info_list[0]}) 매도를 시도합니다.")
+                try:
+                    if sell_stock(code, dict_bought_list[code]):
+                        send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
+                        write_report(f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
+                        write_profit_amt(int(cur_price_info_list[2]))
+                        del dict_bought_list[code]
+                        del wish_stock_dict[code]
+                except Exception as e:
+                    logger.error(f"[매도 오류 발생]{e}")
+            # 손절 체크 로직
+            if int(arrTmp[6]) >= int(cur_price_info_list[0]):
+                send_message(f"{_code[code]} 손절가 도달({arrTmp[4]} <= {cur_price_info_list[0]}) 매도를 시도합니다.")
                 try:
                     if sell_stock(code, dict_bought_list[code]):
                         send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
