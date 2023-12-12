@@ -63,5 +63,5 @@ def get_target_price(num, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr):
         val = stck_oprc * (1 + BUY_PER)  # 금일 시가 1%
         # val = stck_oprc
     elif num == 1:  # 손절 매매가
-        val = stck_oprc + (1 - STOP_LOSS_PER) # 금일 시가의 5% 하락 시 매매 (손절)
+        val = stck_oprc * (1 - STOP_LOSS_PER) # 금일 시가의 5% 하락 시 매매 (손절)
     return val

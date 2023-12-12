@@ -192,7 +192,7 @@ def report_cur_stock_info(dict_bought_list, wish_stock_dict):
                 dict_bought_list[stock['pdno']] = stock['hldg_qty']
                 sum_pfls_amt += int(stock['evlu_pfls_amt'])
 
-        write_report(f"{sMessage}총평가손익금액: {sum_pfls_amt}")
+        # write_report(f"{sMessage}총평가손익금액: {sum_pfls_amt}")
         send_message(f"{sMessage}총평가손익금액: {sum_pfls_amt}")
     except Exception as e:
         logger.error(f"[레포트 오류 발생]{e}")

@@ -11,12 +11,15 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 # 한화: 000880 롯데정보통신: 286940 CJ CGV: 079160 롯데지주: 004990 삼천리: 004690 대한항공: 003490 네이버: 035420 두산로보티스: 454910
 symbol_list = [
       "084730"  # [블랙박스] 팅크웨어
-    #, "158430"  # [보안] 아톤
-    #, "399720" # [반도체] 가온칩스
+    , "158430"  # [보안] 아톤
+    , "399720" # [반도체] 가온칩스
     , "005290"  # [반도체] 동진쎄미켐
     , "126700"  # [2차전지] 하이비젼시스템
     , "068240"  # [철도] 다원시스
     , "418470"  # [출판] 밀리의서재
+    , "004540"  # [생활] 깨끗한나라
+    , "042510", "030520"  # [IT] 라온시큐어, 한글과컴퓨터
+    , "039130"  # [여행] 하나투어
     , "234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380", "286940", "079160", "069960"
     , "004990", "004690", "003490", "035420", "454910", "323410"]  # 매수 희망 종목 리스트
 
@@ -48,7 +51,7 @@ while True:
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
         t_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
         t_buy_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
-        t_buy_end = t_now.replace(hour=10, minute=00, second=0, microsecond=0)
+        t_buy_end = t_now.replace(hour=9, minute=30, second=0, microsecond=0)
         t_sell_start = t_now.replace(hour=10, minute=00, second=0, microsecond=0)
         t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=25, second=0, microsecond=0)
