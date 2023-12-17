@@ -111,7 +111,7 @@ def init_trgt_stock_list(symbol_list):
     """
     sort_dict = {}
     try:
-        # 초기화 시, 시가보다 증가율이 높은 순서대로 매매 할 수 있도록 한다.
+        # 초기화 시, 현재가-시가 높은 순서대로 정렬, 매매 할 수 있도록 한다.
         for code in symbol_list:
             logger.info(f"{_code[code]}[{code}]")
             stock_info = get_stock_cur_info(code)
@@ -183,10 +183,10 @@ def report_cur_stock_info(dict_bought_list, wish_stock_dict):
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
                 arrTmp = wish_stock_dict[stock['pdno']]
-                cur_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
-                cur_rate = round(((int(stock['prpr']) - cur_amt) / cur_amt * 100), 2)
+                pchs_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
+                cur_rate = round(((int(stock['prpr']) - pchs_amt) / pchs_amt * 100), 2)
                 sMessage += f"*{stock['prdt_name']}\n" \
-                            f"매입[{cur_amt}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 증감율[{cur_rate}%]\n" \
+                            f"매입[{pchs_amt}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 증감율[{cur_rate}%]\n" \
                             f"매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}]\n" \
                             f"평가손익금액[{stock['evlu_pfls_amt']}]\n\n"
                 dict_bought_list[stock['pdno']] = stock['hldg_qty']
