@@ -1,6 +1,5 @@
 #Security File
-../../Stock_prd/tobeR/config/config.yaml
-../../Stock_prd/tobeR/config/security.yaml
+../../Stock/koreainvestment/config
 
 .idea/
 __pycache__/
