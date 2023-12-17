@@ -1,6 +1,6 @@
 #Security File
-config/config.yaml
-config/security.yaml
+../../Stock_prd/tobeR/config/config.yaml
+../../Stock_prd/tobeR/config/security.yaml
 
 .idea/
 __pycache__/

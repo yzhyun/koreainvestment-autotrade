@@ -1,0 +1,4 @@
+#SLACK 메세지 URL
+SLACK_WEBHOOK_URL: "https://slack.com/api/chat.postMessage"
+SLACK_TOKEN: "xoxb-5720124641303-5747996040017-rjuvpeGHTNn8mYWkoDpmkybt"
+SLACK_CHANNEL: "#개발"
