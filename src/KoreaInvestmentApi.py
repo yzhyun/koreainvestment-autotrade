@@ -5,15 +5,8 @@ import time
 import yaml
 from common import *
 
-TARGET_MODE = "dev"
-# 모의계좌 : dev / 실제계좌 : prd
-
-if TARGET_MODE == "dev":
-    with open('././config/dev_config.yaml', encoding='UTF-8') as f:
-        _cfg = yaml.load(f, Loader=yaml.FullLoader)
-else:
-    with open('../../../Stock_prd/tobeR/config/config.yaml', encoding='UTF-8') as f:
-        _cfg = yaml.load(f, Loader=yaml.FullLoader)
+with open('././config/config.yaml', encoding='UTF-8') as f:
+    _cfg = yaml.load(f, Loader=yaml.FullLoader)
 
 APP_KEY = _cfg['APP_KEY']
 APP_SECRET = _cfg['APP_SECRET']
