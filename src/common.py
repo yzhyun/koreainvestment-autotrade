@@ -32,7 +32,7 @@ def send_message(msg):
     res = requests.post(SLACK_WEBHOOK_URL,
                         headers={"Authorization": "Bearer " + token},
                         data={"channel": channel, "text": msg})
-    # print(res.json())
+    print(res.json())
 
 
 def write_report(memo):
