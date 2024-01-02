@@ -232,3 +232,34 @@ def get_real_profit():
     }
     res = requests.get(URL, headers=headers, params=params)
     return res
+
+def get_daily_ccld(fromdd, todd, pdno=""):
+    """주식일별주문체결조회"""
+    PATH = "uapi/domestic-stock/v1/trading/inquire-daily-ccld"
+    URL = f"{URL_BASE}/{PATH}"
+    headers = {"Content-Type": "application/json",
+               "authorization": f"Bearer {ACCESS_TOKEN}",
+               "appKey": APP_KEY,
+               "appSecret": APP_SECRET,
+               "tr_id": TR_ID_TYPE + "TTC8001R",  #VTTC8001R
+               "custtype": "P"
+               }
+    params = {
+        "CANO": CANO,
+        "ACNT_PRDT_CD": ACNT_PRDT_CD,
+        "INQR_STRT_DT": "20231220",
+        "INQR_END_DT" : "20231228",
+        "SLL_BUY_DVSN_CD": "00",
+        "INQR_DVSN": "01",
+        "PDNO": "",
+        "CCLD_DVSN": "01",
+        "ORD_GNO_BRNO": "",
+        "ODNO": "",
+        "INQR_DVSN_3": "",
+        "INQR_DVSN_1": "",
+        "CTX_AREA_FK100": "",
+        "CTX_AREA_NK100": ""
+    }
+    res = requests.get(URL, headers=headers, params=params)
+    print(res.json())
+    return res

@@ -1,20 +1,33 @@
 import os
 import sys
-
 import KoreaInvestmentApi as kis
 from common import *
+import mysql as db
 
 # 코드 정보 Load
 with open('./config/stock_code.yaml', encoding='UTF-8') as f:
     _code = yaml.load(f, Loader=yaml.FullLoader)
 
 def init_investment():
-
-    kis.ACCESS_TOKEN = kis.get_access_token()
-    #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjY1MThjZDU5LWE5MDMtNDcxMS05NTAwLTg2OGYyZTM3NDQ2MiIsImlzcyI6InVub2d3IiwiZXhwIjoxNzAwNTIzODc5LCJpYXQiOjE3MDA0Mzc0NzksImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.kaIoY6EVoyXJ0lJeiuAcCgI-VMt1HCntaOHXhCjr0EGG0eIMMWzF7PEhkhgMj3enPWc35tmMgdihVLggog0zzw"
-    print(kis.ACCESS_TOKEN)
+    try:
+        kis.ACCESS_TOKEN = kis.get_access_token()
+        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImQ4MmVmZTYxLWRmNGYtNDMzNS05ODQ0LTQ4ZGM2Y2RlMWI2OSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA0MDk1NTY1LCJpYXQiOjE3MDQwMDkxNjUsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.wCHLt_jjFVNbn31CjQb_yAT5jqUi251cte9Vb4E0-28fhH8q5IXl1viozJbD4HRJotXbwQ10RrODCPgCkS9vmw"
+        print(kis.ACCESS_TOKEN)
+        db.test_db()
+    except Exception as e:
+        send_message("===시스템 초기화 실패 프로그램을 종료 합니다.===")
     return
 
+def init_symbol_list():
+    symbol_list= []
+    res = db.select("SELECT A.STOCK_ID "
+                    ",(SELECT STOCK_NM FROM STOCK_MST WHERE STOCK_ID = A.STOCK_ID) AS STOCK_NM "              
+                    "FROM wish_stock_mst A "
+                    "WHERE WISH_YN = 'Y' ")
+    for info in res:
+        symbol_list.append(info[0])
+
+    return symbol_list
 # 보유 현금 조회
 def get_balance_cash():
     try:
@@ -336,3 +349,6 @@ def sell_stock_all(wish_stock_dict, dict_bought_list):
             except Exception as e:
                 logger.error(f"[매도 오류 발생]{e}")
     return
+
+def get_daily_ccld():
+    print(kis.get_daily_ccld("20231228", "20231228"))
