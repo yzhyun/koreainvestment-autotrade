@@ -1,12 +1,16 @@
 import pymysql
+import yaml
+
+with open('../../../Stock_prd/tobeR/config/config.yaml', encoding='UTF-8') as f:
+    _cfg = yaml.load(f, Loader=yaml.FullLoader)
 
 # MySQL 연결 정보
 db_config = {
-    'host': "127.0.0.1",
-    'user': "root",
-    'password': "1234",
-    'database': "richdev",
-    'charset': "utf8"
+    'host': _cfg['HOST'],
+    'user': _cfg['USER'],
+    'password': _cfg['PASSWORD'],
+    'database': _cfg['DATABASE'],
+    'charset': _cfg['CHARSET']
 }
 
 def init():
