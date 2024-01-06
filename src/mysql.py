@@ -1,7 +1,16 @@
 import pymysql
 
+# MySQL 연결 정보
+db_config = {
+    'host': "127.0.0.1",
+    'user': "root",
+    'password': "1234",
+    'database': "richdev",
+    'charset': "utf8"
+}
+
 def init():
-    conn = pymysql.connect(host="127.0.0.1", user="root", password="1234", db="mysqldb", charset="utf8")
+    conn = pymysql.connect(**db_config)
     return conn
 
 def test_db():
@@ -9,6 +18,7 @@ def test_db():
     cur = conn.cursor()
     cur.execute("SELECT 1 FROM STOCK_MST")
     rows = cur.fetchone()
+    print(rows)
     if len(rows) > 0 :
         return True
     else:

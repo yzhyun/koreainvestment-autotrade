@@ -10,8 +10,8 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 def init_investment():
     try:
-        kis.ACCESS_TOKEN = kis.get_access_token()
-        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImQ4MmVmZTYxLWRmNGYtNDMzNS05ODQ0LTQ4ZGM2Y2RlMWI2OSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA0MDk1NTY1LCJpYXQiOjE3MDQwMDkxNjUsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.wCHLt_jjFVNbn31CjQb_yAT5jqUi251cte9Vb4E0-28fhH8q5IXl1viozJbD4HRJotXbwQ10RrODCPgCkS9vmw"
+        #kis.ACCESS_TOKEN = kis.get_access_token()
+        kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJkOTk4NWIyLTg2MzQtNDI0Yi05YmUzLWE0NzMwMjY0YWE4OCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA0NjM1OTU4LCJpYXQiOjE3MDQ1NDk1NTgsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.iY0cL7faR0AgJL63HvW4LdShrCgna-FIvlk87EYLV0PSVCQp3qmB2WnmHbs092oWr-zK3vDKijk5U8y0RArJKA"
         print(kis.ACCESS_TOKEN)
         db.test_db()
     except Exception as e:
