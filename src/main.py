@@ -34,12 +34,14 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 isReportTime = False    # 중간 보고 용 flag
 isInit = True
 
-logger.info("======================Start the program. Let's be rich======================")
-send_message("===Start the program. Let's be rich===")
-
-# KIS 초기화
+send_message("==>Check system")
+# KIS, db 초기화
 init_investment()
-get_daily_ccld()
+
+send_message("==>Start the program. Let's be rich")
+logger.info("======================Start the program. Let's be rich======================")
+
+#get_daily_ccld()
 # 희망 매수 종목 셋팅
 symbol_list = init_symbol_list()
 wish_stock_dict = {}  # 매수 희망 종목 정보

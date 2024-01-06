@@ -10,12 +10,13 @@ with open('./config/stock_code.yaml', encoding='UTF-8') as f:
 
 def init_investment():
     try:
-        #kis.ACCESS_TOKEN = kis.get_access_token()
-        kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJkOTk4NWIyLTg2MzQtNDI0Yi05YmUzLWE0NzMwMjY0YWE4OCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA0NjM1OTU4LCJpYXQiOjE3MDQ1NDk1NTgsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.iY0cL7faR0AgJL63HvW4LdShrCgna-FIvlk87EYLV0PSVCQp3qmB2WnmHbs092oWr-zK3vDKijk5U8y0RArJKA"
+        kis.ACCESS_TOKEN = kis.get_access_token()
+        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjA4ODM1MGNjLWU5ODQtNGVjMS05ZjE2LTNiMjQ0NjRhODEzYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA0Mjg0NTgzLCJpYXQiOjE3MDQxOTgxODMsImp0aSI6IlBTQVNiWWRhMHVXa0FrT1FieFV2TVU4QU4xVVRKeUoyU29UUyJ9.CFGSpjytShzM7GcFhJkJm_9Rm7KQABZEM1IZgs_WtdOLzMVGv8xZ0D7JKoLxQcPgSaUOVU6ZwMIl8ysQLTIYkQ"
         print(kis.ACCESS_TOKEN)
         db.test_db()
     except Exception as e:
-        send_message("===시스템 초기화 실패 프로그램을 종료 합니다.===")
+        send_message("===시스템 초기화 실패, 프로그램을 종료 합니다.===")
+        sys.exit()
     return
 
 def init_symbol_list():
@@ -28,6 +29,7 @@ def init_symbol_list():
         symbol_list.append(info[0])
 
     return symbol_list
+
 # 보유 현금 조회
 def get_balance_cash():
     try:
@@ -133,6 +135,7 @@ def init_trgt_stock_list(symbol_list):
             sort_dict[code] = diff
         sort_dict = dict(sorted(sort_dict.items(), key = lambda x : x[1], reverse=True))
         time.sleep(0.2)
+        msg = ""
         for code in list(sort_dict.keys()):
             print("code ========" + code)
             res = get_stock_price_daily_info(code)
@@ -170,14 +173,16 @@ def init_trgt_stock_list(symbol_list):
             logger.info(f"손절 목표가:    {stop_loss_price}")
             # write_profit_amt(stck_oprc)
 
-            msg = _code[code] + "[" + code + "]" + "\n" \
-                  + "오늘 시가: " + str(stck_oprc) + "\n" \
-                  + "전일 종가: " + str(stck_clpr) + "\n" \
-                  + "매수목표가: " + str(target_price) + "\n" \
-                  + "매도목표가: " + str(sell_target_price) + "\n" \
-                  + "손절목표가: " + str(stop_loss_price) + "\n"
-            send_message(msg)
+            msg += _code[code] + "[" + code + "]" + "/" \
+                  + "오늘 시가: " + str(stck_oprc) + "/" \
+                  + "전일 종가: " + str(stck_clpr) + "/" \
+                  + "매수목표가: " + str(target_price) + "/" \
+                  + "매도목표가: " + str(sell_target_price) + "/" \
+                  + "손절목표가: " + str(stop_loss_price) + "/" \
+                  + "\n"
             rtnRes[code] = arr
+        send_message(msg)
+
     except Exception as e:
         logger.error(f"[목표 주식 초기화 오류 발생]{e}")
     return rtnRes
@@ -351,4 +356,5 @@ def sell_stock_all(wish_stock_dict, dict_bought_list):
     return
 
 def get_daily_ccld():
-    print(kis.get_daily_ccld("20231228", "20231228"))
+    print("get_daily_ccld")
+    print(kis.get_daily_ccld("20240102", "20240102"))

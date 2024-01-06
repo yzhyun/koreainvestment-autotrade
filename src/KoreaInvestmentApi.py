@@ -247,8 +247,8 @@ def get_daily_ccld(fromdd, todd, pdno=""):
     params = {
         "CANO": CANO,
         "ACNT_PRDT_CD": ACNT_PRDT_CD,
-        "INQR_STRT_DT": "20231220",
-        "INQR_END_DT" : "20231228",
+        "INQR_STRT_DT": fromdd,
+        "INQR_END_DT" : todd,
         "SLL_BUY_DVSN_CD": "00",
         "INQR_DVSN": "01",
         "PDNO": "",

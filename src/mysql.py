@@ -14,12 +14,14 @@ def init():
     return conn
 
 def test_db():
+    print("DB 테스트")
     conn = init()
     cur = conn.cursor()
     cur.execute("SELECT 1 FROM STOCK_MST")
     rows = cur.fetchone()
     print(rows)
     if len(rows) > 0 :
+        print("DB 정상")
         return True
     else:
         return False
