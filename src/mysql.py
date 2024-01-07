@@ -1,7 +1,7 @@
 import pymysql
 import yaml
 
-with open('../../../Stock_prd/tobeR/config/config.yaml', encoding='UTF-8') as f:
+with open('././config/config.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
 
 # MySQL 연결 정보
