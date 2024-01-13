@@ -261,5 +261,4 @@ def get_daily_ccld(fromdd, todd, pdno=""):
         "CTX_AREA_NK100": ""
     }
     res = requests.get(URL, headers=headers, params=params)
-    print(res.json())
     return res

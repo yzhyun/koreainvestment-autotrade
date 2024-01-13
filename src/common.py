@@ -7,16 +7,13 @@ from logger import *
 with open('././config/security.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
 
-with open('./config/stock_code.yaml', encoding='UTF-8') as f:
-    _code = yaml.load(f, Loader=yaml.FullLoader)
-
 SLACK_WEBHOOK_URL = _cfg['SLACK_WEBHOOK_URL']
 SLACK_TOKEN = _cfg['SLACK_TOKEN']
 SLACK_CHANNEL = _cfg['SLACK_CHANNEL']
 
 logger = log()
 
-STANDARD_PRICE_STOCK = 200000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
+STANDARD_PRICE_STOCK = 250000  # 매매 기준으로 잡은 1주당 금액 ex)1주가 10만원이 넘을 경우
 SELL_PER = 0.02  # 매도 목표 퍼센트
 BUY_PER = 0.01  # 매수 목표 퍼센트
 STOP_LOSS_PER = 0.03 # 손절 목표 퍼센트
