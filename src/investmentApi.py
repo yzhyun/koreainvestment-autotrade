@@ -39,27 +39,6 @@ def get_balance_cash():
         logger.error(f"[보유 현금 조회 오류 발생]{e}")
     return int(cash)
 
-
-# 주식 전체 매도
-# def sell_all_stocks(stock_dict, wish_stock_dict):
-#     failCodes = []
-#     res = {}
-#     res["rtnCd"] = "S"
-#     for code, qty in stock_dict.items():
-#         if code in wish_stock_dict.keys():  # 매수 희망 종목 리스트에 포함된 주식만 해당 프로그램에서 다룬다.
-#             try:
-#                 res = kis.sell(code, qty)
-#                 if res.json()['rt_cd'] != '0':
-#                     logger.error("[매도 실패]" + res.json()['msg'])
-#                     failCodes.append(code)
-#                     res["rtnCd"] = "F"
-#             except Exception as e:
-#                 logger.error(f"[매도 오류 발생]{e}")
-#     res["failCodes"] = failCodes
-# 
-#     return res
-
-
 def get_stock_price_daily_info(code):
     res = ""
     try:
