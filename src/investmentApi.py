@@ -4,6 +4,13 @@ import KoreaInvestmentApi as kis
 from common import *
 import mysql as db
 
+<<<<<<< HEAD
+=======
+# 코드 정보 Load
+# with open('./config/stock_code.yaml', encoding='UTF-8') as f:
+#     _codes = yaml.load(f, Loader=yaml.FullLoader)
+
+>>>>>>> 9c5e9c9055cda30b382c14498c3cc67770f6e44b
 _code = ""
 def init_investment():
     try:
@@ -137,12 +144,10 @@ def init_trgt_stock_list(symbol_list):
         time.sleep(0.2)
         msg = ""
         for code in list(sort_dict.keys()):
-            print("code ========" + code)
+
+            time.sleep(0.2)
             res = get_stock_price_daily_info(code)
-            print(res.text)
-            # res2 = get_stock_cur_price(code)
-            # print(res2)
-            # 주식 현재가 조회로 변경해야할 것 같은데..?
+
             arr = []
             stck_oprc = int(res.json()['output'][0]['stck_oprc'])  # 오늘 시가
             stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
@@ -300,7 +305,6 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
 
 def sell_stock_by_condition(wish_stock_dict, dict_bought_list):
     dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
-    print(wish_stock_dict)
     if len(dict_cur_amt) == 0:
         return 0
     for code in list(wish_stock_dict.keys()):
