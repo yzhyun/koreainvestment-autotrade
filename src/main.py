@@ -5,32 +5,6 @@ from common import *
 import time
 import mysql as db
 
-#db.select("SELECT * FROM STOCK_MST")
-#db.insert("INSERT INTO STOCK_MST VALUES ('11111', 'TEST', '')")
-#db.update("DELETE FROM STOCK_MST WHERE STOCK_ID = '11111'")
-#db.update("UPDATE STOCK_MST SET CATE_CD = '111' WHERE STOCK_ID = '454910'")
-
-
-with open('./config/stock_code.yaml', encoding='UTF-8') as f:
-    _code = yaml.load(f, Loader=yaml.FullLoader)
-
-# 삼성전자: 005930 카카오: 035720 하이닉스: 000660 세틀뱅크: 234340 현대차: 005380 나이스정보통신: 036800 LG전자: 066570 LG유플러스: 032640
-# 한화: 000880 롯데정보통신: 286940 CJ CGV: 079160 롯데지주: 004990 삼천리: 004690 대한항공: 003490 네이버: 035420 두산로보티스: 454910
-# symbol_list = [
-#       "084730"  # [블랙박스] 팅크웨어
-#     #, "158430"  # [보안] 아톤
-# #    , "399720" # [반도체] 가온칩스
-#     , "005290"  # [반도체] 동진쎄미켐
-#     , "126700"  # [2차전지] 하이비젼시스템
-#     , "068240"  # [철도] 다원시스
-#     , "418470", "053280" # [출판] 밀리의서재, 예스24
-#     , "004540", "115390"  # [생활] 깨끗한나라, 락앤락
-#     , "042510", "030520"  # [IT] 라온시큐어, 한글과컴퓨터
-#     , "039130"  # [여행] 하나투어
-#     , "234340", "000660", "035720", "036800", "066570", "032640", "000880", "005380", "286940", "079160", "069960"
-#     , "004990", "004690", "003490", "035420", "454910", "323410"]  # 매수 희망 종목 리스트
-
-
 isReportTime = False    # 중간 보고 용 flag
 isInit = True
 
@@ -70,10 +44,9 @@ while True:
 
         today = datetime.datetime.today().weekday()
 
-        # if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
-        #     send_message("주말이므로 프로그램을 종료합니다.")
-        #     break
-        # if t_9 <= t_now <= t_start:
+        if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
+             send_message("주말이므로 프로그램을 종료합니다.")
+             break
 
         if t_start <= t_now:
             # time.sleep(10)  # 시가 조회 시간 여유 부여

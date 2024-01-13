@@ -4,16 +4,16 @@ import KoreaInvestmentApi as kis
 from common import *
 import mysql as db
 
-# 코드 정보 Load
-with open('./config/stock_code.yaml', encoding='UTF-8') as f:
-    _code = yaml.load(f, Loader=yaml.FullLoader)
-
+_code = ""
 def init_investment():
     try:
-        kis.ACCESS_TOKEN = kis.get_access_token()
-        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjA4ODM1MGNjLWU5ODQtNGVjMS05ZjE2LTNiMjQ0NjRhODEzYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA0Mjg0NTgzLCJpYXQiOjE3MDQxOTgxODMsImp0aSI6IlBTQVNiWWRhMHVXa0FrT1FieFV2TVU4QU4xVVRKeUoyU29UUyJ9.CFGSpjytShzM7GcFhJkJm_9Rm7KQABZEM1IZgs_WtdOLzMVGv8xZ0D7JKoLxQcPgSaUOVU6ZwMIl8ysQLTIYkQ"
+        #kis.ACCESS_TOKEN = kis.get_access_token()
+        kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjkwNGE2MTNmLTEwYzktNGM0Yy1iZDE2LWQ1Mzk2MGMxNzEwOCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1MTk2NTQ4LCJpYXQiOjE3MDUxMTAxNDgsImp0aSI6IlBTQVNiWWRhMHVXa0FrT1FieFV2TVU4QU4xVVRKeUoyU29UUyJ9.c-KdLcQ35ZP6pQWlWDGVjo6k2CJkv82YOJ0DobxBRCPjlXIAHvGy5itIL3EQ4xjvaXIkPbQ4Pl227LUIBd0zrA"
         print(kis.ACCESS_TOKEN)
         db.test_db()
+        global _code
+        res = db.select("SELECT STOCK_ID, STOCK_NM FROM STOCK_MST")
+        _code = dict(res)
     except Exception as e:
         send_message("===시스템 초기화 실패, 프로그램을 종료 합니다.===")
         sys.exit()
