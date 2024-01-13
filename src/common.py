@@ -7,9 +7,6 @@ from logger import *
 with open('././config/security.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
 
-with open('./config/stock_code.yaml', encoding='UTF-8') as f:
-    _code = yaml.load(f, Loader=yaml.FullLoader)
-
 SLACK_WEBHOOK_URL = _cfg['SLACK_WEBHOOK_URL']
 SLACK_TOKEN = _cfg['SLACK_TOKEN']
 SLACK_CHANNEL = _cfg['SLACK_CHANNEL']

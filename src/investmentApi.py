@@ -7,8 +7,8 @@ import mysql as db
 _code = ""
 def init_investment():
     try:
-        #kis.ACCESS_TOKEN = kis.get_access_token()
-        kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjkwNGE2MTNmLTEwYzktNGM0Yy1iZDE2LWQ1Mzk2MGMxNzEwOCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1MTk2NTQ4LCJpYXQiOjE3MDUxMTAxNDgsImp0aSI6IlBTQVNiWWRhMHVXa0FrT1FieFV2TVU4QU4xVVRKeUoyU29UUyJ9.c-KdLcQ35ZP6pQWlWDGVjo6k2CJkv82YOJ0DobxBRCPjlXIAHvGy5itIL3EQ4xjvaXIkPbQ4Pl227LUIBd0zrA"
+        kis.ACCESS_TOKEN = kis.get_access_token()
+        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImI0NDU0MzI4LTQ0OTUtNGNlNi1hMWZmLWIzMGYxMTRiNGRmNCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA0Njg3ODA5LCJpYXQiOjE3MDQ2MDE0MDksImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.N6jIpnFr4_4ioWjNTHVsbQD_EMwb7ye7O4ZZcSxyt9BRB42HrzV68lhiYUfnaQ8WWEdHbR06GirZJdheVrih8g"
         print(kis.ACCESS_TOKEN)
         db.test_db()
         global _code
