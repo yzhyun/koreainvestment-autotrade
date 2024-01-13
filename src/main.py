@@ -37,11 +37,11 @@ isInit = True
 send_message("==>Check system")
 # KIS, db 초기화
 init_investment()
-
+#  ins_daily_report("20240111")
 send_message("==>Start the program. Let's be rich")
 logger.info("======================Start the program. Let's be rich======================")
 
-#get_daily_ccld()
+
 # 희망 매수 종목 셋팅
 symbol_list = init_symbol_list()
 wish_stock_dict = {}  # 매수 희망 종목 정보
@@ -64,7 +64,7 @@ while True:
         t_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
         t_buy_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
         t_buy_end = t_now.replace(hour=9, minute=30, second=0, microsecond=0)
-        t_sell_start = t_now.replace(hour=10, minute=00, second=0, microsecond=0)
+        t_sell_start = t_now.replace(hour=9, minute=31, second=0, microsecond=0)
         t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=25, second=0, microsecond=0)
 
@@ -104,6 +104,15 @@ while True:
             send_message(result_msg)
             write_report(result_msg)
             write_monthly_report(str(profit_amt))
+
+            # 정보 저장
+            try:
+                today = datetime.date.today()
+                ins_daily_report(today.strftime("%Y%m%d"))
+                # ins_daily_report("20240102")
+            except Exception as e:
+                logger.error(e.args)
+                sys.exit()
             break
     except Exception as e:
         logger.error(e.args)
