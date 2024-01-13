@@ -375,19 +375,9 @@ def ins_daily_report(dd):
             tot_ccld_qty = stock['tot_ccld_qty']
             avg_prvs = stock['avg_prvs']
             tot_ccld_amt = stock['tot_ccld_amt']
-<<<<<<< HEAD
-
-            query = f"INSERT INTO PROFIT_INFO (profit_dd, seq_no, ord_dd, ord_tm, sll_buy_dvsn_cd, stock_id, ord_qty, " \
-                    f"tot_ccld_qty, avg_prvs, tot_ccld_amt) VALUES({profit_dd}, (SELECT COALESCE(max(SEQ_NO),0)+1 FROM (SELECT seq_no FROM PROFIT_INFO where profit_dd = {profit_dd}) as a), {ord_dd}, {ord_tm}, {sll_buy_dvsn_cd}, {stock_id}, {ord_qty}, {tot_ccld_qty}, " \
-                    f"{avg_prvs}, {tot_ccld_amt})"
-
-            print(query)
-            db.insert(query)
-=======
             # prsm_tlex_smtl = stock['prsm_tlex_smtl']
             query = f"INSERT INTO PROFIT_INFO (profit_dd, seq_no, ord_dd, ord_tm, sll_buy_dvsn_cd, stock_id, ord_qty, " \
                     f"tot_ccld_qty, avg_prvs, tot_ccld_amt) VALUES('{profit_dd}', (SELECT COALESCE(max(SEQ_NO),0)+1 FROM (SELECT seq_no FROM PROFIT_INFO where profit_dd = {profit_dd}) as a), '{ord_dd}', '{ord_tm}', '{sll_buy_dvsn_cd}', '{stock_id}', {ord_qty}, {tot_ccld_qty}, " \
                     f"{avg_prvs}, {tot_ccld_amt})"
             print(query)
             db.insert(query)
->>>>>>> 0a6cf8eb8cfd8a04fd46d0137c7059054edf971a
