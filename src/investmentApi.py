@@ -202,15 +202,16 @@ def report_cur_stock_info(dict_bought_list, wish_stock_dict):
         sum_pfls_amt = 0
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
-                arrTmp = wish_stock_dict[stock['pdno']]
-                pchs_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
-                cur_rate = round(((int(stock['prpr']) - pchs_amt) / pchs_amt * 100), 2)
-                sMessage += f"*{stock['prdt_name']}\n" \
-                            f"매입[{pchs_amt}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 증감율[{cur_rate}%]\n" \
-                            f"매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}]\n" \
-                            f"평가손익금액[{stock['evlu_pfls_amt']}]\n\n"
-                dict_bought_list[stock['pdno']] = stock['hldg_qty']
-                sum_pfls_amt += int(stock['evlu_pfls_amt'])
+                if int(stock['hldg_qty']) > 0:
+                    arrTmp = wish_stock_dict[stock['pdno']]
+                    pchs_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
+                    cur_rate = round(((int(stock['prpr']) - pchs_amt) / pchs_amt * 100), 2)
+                    sMessage += f"*{stock['prdt_name']}\n" \
+                                f"매입[{pchs_amt}]*[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 증감율[{cur_rate}%]\n" \
+                                f"매수목표가[{arrTmp[4]}] / 매매목표가[{arrTmp[5]}]\n" \
+                                f"평가손익금액[{stock['evlu_pfls_amt']}]\n\n"
+                    dict_bought_list[stock['pdno']] = stock['hldg_qty']
+                    sum_pfls_amt += int(stock['evlu_pfls_amt'])
 
         # write_report(f"{sMessage}총평가손익금액: {sum_pfls_amt}")
         send_message(f"{sMessage}총평가손익금액: {sum_pfls_amt}")
@@ -227,17 +228,19 @@ def get_my_stock_cur_amt(wish_stock_dict):
         res = kis.get_stock_balance()
         stock_list = res.json()['output1']
         evaluation = res.json()['output2']
-
+        print(stock_list)
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
-                tmpList = []
-                cur_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
-                print(
-                    f"*{stock['prdt_name']}\n매입[{cur_amt}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n")
-                tmpList.append(stock['prpr'])  # [0] 현재가
-                tmpList.append(stock['hldg_qty'])  # [1] 수량
-                tmpList.append(stock['evlu_pfls_amt'])  # [2] 평가손익금액
-                rtnRes[stock['pdno']] = tmpList
+                if int(stock['hldg_qty']) > 0 :
+                    tmpList = []
+                    print(stock)
+                    cur_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
+                    print(
+                        f"*{stock['prdt_name']}\n매입[{cur_amt}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n")
+                    tmpList.append(stock['prpr'])  # [0] 현재가
+                    tmpList.append(stock['hldg_qty'])  # [1] 수량
+                    tmpList.append(stock['evlu_pfls_amt'])  # [2] 평가손익금액
+                    rtnRes[stock['pdno']] = tmpList
     except Exception as e:
         logger.error(f"[보유 주식 현재가 조회 오류 발생]{e}")
     return rtnRes
@@ -372,6 +375,7 @@ def ins_daily_report(dd):
             tot_ccld_qty = stock['tot_ccld_qty']
             avg_prvs = stock['avg_prvs']
             tot_ccld_amt = stock['tot_ccld_amt']
+<<<<<<< HEAD
 
             query = f"INSERT INTO PROFIT_INFO (profit_dd, seq_no, ord_dd, ord_tm, sll_buy_dvsn_cd, stock_id, ord_qty, " \
                     f"tot_ccld_qty, avg_prvs, tot_ccld_amt) VALUES({profit_dd}, (SELECT COALESCE(max(SEQ_NO),0)+1 FROM (SELECT seq_no FROM PROFIT_INFO where profit_dd = {profit_dd}) as a), {ord_dd}, {ord_tm}, {sll_buy_dvsn_cd}, {stock_id}, {ord_qty}, {tot_ccld_qty}, " \
@@ -379,3 +383,11 @@ def ins_daily_report(dd):
 
             print(query)
             db.insert(query)
+=======
+            # prsm_tlex_smtl = stock['prsm_tlex_smtl']
+            query = f"INSERT INTO PROFIT_INFO (profit_dd, seq_no, ord_dd, ord_tm, sll_buy_dvsn_cd, stock_id, ord_qty, " \
+                    f"tot_ccld_qty, avg_prvs, tot_ccld_amt) VALUES('{profit_dd}', (SELECT COALESCE(max(SEQ_NO),0)+1 FROM (SELECT seq_no FROM PROFIT_INFO where profit_dd = {profit_dd}) as a), '{ord_dd}', '{ord_tm}', '{sll_buy_dvsn_cd}', '{stock_id}', {ord_qty}, {tot_ccld_qty}, " \
+                    f"{avg_prvs}, {tot_ccld_amt})"
+            print(query)
+            db.insert(query)
+>>>>>>> 0a6cf8eb8cfd8a04fd46d0137c7059054edf971a
