@@ -4,10 +4,6 @@ import KoreaInvestmentApi as kis
 from common import *
 import mysql as db
 
-# 코드 정보 Load
-# with open('./config/stock_code.yaml', encoding='UTF-8') as f:
-#     _codes = yaml.load(f, Loader=yaml.FullLoader)
-
 _code = ""
 def init_investment():
     try:

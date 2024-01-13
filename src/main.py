@@ -3,6 +3,8 @@ import datetime, schedule
 from investmentApi import *
 from common import *
 import time
+import mysql as db
+
 
 isReportTime = False    # 중간 보고 용 flag
 isInit = True
@@ -45,10 +47,9 @@ while True:
 
         today = datetime.datetime.today().weekday()
 
-        # if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
-        #     send_message("주말이므로 프로그램을 종료합니다.")
-        #     break
-        # if t_9 <= t_now <= t_start:
+        if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
+             send_message("주말이므로 프로그램을 종료합니다.")
+             break
 
         if t_start <= t_now:
             # time.sleep(10)  # 시가 조회 시간 여유 부여
