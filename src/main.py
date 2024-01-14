@@ -13,9 +13,6 @@ send_message("==>Check system")
 
 # KIS, db 초기화
 init_investment()
-#ins_daily_report("20240111")
-#sel_daily_report("20240112")
-
 
 send_message("==>Start the program. Let's be rich")
 logger.info("======================Start the program. Let's be rich======================")
