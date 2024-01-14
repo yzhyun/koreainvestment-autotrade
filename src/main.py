@@ -13,9 +13,6 @@ send_message("==>Check system")
 
 # KIS, db 초기화
 init_investment()
-#ins_daily_report("20240111")
-#sel_daily_report("20240112")
-
 
 send_message("==>Start the program. Let's be rich")
 logger.info("======================Start the program. Let's be rich======================")
@@ -40,8 +37,8 @@ while True:
 
         t_now = datetime.datetime.now()
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
-        t_start = t_now.replace(hour=9, minute=5, second=0, microsecond=0)
-        t_buy_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
+        t_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
+        t_buy_start = t_now.replace(hour=9, minute=3, second=0, microsecond=0)
         t_buy_end = t_now.replace(hour=9, minute=30, second=0, microsecond=0)
         t_sell_start = t_now.replace(hour=9, minute=31, second=0, microsecond=0)
         t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
