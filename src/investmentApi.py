@@ -7,13 +7,15 @@ import mysql as db
 _code = ""
 def init_investment():
     try:
-        kis.ACCESS_TOKEN = kis.get_access_token()
-        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImI0NDU0MzI4LTQ0OTUtNGNlNi1hMWZmLWIzMGYxMTRiNGRmNCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA0Njg3ODA5LCJpYXQiOjE3MDQ2MDE0MDksImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.N6jIpnFr4_4ioWjNTHVsbQD_EMwb7ye7O4ZZcSxyt9BRB42HrzV68lhiYUfnaQ8WWEdHbR06GirZJdheVrih8g"
+        #kis.ACCESS_TOKEN = kis.get_access_token()
+        kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJjYTFjNWYzLTUwMWQtNDk0ZS1iOGZjLWI3NjM5YjgzODkwYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1MzAwOTAxLCJpYXQiOjE3MDUyMTQ1MDEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.PY2km0cu6M0HKqZQu0VlM_xRwwTK6BpILTzCCWtWunBk4Shp-Lk1wbQ-Lcye2hri_8v4s4Qn0ECQRNY3gjUkvg"
         print(kis.ACCESS_TOKEN)
         db.test_db()
         global _code
         res = db.select("SELECT STOCK_ID, STOCK_NM FROM STOCK_MST")
+        print(res)
         _code = dict(res)
+        print(_code)
     except Exception as e:
         send_message("===시스템 초기화 실패, 프로그램을 종료 합니다.===")
         sys.exit()
