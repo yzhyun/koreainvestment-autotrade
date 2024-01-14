@@ -20,6 +20,17 @@ STOP_LOSS_PER = 0.03 # 손절 목표 퍼센트
 # BUY_PER = 0  # 매수 목표 퍼센트
 MAX_STOCK_NUM = 5
 
+def load_queries_from_xml(xml_file):
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+    queries = {}
+
+    for query_elem in root.findall('.//query'):
+        query_name = query_elem.get('name')
+        query_text = query_elem.text.strip()
+        queries[query_name] = query_text
+
+    return queries
 def send_message(msg):
     """slack 메세지 전송"""
     token = SLACK_TOKEN
