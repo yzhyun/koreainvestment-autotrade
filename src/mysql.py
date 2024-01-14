@@ -1,6 +1,7 @@
 import pymysql
 import yaml
 
+
 with open('./config/config.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
 
@@ -10,37 +11,49 @@ db_config = {
     'user': _cfg['USER'],
     'password': _cfg['PASSWORD'],
     'database': _cfg['DATABASE'],
-    'charset': _cfg['CHARSET']
+    'charset': _cfg['CHARSET'],
 }
 
-def init():
-    conn = pymysql.connect(**db_config)
-    return conn
+db_config_dict = {
+    'host': _cfg['HOST'],
+    'user': _cfg['USER'],
+    'password': _cfg['PASSWORD'],
+    'database': _cfg['DATABASE'],
+    'charset': _cfg['CHARSET'],
+    'cursorclass': pymysql.cursors.DictCursor
+}
 
 def test_db():
-    print("DB 테스트")
-    conn = init()
+    print("DB 접속 테스트")
+    conn = pymysql.connect(**db_config)
     cur = conn.cursor()
     cur.execute("SELECT 1 FROM STOCK_MST")
     rows = cur.fetchone()
     print(rows)
     if len(rows) > 0 :
-        print("DB 정상")
+        print("DB 접속 OK")
         return True
     else:
+        print("DB 접속 실패")
         return False
 
 def select(sql):
-    conn = init()
+    conn = pymysql.connect(**db_config)
     cur = conn.cursor()
     cur.execute(sql)
     rows = cur.fetchall()
-    #print(rows)
+    conn.close()
+    return rows
+def select_dict(sql):
+    conn = pymysql.connect(**db_config_dict)
+    cur = conn.cursor()
+    cur.execute(sql)
+    rows = cur.fetchall()
     conn.close()
     return rows
 
 def update(sql):
-    conn = init()
+    conn = pymysql.connect(**db_config)
     cur = conn.cursor()
     cur.execute(sql)
     rows = cur.fetchall()
@@ -49,7 +62,7 @@ def update(sql):
     conn.close()
 
 def insert(sql):
-    conn = init()
+    conn = pymysql.connect(**db_config)
     cur = conn.cursor()
     cur.execute(sql)
     rows = cur.fetchall()
@@ -57,7 +70,7 @@ def insert(sql):
     conn.close()
 
 def delete(sql):
-    conn = init()
+    conn = pymysql.connect(**db_config)
     cur = conn.cursor()
     cur.execute(sql)
     rows = cur.fetchall()

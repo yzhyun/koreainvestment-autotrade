@@ -13,16 +13,18 @@ send_message("==>Check system")
 
 # KIS, db 초기화
 init_investment()
+#ins_daily_report("20240111")
+#sel_daily_report("20240112")
+
 
 send_message("==>Start the program. Let's be rich")
 logger.info("======================Start the program. Let's be rich======================")
 
 # 희망 매수 종목 셋팅
 symbol_list = init_symbol_list()
+
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
-
-
 
 def set_report_time():
     global isReportTime
@@ -43,8 +45,9 @@ while True:
         t_buy_end = t_now.replace(hour=9, minute=30, second=0, microsecond=0)
         t_sell_start = t_now.replace(hour=9, minute=31, second=0, microsecond=0)
         t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
-        t_exit = t_now.replace(hour=15, minute=25, second=0, microsecond=0)
-
+        t_exit = t_now.replace(hour=15, minute=30, second=0, microsecond=0)
+        t_report = t_now.replace(hour=16, minute=0, second=0, microsecond=0)
+        t_report_end = t_now.replace(hour=16, minute=30, second=0, microsecond=0)
         today = datetime.datetime.today().weekday()
 
         if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
@@ -69,24 +72,31 @@ while True:
             print("=====매도목표가 달성 시 매도 진행")
             time.sleep(1)
             sell_stock_by_condition(wish_stock_dict, dict_bought_list)
-        if t_sell_end <= t_now < t_exit:  # PM 03:20 ~ PM 03:25 : 일괄 매도
+        if t_sell_end <= t_now < t_exit:  # PM 03:20 ~ PM 03:30 : 일괄 매도
             time.sleep(1)
             sell_stock_all(wish_stock_dict, dict_bought_list)
-        if t_exit <= t_now:  # PM 03:25 ~ :프로그램 종료
-            report_cur_stock_info(dict_bought_list, wish_stock_dict)
+        if t_report <= t_now <= t_report_end:  # PM 04:00
             profit_amt = get_real_profit()
             result_msg = "금일 실현손익 합계: " + str(profit_amt)
             send_message(result_msg)
             write_report(result_msg)
             write_monthly_report(str(profit_amt))
 
-            # 정보 저장
+            # 데일리 정보 저장
             try:
                 today = datetime.date.today()
                 ins_daily_report(today.strftime("%Y%m%d"))
             except Exception as e:
                 logger.error(e.args)
-                sys.exit()
+
+            # 데일리 정보 조회
+            try:
+                today = datetime.date.today()
+                res_daily_info = sel_daily_report(today.strftime("%Y%m%d"))
+                print(res_daily_info)
+            except Exception as e:
+                logger.error(e.args)
+
             break
     except Exception as e:
         logger.error(e.args)
