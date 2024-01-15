@@ -60,11 +60,11 @@ while True:
                 report_cur_stock_info(dict_bought_list, wish_stock_dict)
                 isInit = False
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
-        if t_buy_start <= t_now < t_buy_end:  # 09:02 ~ 10:00 까지만 매수
+        if t_buy_start <= t_now < t_buy_end:  # 09:03 ~ 09:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
             time.sleep(1)
             buy_stock_by_condition(wish_stock_dict, dict_bought_list)
-        if t_sell_start <= t_now < t_sell_end:  # 10:00 ~ 15:20 까지 매도 진행
+        if t_sell_start <= t_now < t_sell_end:  # 09:31 ~ 15:20 까지 매도 진행
             # 매수한 종목이 금일 매수금액 대비 2% 이상이면 욕심부리지 말고 팔자. 미반영
             print("=====매도목표가 달성 시 매도 진행")
             time.sleep(1)
@@ -72,7 +72,7 @@ while True:
         if t_sell_end <= t_now < t_exit:  # PM 03:20 ~ PM 03:30 : 일괄 매도
             time.sleep(1)
             sell_stock_all(wish_stock_dict, dict_bought_list)
-        if t_report <= t_now <= t_report_end:  # PM 04:00
+        if t_report <= t_now <= t_report_end:  # PM 04:00 ~ 04:30
             profit_amt = get_real_profit()
             result_msg = "금일 실현손익 합계: " + str(profit_amt)
             send_message(result_msg)
@@ -89,8 +89,7 @@ while True:
             # 데일리 정보 조회
             try:
                 today = datetime.date.today()
-                res_daily_info = sel_daily_report(today.strftime("%Y%m%d"))
-                print(res_daily_info)
+                sel_daily_report(today.strftime("%Y%m%d"))
             except Exception as e:
                 logger.error(e.args)
 

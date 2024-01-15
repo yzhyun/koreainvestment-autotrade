@@ -5,34 +5,37 @@ from common import *
 import mysql as db
 
 _code = ""
+
+
 def init_investment():
     try:
-
-        #kis.ACCESS_TOKEN = kis.get_access_token()
-        kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJjYTFjNWYzLTUwMWQtNDk0ZS1iOGZjLWI3NjM5YjgzODkwYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1MzAwOTAxLCJpYXQiOjE3MDUyMTQ1MDEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.PY2km0cu6M0HKqZQu0VlM_xRwwTK6BpILTzCCWtWunBk4Shp-Lk1wbQ-Lcye2hri_8v4s4Qn0ECQRNY3gjUkvg"
+        kis.ACCESS_TOKEN = kis.get_access_token()
+        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJjYTFjNWYzLTUwMWQtNDk0ZS1iOGZjLWI3NjM5YjgzODkwYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1MzAwOTAxLCJpYXQiOjE3MDUyMTQ1MDEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.PY2km0cu6M0HKqZQu0VlM_xRwwTK6BpILTzCCWtWunBk4Shp-Lk1wbQ-Lcye2hri_8v4s4Qn0ECQRNY3gjUkvg"
 
         print(kis.ACCESS_TOKEN)
         db.test_db()
         global _code
         res = db.select("SELECT STOCK_ID, STOCK_NM FROM STOCK_MST")
-        print(res)
         _code = dict(res)
-        print(_code)
+        print("코드 테스트: " + _code["005930"])
+
     except Exception as e:
         send_message("===시스템 초기화 실패, 프로그램을 종료 합니다.===")
         sys.exit()
     return
 
+
 def init_symbol_list():
-    symbol_list= []
+    symbol_list = []
     res = db.select("SELECT A.STOCK_ID "
-                    ",(SELECT STOCK_NM FROM STOCK_MST WHERE STOCK_ID = A.STOCK_ID) AS STOCK_NM "              
+                    ",(SELECT STOCK_NM FROM STOCK_MST WHERE STOCK_ID = A.STOCK_ID) AS STOCK_NM "
                     "FROM wish_stock_mst A "
                     "WHERE WISH_YN = 'Y' ")
     for info in res:
         symbol_list.append(info[0])
 
     return symbol_list
+
 
 # 보유 현금 조회
 def get_balance_cash():
@@ -42,6 +45,7 @@ def get_balance_cash():
     except Exception as e:
         logger.error(f"[보유 현금 조회 오류 발생]{e}")
     return int(cash)
+
 
 def get_stock_price_daily_info(code):
     res = ""
@@ -96,9 +100,11 @@ def get_stock_cur_info(code):
     except Exception as e:
         logger.error(f"[주식 현재 정보 조회 오류 발생]{e}")
     return rtnRes
+
+
 def init_trgt_stock_list(symbol_list):
     rtnRes = {}
-    """ 
+    """ 배열 순서 변경 금지
     0: 오늘 시가
     1: 전일 고가
     2: 전일 저가
@@ -115,12 +121,13 @@ def init_trgt_stock_list(symbol_list):
             stock_info = get_stock_cur_info(code)
             time.sleep(0.2)
             diff = stock_info['stck_prpr'] - stock_info['stck_oprc']
-            sort_dict[code] = diff
-        sort_dict = dict(sorted(sort_dict.items(), key = lambda x : x[1], reverse=True))
+            diff_per = round((diff / stock_info['stck_prpr'] * 100), 2)
+            write_report(f"{_code[code]}[{code}]: {diff}[{diff_per}]")
+            sort_dict[code] = diff_per
+        sort_dict = dict(sorted(sort_dict.items(), key=lambda x: x[1], reverse=True))
         time.sleep(0.2)
         msg = ""
         for code in list(sort_dict.keys()):
-
             time.sleep(0.2)
             res = get_stock_price_daily_info(code)
 
@@ -129,6 +136,8 @@ def init_trgt_stock_list(symbol_list):
             stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
             stck_lwpr = int(res.json()['output'][1]['stck_lwpr'])  # 전일 저가
             stck_clpr = int(res.json()['output'][1]['stck_clpr'])  # 전일 종가
+            # prdy_ctrt = str(res.json()['output'][1]['prdy_ctrt'])  # 전일 대비율
+
 
             # 0 : 시가의 1% 상승 시 목표가
             target_price = int(get_target_price(0, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr))
@@ -143,7 +152,7 @@ def init_trgt_stock_list(symbol_list):
             arr.append(stck_clpr)  # 전일 종가
             arr.append(target_price)  # 매수 목표가
             arr.append(sell_target_price)  # 매매 목표가
-            arr.append(stop_loss_price) # 손절가
+            arr.append(stop_loss_price)  # 손절가
 
             logger.info(f"오늘 시가: {stck_oprc}")
             logger.info(f"전일 고가: {stck_hgpr}")
@@ -155,12 +164,13 @@ def init_trgt_stock_list(symbol_list):
             # write_profit_amt(stck_oprc)
 
             msg += _code[code] + "[" + code + "]" + "/" \
-                  + "오늘 시가: " + str(stck_oprc) + "/" \
-                  + "전일 종가: " + str(stck_clpr) + "/" \
-                  + "매수목표가: " + str(target_price) + "/" \
-                  + "매도목표가: " + str(sell_target_price) + "/" \
-                  + "손절목표가: " + str(stop_loss_price) + "/" \
-                  + "\n"
+                   + "오늘 시가: " + str(stck_oprc) + "/" \
+                   + "전일 종가: " + str(stck_clpr) + "/" \
+                   + "\n" \
+                   + "매수목표가: " + str(target_price) + "/" \
+                   + "매도목표가: " + str(sell_target_price) + "/" \
+                   + "손절목표가: " + str(stop_loss_price) + "/" \
+                   + "\n"
             rtnRes[code] = arr
         send_message(msg)
 
@@ -207,10 +217,10 @@ def get_my_stock_cur_amt(wish_stock_dict):
         res = kis.get_stock_balance()
         stock_list = res.json()['output1']
         evaluation = res.json()['output2']
-        print(stock_list)
+
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
-                if int(stock['hldg_qty']) > 0 :
+                if int(stock['hldg_qty']) > 0:
                     tmpList = []
                     print(stock)
                     cur_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
@@ -251,7 +261,7 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
         # 종목 현재가 조회
         current_price = get_stock_cur_price(code)
         logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
-        
+
         if len(dict_bought_list) >= MAX_STOCK_NUM:
             print(f"매수 목표량 도달")
             return
@@ -279,6 +289,7 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
             except Exception as e:
                 logger.error(f"[매수 오류 발생]{e}")
 
+
 def sell_stock_by_condition(wish_stock_dict, dict_bought_list):
     dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
     if len(dict_cur_amt) == 0:
@@ -295,7 +306,8 @@ def sell_stock_by_condition(wish_stock_dict, dict_bought_list):
                 try:
                     if sell_stock(code, dict_bought_list[code]):
                         send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
-                        write_report(f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
+                        write_report(
+                            f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
                         write_profit_amt(int(cur_price_info_list[2]))
                         del dict_bought_list[code]
                         del wish_stock_dict[code]
@@ -307,13 +319,15 @@ def sell_stock_by_condition(wish_stock_dict, dict_bought_list):
                 try:
                     if sell_stock(code, dict_bought_list[code]):
                         send_message(f"[매도 성공]: {_code[code]}({dict_bought_list[code]})")
-                        write_report(f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
+                        write_report(
+                            f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
                         write_profit_amt(int(cur_price_info_list[2]))
                         del dict_bought_list[code]
                         del wish_stock_dict[code]
                 except Exception as e:
                     logger.error(f"[매도 오류 발생]{e}")
     return
+
 
 def sell_stock_all(wish_stock_dict, dict_bought_list):
     dict_cur_amt = get_my_stock_cur_amt(wish_stock_dict)  # 매수 종목 현재가 가져오기
@@ -338,9 +352,10 @@ def sell_stock_all(wish_stock_dict, dict_bought_list):
                 logger.error(f"[매도 오류 발생]{e}")
     return
 
+
 def ins_daily_report(dd):
     res = kis.get_daily_ccld(dd, dd)
-    #res = {'ctx_area_fk100': '68106434^01^20240105^20240105^ ^00^01^                                                              ', 'ctx_area_nk100': '                                                                                                    ', 'output1': [{'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000020437', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '454910', 'prdt_name': '두산로보틱스', 'ord_qty': '1', 'ord_unpr': '0', 'ord_tmd': '090211', 'tot_ccld_qty': '1', 'avg_prvs': '102700', 'cncl_yn': '', 'tot_ccld_amt': '102700', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000020530', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '234340', 'prdt_name': '헥토파이낸셜', 'ord_qty': '7', 'ord_unpr': '0', 'ord_tmd': '090215', 'tot_ccld_qty': '7', 'avg_prvs': '25650', 'cncl_yn': '', 'tot_ccld_amt': '179550', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '03', 'cpbc_ordp_mtrl_dvsn_cd': '14', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000021078', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '418470', 'prdt_name': '밀리의서재', 'ord_qty': '10', 'ord_unpr': '0', 'ord_tmd': '090241', 'tot_ccld_qty': '10', 'avg_prvs': '19000', 'cncl_yn': '', 'tot_ccld_amt': '190000', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '03', 'cpbc_ordp_mtrl_dvsn_cd': '14', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000031774', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '068290', 'prdt_name': '삼성출판사', 'ord_qty': '9', 'ord_unpr': '0', 'ord_tmd': '091213', 'tot_ccld_qty': '9', 'avg_prvs': '22000', 'cncl_yn': '', 'tot_ccld_amt': '198000', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000038455', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '039130', 'prdt_name': '하나투어', 'ord_qty': '3', 'ord_unpr': '0', 'ord_tmd': '092012', 'tot_ccld_qty': '3', 'avg_prvs': '53400', 'cncl_yn': '', 'tot_ccld_amt': '160200', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000063168', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '234340', 'prdt_name': '헥토파이낸셜', 'ord_qty': '7', 'ord_unpr': '0', 'ord_tmd': '100001', 'tot_ccld_qty': '7', 'avg_prvs': '26700', 'cncl_yn': '', 'tot_ccld_amt': '186900', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '03', 'cpbc_ordp_mtrl_dvsn_cd': '14', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000063180', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '418470', 'prdt_name': '밀리의서재', 'ord_qty': '10', 'ord_unpr': '0', 'ord_tmd': '100002', 'tot_ccld_qty': '10', 'avg_prvs': '20410', 'cncl_yn': '', 'tot_ccld_amt': '204100', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '03', 'cpbc_ordp_mtrl_dvsn_cd': '14', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000063195', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '039130', 'prdt_name': '하나투어', 'ord_qty': '3', 'ord_unpr': '0', 'ord_tmd': '100003', 'tot_ccld_qty': '3', 'avg_prvs': '54300', 'cncl_yn': '', 'tot_ccld_amt': '162900', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000150712', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '068290', 'prdt_name': '삼성출판사', 'ord_qty': '9', 'ord_unpr': '0', 'ord_tmd': '150010', 'tot_ccld_qty': '9', 'avg_prvs': '21100', 'cncl_yn': '', 'tot_ccld_amt': '189900', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000157513', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '454910', 'prdt_name': '두산로보틱스', 'ord_qty': '1', 'ord_unpr': '0', 'ord_tmd': '152002', 'tot_ccld_qty': '1', 'avg_prvs': '101800', 'cncl_yn': '', 'tot_ccld_amt': '101800', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}], 'output2': {'tot_ord_qty': '0', 'tot_ccld_qty': '0', 'tot_ccld_amt': '0', 'prsm_tlex_smtl': '0', 'pchs_avg_pric': '0.0000'}, 'rt_cd': '0', 'msg_cd': 'KIOK0510', 'msg1': '조회가 완료되었습니다                                                           '}
+    # res = {'ctx_area_fk100': '68106434^01^20240105^20240105^ ^00^01^                                                              ', 'ctx_area_nk100': '                                                                                                    ', 'output1': [{'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000020437', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '454910', 'prdt_name': '두산로보틱스', 'ord_qty': '1', 'ord_unpr': '0', 'ord_tmd': '090211', 'tot_ccld_qty': '1', 'avg_prvs': '102700', 'cncl_yn': '', 'tot_ccld_amt': '102700', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000020530', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '234340', 'prdt_name': '헥토파이낸셜', 'ord_qty': '7', 'ord_unpr': '0', 'ord_tmd': '090215', 'tot_ccld_qty': '7', 'avg_prvs': '25650', 'cncl_yn': '', 'tot_ccld_amt': '179550', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '03', 'cpbc_ordp_mtrl_dvsn_cd': '14', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000021078', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '418470', 'prdt_name': '밀리의서재', 'ord_qty': '10', 'ord_unpr': '0', 'ord_tmd': '090241', 'tot_ccld_qty': '10', 'avg_prvs': '19000', 'cncl_yn': '', 'tot_ccld_amt': '190000', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '03', 'cpbc_ordp_mtrl_dvsn_cd': '14', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000031774', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '068290', 'prdt_name': '삼성출판사', 'ord_qty': '9', 'ord_unpr': '0', 'ord_tmd': '091213', 'tot_ccld_qty': '9', 'avg_prvs': '22000', 'cncl_yn': '', 'tot_ccld_amt': '198000', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000038455', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '02', 'sll_buy_dvsn_cd_name': '현금매수', 'pdno': '039130', 'prdt_name': '하나투어', 'ord_qty': '3', 'ord_unpr': '0', 'ord_tmd': '092012', 'tot_ccld_qty': '3', 'avg_prvs': '53400', 'cncl_yn': '', 'tot_ccld_amt': '160200', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000063168', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '234340', 'prdt_name': '헥토파이낸셜', 'ord_qty': '7', 'ord_unpr': '0', 'ord_tmd': '100001', 'tot_ccld_qty': '7', 'avg_prvs': '26700', 'cncl_yn': '', 'tot_ccld_amt': '186900', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '03', 'cpbc_ordp_mtrl_dvsn_cd': '14', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000063180', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '418470', 'prdt_name': '밀리의서재', 'ord_qty': '10', 'ord_unpr': '0', 'ord_tmd': '100002', 'tot_ccld_qty': '10', 'avg_prvs': '20410', 'cncl_yn': '', 'tot_ccld_amt': '204100', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '03', 'cpbc_ordp_mtrl_dvsn_cd': '14', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000063195', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '039130', 'prdt_name': '하나투어', 'ord_qty': '3', 'ord_unpr': '0', 'ord_tmd': '100003', 'tot_ccld_qty': '3', 'avg_prvs': '54300', 'cncl_yn': '', 'tot_ccld_amt': '162900', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000150712', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '068290', 'prdt_name': '삼성출판사', 'ord_qty': '9', 'ord_unpr': '0', 'ord_tmd': '150010', 'tot_ccld_qty': '9', 'avg_prvs': '21100', 'cncl_yn': '', 'tot_ccld_amt': '189900', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}, {'ord_dt': '20240105', 'ord_gno_brno': '91254', 'odno': '0000157513', 'orgn_odno': '', 'ord_dvsn_name': '시장가', 'sll_buy_dvsn_cd': '01', 'sll_buy_dvsn_cd_name': '현금매도', 'pdno': '454910', 'prdt_name': '두산로보틱스', 'ord_qty': '1', 'ord_unpr': '0', 'ord_tmd': '152002', 'tot_ccld_qty': '1', 'avg_prvs': '101800', 'cncl_yn': '', 'tot_ccld_amt': '101800', 'loan_dt': '', 'ordr_empno': 'OpnAPI', 'ord_dvsn_cd': '01', 'cncl_cfrm_qty': '0', 'rmn_qty': '0', 'rjct_qty': '0', 'ccld_cndt_name': '없음', 'inqr_ip_addr': '182.212.254.019', 'cpbc_ordp_ord_rcit_dvsn_cd': '', 'cpbc_ordp_infm_mthd_dvsn_cd': '', 'infm_tmd': '', 'ctac_tlno': '01041486636', 'prdt_type_cd': '300', 'excg_dvsn_cd': '02', 'cpbc_ordp_mtrl_dvsn_cd': '11', 'ord_orgno': '00000', 'rsvn_ord_end_dt': ''}], 'output2': {'tot_ord_qty': '0', 'tot_ccld_qty': '0', 'tot_ccld_amt': '0', 'prsm_tlex_smtl': '0', 'pchs_avg_pric': '0.0000'}, 'rt_cd': '0', 'msg_cd': 'KIOK0510', 'msg1': '조회가 완료되었습니다                                                           '}
     print(res.json())
     charge_amt = ""
     if res.json()['rt_cd'] == '0':
@@ -364,6 +379,7 @@ def ins_daily_report(dd):
             db.insert(query)
         # 금일 최종 합계를 저장한다.
         ins_daily_report_total(dd, charge_amt)
+
 
 def ins_daily_report_total(dd, charge_amt):
     query = f"""
@@ -397,10 +413,10 @@ def ins_daily_report_total(dd, charge_amt):
                        and sll_buy_dvsn_cd = '02'
               ) buy
              WHERE sell.stock_id = buy.stock_id
-
-
             """
     db.insert(query)
+
+
 def sel_daily_report(dd):
     query = f"""
             SELECT  A.STOCK_ID
@@ -451,7 +467,8 @@ def sel_daily_report(dd):
             )A
             """
     stocks = db.select_dict(query)
-    msg = ""
+
+    msg = "==>금일 수익 내역\n"
     for stock in stocks:
         stock_nm = stock['STOCK_NM']
         buy_amt = int(stock['BUY_AVG'])
@@ -476,10 +493,6 @@ def sel_daily_report(dd):
     profit_amt = daily_info["PROFIT_AMT"]
     charge_amt = daily_info["CHARGE_AMT"]
 
-    msg2 = f"===금일[{report_dd}] 최종 수익: {real_profit_amt} ===" + "\n" + \
-            f"총매수: {tot_buy_amt} / 총매도 {tot_sell_amt} / 수수료 {charge_amt}"
+    msg2 = f"==>금일[{report_dd}] 최종 수익: {real_profit_amt} " + "\n" + \
+           f"총매수: {tot_buy_amt} / 총매도 {tot_sell_amt} / 수수료 {charge_amt}"
     send_message(msg2)
-
-
-
-

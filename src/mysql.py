@@ -27,10 +27,9 @@ def test_db():
     print("DB 접속 테스트")
     conn = pymysql.connect(**db_config)
     cur = conn.cursor()
-    cur.execute("SELECT 1 FROM STOCK_MST")
-    rows = cur.fetchone()
-    print(rows)
-    if len(rows) > 0 :
+    cur.execute("SELECT STOCK_ID FROM STOCK_MST")
+    row = cur.fetchone()
+    if len(row) > 0 :
         print("DB 접속 OK")
         return True
     else:
