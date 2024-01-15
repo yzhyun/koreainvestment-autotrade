@@ -4,6 +4,6 @@
 .idea/
 __pycache__/
 
-/config
-/report
-/log
+config/*.yaml
+/report/*.txt
+/log/*.log
