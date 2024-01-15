@@ -9,8 +9,8 @@ _code = ""
 
 def init_investment():
     try:
-        # kis.ACCESS_TOKEN = kis.get_access_token()
-        kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJjYTFjNWYzLTUwMWQtNDk0ZS1iOGZjLWI3NjM5YjgzODkwYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1MzAwOTAxLCJpYXQiOjE3MDUyMTQ1MDEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.PY2km0cu6M0HKqZQu0VlM_xRwwTK6BpILTzCCWtWunBk4Shp-Lk1wbQ-Lcye2hri_8v4s4Qn0ECQRNY3gjUkvg"
+        kis.ACCESS_TOKEN = kis.get_access_token()
+        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJjYTFjNWYzLTUwMWQtNDk0ZS1iOGZjLWI3NjM5YjgzODkwYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1MzAwOTAxLCJpYXQiOjE3MDUyMTQ1MDEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.PY2km0cu6M0HKqZQu0VlM_xRwwTK6BpILTzCCWtWunBk4Shp-Lk1wbQ-Lcye2hri_8v4s4Qn0ECQRNY3gjUkvg"
 
         print(kis.ACCESS_TOKEN)
         db.test_db()
@@ -104,7 +104,7 @@ def get_stock_cur_info(code):
 
 def init_trgt_stock_list(symbol_list):
     rtnRes = {}
-    """ 
+    """ 배열 순서 변경 금지
     0: 오늘 시가
     1: 전일 고가
     2: 전일 저가
@@ -121,7 +121,9 @@ def init_trgt_stock_list(symbol_list):
             stock_info = get_stock_cur_info(code)
             time.sleep(0.2)
             diff = stock_info['stck_prpr'] - stock_info['stck_oprc']
-            sort_dict[code] = diff
+            diff_per = round((diff / stock_info['stck_prpr'] * 100), 2)
+            write_report(f"{_code[code]}[{code}]: {diff}[{diff_per}]")
+            sort_dict[code] = diff_per
         sort_dict = dict(sorted(sort_dict.items(), key=lambda x: x[1], reverse=True))
         time.sleep(0.2)
         msg = ""
@@ -134,6 +136,8 @@ def init_trgt_stock_list(symbol_list):
             stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
             stck_lwpr = int(res.json()['output'][1]['stck_lwpr'])  # 전일 저가
             stck_clpr = int(res.json()['output'][1]['stck_clpr'])  # 전일 종가
+            # prdy_ctrt = str(res.json()['output'][1]['prdy_ctrt'])  # 전일 대비율
+
 
             # 0 : 시가의 1% 상승 시 목표가
             target_price = int(get_target_price(0, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr))
@@ -162,6 +166,7 @@ def init_trgt_stock_list(symbol_list):
             msg += _code[code] + "[" + code + "]" + "/" \
                    + "오늘 시가: " + str(stck_oprc) + "/" \
                    + "전일 종가: " + str(stck_clpr) + "/" \
+                   + "\n" \
                    + "매수목표가: " + str(target_price) + "/" \
                    + "매도목표가: " + str(sell_target_price) + "/" \
                    + "손절목표가: " + str(stop_loss_price) + "/" \
@@ -212,7 +217,7 @@ def get_my_stock_cur_amt(wish_stock_dict):
         res = kis.get_stock_balance()
         stock_list = res.json()['output1']
         evaluation = res.json()['output2']
-        print(stock_list)
+
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
                 if int(stock['hldg_qty']) > 0:
