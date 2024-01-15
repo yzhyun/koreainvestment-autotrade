@@ -4,6 +4,10 @@
 .idea/
 __pycache__/
 
-config/*.yaml
-/report/*.txt
-/log/*.log
+/config/config.yaml
+/config/security.yaml
+/log/2023*.log
+/report/2023-*.txt
+
+
+

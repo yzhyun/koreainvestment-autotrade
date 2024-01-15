@@ -1,0 +1,10 @@
+2024-01-07 16:15:04 - INFO - [<module>:42] - ======================Start the program. Let's be rich======================
+2024-01-07 16:15:05 - INFO - [init_trgt_stock_list:131] - 하이닉스[000660]
+2024-01-07 16:15:05 - INFO - [init_trgt_stock_list:131] - 한화[000880]
+2024-01-07 16:15:05 - INFO - [init_trgt_stock_list:131] - 대한항공[003490]
+2024-01-07 16:15:05 - INFO - [init_trgt_stock_list:131] - 삼천리[004690]
+2024-01-07 16:15:06 - INFO - [init_trgt_stock_list:131] - 롯데지주[004990]
+2024-01-07 16:15:06 - INFO - [init_trgt_stock_list:131] - 동진쎄미켐[005290]
+2024-01-07 16:15:06 - INFO - [init_trgt_stock_list:131] - 현대자동차[005380]
+2024-01-07 16:15:06 - INFO - [init_trgt_stock_list:131] - 한글과컴퓨터[030520]
+2024-01-07 16:15:07 - INFO - [init_trgt_stock_list:131] - LG유플러스[032640]
