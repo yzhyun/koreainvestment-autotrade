@@ -37,8 +37,8 @@ while True:
 
         t_now = datetime.datetime.now()
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
-        t_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
-        t_buy_start = t_now.replace(hour=9, minute=3, second=0, microsecond=0)
+        t_start = t_now.replace(hour=9, minute=1, second=0, microsecond=0)
+        t_buy_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
         t_buy_end = t_now.replace(hour=9, minute=30, second=0, microsecond=0)
         t_sell_start = t_now.replace(hour=9, minute=31, second=0, microsecond=0)
         t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
@@ -60,7 +60,7 @@ while True:
                 report_cur_stock_info(dict_bought_list, wish_stock_dict)
                 isInit = False
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
-        if t_buy_start <= t_now < t_buy_end:  # 09:03 ~ 09:30 까지만 매수
+        if t_buy_start <= t_now < t_buy_end:  # 09:02 ~ 09:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
             time.sleep(1)
             buy_stock_by_condition(wish_stock_dict, dict_bought_list)
