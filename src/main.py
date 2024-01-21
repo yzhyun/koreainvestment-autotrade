@@ -39,10 +39,12 @@ while True:
 
         t_now = datetime.datetime.now()
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
+
         t_start = t_now.replace(hour=9, minute=1, second=0, microsecond=0)
         t_buy_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
         t_buy_end = t_now.replace(hour=9, minute=30, second=0, microsecond=0)
         t_sell_start = t_now.replace(hour=9, minute=31, second=0, microsecond=0)
+
         t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=30, second=0, microsecond=0)
         t_report = t_now.replace(hour=16, minute=0, second=0, microsecond=0)
