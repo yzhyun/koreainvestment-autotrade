@@ -1,0 +1,83 @@
+2024-01-01 21:24:44 - INFO - [<module>:32] - ======================Start the program. Let's be rich======================
+2024-01-01 21:24:45 - INFO - [init_trgt_stock_list:116] - 동진쎄미켐[005290]
+2024-01-01 21:24:45 - INFO - [init_trgt_stock_list:116] - 하이비젼시스템[126700]
+2024-01-01 21:24:46 - INFO - [init_trgt_stock_list:116] - 다원시스[068240]
+2024-01-01 21:24:46 - INFO - [init_trgt_stock_list:116] - 밀리의서재[418470]
+2024-01-01 21:24:46 - INFO - [init_trgt_stock_list:116] - 예스24[053280]
+2024-01-01 21:24:47 - INFO - [init_trgt_stock_list:116] - 깨끗한나라[004540]
+2024-01-01 21:24:47 - INFO - [init_trgt_stock_list:116] - 락앤락[115390]
+2024-01-01 21:24:47 - INFO - [init_trgt_stock_list:116] - 라온시큐어[042510]
+2024-01-01 21:24:47 - INFO - [init_trgt_stock_list:116] - 한글과컴퓨터[030520]
+2024-01-01 21:24:48 - INFO - [init_trgt_stock_list:116] - 하나투어[039130]
+2024-01-01 21:24:48 - INFO - [init_trgt_stock_list:116] - 세틀뱅크[234340]
+2024-01-01 21:24:48 - INFO - [init_trgt_stock_list:116] - 하이닉스[000660]
+2024-01-01 21:24:48 - INFO - [init_trgt_stock_list:116] - 카카오[035720]
+2024-01-01 21:24:49 - INFO - [init_trgt_stock_list:116] - 나이스정보통신[036800]
+2024-01-01 21:24:49 - INFO - [init_trgt_stock_list:116] - LG전자[066570]
+2024-01-01 21:24:49 - INFO - [init_trgt_stock_list:116] - LG유플러스[032640]
+2024-01-01 21:24:50 - INFO - [init_trgt_stock_list:116] - 한화[000880]
+2024-01-01 21:24:50 - INFO - [init_trgt_stock_list:116] - 현대자동차[005380]
+2024-01-01 21:24:50 - INFO - [init_trgt_stock_list:116] - 롯데정보통신[286940]
+2024-01-01 21:24:50 - INFO - [init_trgt_stock_list:116] - CJ CGV[079160]
+2024-01-01 21:24:51 - INFO - [init_trgt_stock_list:116] - 현대백화점[069960]
+2024-01-01 21:24:51 - INFO - [init_trgt_stock_list:116] - 롯데지주[004990]
+2024-01-01 21:24:51 - INFO - [init_trgt_stock_list:116] - 삼천리[004690]
+2024-01-01 21:24:51 - INFO - [init_trgt_stock_list:116] - 대한항공[003490]
+2024-01-01 21:24:52 - INFO - [init_trgt_stock_list:116] - 네이버[035420]
+2024-01-01 21:24:52 - INFO - [init_trgt_stock_list:116] - 두산로보틱스[454910]
+2024-01-01 21:24:52 - INFO - [init_trgt_stock_list:116] - 카카오뱅크[323410]
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:151] - 오늘 시가: 109000
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:152] - 전일 고가: 114900
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:153] - 전일 저가: 102900
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:154] - 전일 종가: 108600
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:155] - 매수 목표가:    110090
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:156] - 매도 목표가:    112291
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:157] - 손절 목표가:    105730
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:151] - 오늘 시가: 198800
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:152] - 전일 고가: 199300
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:153] - 전일 저가: 197200
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:154] - 전일 종가: 198500
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:155] - 매수 목표가:    200788
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:156] - 매도 목표가:    204803
+2024-01-01 21:24:53 - INFO - [init_trgt_stock_list:157] - 손절 목표가:    192836
+2024-01-01 21:27:38 - INFO - [<module>:29] - ======================Start the program. Let's be rich======================
+2024-01-01 21:27:39 - INFO - [init_trgt_stock_list:116] - 동진쎄미켐[005290]
+2024-01-01 21:27:39 - INFO - [init_trgt_stock_list:116] - 하이비젼시스템[126700]
+2024-01-01 21:27:39 - INFO - [init_trgt_stock_list:116] - 다원시스[068240]
+2024-01-01 21:27:40 - INFO - [init_trgt_stock_list:116] - 밀리의서재[418470]
+2024-01-01 21:27:40 - INFO - [init_trgt_stock_list:116] - 예스24[053280]
+2024-01-01 21:27:40 - INFO - [init_trgt_stock_list:116] - 깨끗한나라[004540]
+2024-01-01 21:27:40 - INFO - [init_trgt_stock_list:116] - 락앤락[115390]
+2024-01-01 21:27:41 - INFO - [init_trgt_stock_list:116] - 라온시큐어[042510]
+2024-01-01 21:27:41 - INFO - [init_trgt_stock_list:116] - 한글과컴퓨터[030520]
+2024-01-01 21:27:41 - INFO - [init_trgt_stock_list:116] - 하나투어[039130]
+2024-01-01 21:27:41 - INFO - [init_trgt_stock_list:116] - 세틀뱅크[234340]
+2024-01-01 21:27:42 - INFO - [init_trgt_stock_list:116] - 하이닉스[000660]
+2024-01-01 21:27:42 - INFO - [init_trgt_stock_list:116] - 카카오[035720]
+2024-01-01 21:27:42 - INFO - [init_trgt_stock_list:116] - LG전자[066570]
+2024-01-01 21:27:43 - INFO - [init_trgt_stock_list:116] - LG유플러스[032640]
+2024-01-01 21:27:43 - INFO - [init_trgt_stock_list:116] - 한화[000880]
+2024-01-01 21:27:43 - INFO - [init_trgt_stock_list:116] - 현대자동차[005380]
+2024-01-01 21:27:43 - INFO - [init_trgt_stock_list:116] - 롯데정보통신[286940]
+2024-01-01 21:27:44 - INFO - [init_trgt_stock_list:116] - CJ CGV[079160]
+2024-01-01 21:27:44 - INFO - [init_trgt_stock_list:116] - 현대백화점[069960]
+2024-01-01 21:27:44 - INFO - [init_trgt_stock_list:116] - 롯데지주[004990]
+2024-01-01 21:27:44 - INFO - [init_trgt_stock_list:116] - 삼천리[004690]
+2024-01-01 21:27:45 - INFO - [init_trgt_stock_list:116] - 대한항공[003490]
+2024-01-01 21:27:45 - INFO - [init_trgt_stock_list:116] - 네이버[035420]
+2024-01-01 21:27:45 - INFO - [init_trgt_stock_list:116] - 두산로보틱스[454910]
+2024-01-01 21:27:45 - INFO - [init_trgt_stock_list:116] - 카카오뱅크[323410]
+2024-01-01 21:27:46 - INFO - [init_trgt_stock_list:151] - 오늘 시가: 109000
+2024-01-01 21:27:46 - INFO - [init_trgt_stock_list:152] - 전일 고가: 114900
+2024-01-01 21:27:46 - INFO - [init_trgt_stock_list:153] - 전일 저가: 102900
+2024-01-01 21:27:46 - INFO - [init_trgt_stock_list:154] - 전일 종가: 108600
+2024-01-01 21:27:46 - INFO - [init_trgt_stock_list:155] - 매수 목표가:    110090
+2024-01-01 21:27:46 - INFO - [init_trgt_stock_list:156] - 매도 목표가:    112291
+2024-01-01 21:27:46 - INFO - [init_trgt_stock_list:157] - 손절 목표가:    105730
+2024-01-01 21:27:47 - INFO - [init_trgt_stock_list:151] - 오늘 시가: 198800
+2024-01-01 21:27:47 - INFO - [init_trgt_stock_list:152] - 전일 고가: 199300
+2024-01-01 21:27:47 - INFO - [init_trgt_stock_list:153] - 전일 저가: 197200
+2024-01-01 21:27:47 - INFO - [init_trgt_stock_list:154] - 전일 종가: 198500
+2024-01-01 21:27:47 - INFO - [init_trgt_stock_list:155] - 매수 목표가:    200788
+2024-01-01 21:27:47 - INFO - [init_trgt_stock_list:156] - 매도 목표가:    204803
+2024-01-01 21:27:47 - INFO - [init_trgt_stock_list:157] - 손절 목표가:    192836

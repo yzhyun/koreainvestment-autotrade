@@ -1,0 +1,231 @@
+2024-01-03 08:05:19 - INFO - [<module>:42] - ======================Start the program. Let's be rich======================
+2024-01-03 09:02:00 - INFO - [init_trgt_stock_list:131] - 하이닉스[000660]
+2024-01-03 09:02:00 - INFO - [init_trgt_stock_list:131] - 한화[000880]
+2024-01-03 09:02:00 - INFO - [init_trgt_stock_list:131] - 대한항공[003490]
+2024-01-03 09:02:00 - INFO - [init_trgt_stock_list:131] - 깨끗한나라[004540]
+2024-01-03 09:02:01 - INFO - [init_trgt_stock_list:131] - 삼천리[004690]
+2024-01-03 09:02:01 - INFO - [init_trgt_stock_list:131] - 롯데지주[004990]
+2024-01-03 09:02:01 - INFO - [init_trgt_stock_list:131] - 동진쎄미켐[005290]
+2024-01-03 09:02:01 - INFO - [init_trgt_stock_list:131] - 현대자동차[005380]
+2024-01-03 09:02:02 - INFO - [init_trgt_stock_list:131] - 한글과컴퓨터[030520]
+2024-01-03 09:02:02 - INFO - [init_trgt_stock_list:131] - LG유플러스[032640]
+2024-01-03 09:02:02 - INFO - [init_trgt_stock_list:131] - 네이버[035420]
+2024-01-03 09:02:02 - INFO - [init_trgt_stock_list:131] - 카카오[035720]
+2024-01-03 09:02:03 - INFO - [init_trgt_stock_list:131] - 나이스정보통신[036800]
+2024-01-03 09:02:03 - INFO - [init_trgt_stock_list:131] - 하나투어[039130]
+2024-01-03 09:02:03 - INFO - [init_trgt_stock_list:131] - 라온시큐어[042510]
+2024-01-03 09:02:03 - INFO - [init_trgt_stock_list:131] - 예스24[053280]
+2024-01-03 09:02:04 - INFO - [init_trgt_stock_list:131] - LG전자[066570]
+2024-01-03 09:02:04 - ERROR - [init_trgt_stock_list:187] - [목표 주식 초기화 오류 발생]'068290'
+2024-01-03 09:02:05 - INFO - [report_cur_stock_info:192] - =====reportCurStockInfo START =====
+2024-01-03 09:02:06 - INFO - [report_cur_stock_info:217] - =====reportCurStockInfo END =====
+2024-01-03 09:02:07 - INFO - [report_cur_stock_info:192] - =====reportCurStockInfo START =====
+2024-01-03 09:02:07 - INFO - [report_cur_stock_info:217] - =====reportCurStockInfo END =====
+2024-01-03 22:06:53 - INFO - [<module>:42] - ======================Start the program. Let's be rich======================
+2024-01-03 22:06:53 - INFO - [init_trgt_stock_list:131] - 하이닉스[000660]
+2024-01-03 22:06:53 - INFO - [init_trgt_stock_list:131] - 한화[000880]
+2024-01-03 22:09:42 - INFO - [<module>:42] - ======================Start the program. Let's be rich======================
+2024-01-03 22:09:42 - INFO - [init_trgt_stock_list:131] - 하이닉스[000660]
+2024-01-03 22:09:42 - INFO - [init_trgt_stock_list:131] - 한화[000880]
+2024-01-03 22:09:42 - INFO - [init_trgt_stock_list:131] - 대한항공[003490]
+2024-01-03 22:09:42 - INFO - [init_trgt_stock_list:131] - 삼천리[004690]
+2024-01-03 22:09:43 - INFO - [init_trgt_stock_list:131] - 롯데지주[004990]
+2024-01-03 22:09:43 - INFO - [init_trgt_stock_list:131] - 동진쎄미켐[005290]
+2024-01-03 22:09:43 - INFO - [init_trgt_stock_list:131] - 현대자동차[005380]
+2024-01-03 22:09:44 - INFO - [init_trgt_stock_list:131] - 한글과컴퓨터[030520]
+2024-01-03 22:09:44 - INFO - [init_trgt_stock_list:131] - LG유플러스[032640]
+2024-01-03 22:09:44 - INFO - [init_trgt_stock_list:131] - 네이버[035420]
+2024-01-03 22:09:44 - INFO - [init_trgt_stock_list:131] - 카카오[035720]
+2024-01-03 22:09:45 - INFO - [init_trgt_stock_list:131] - 나이스정보통신[036800]
+2024-01-03 22:09:45 - INFO - [init_trgt_stock_list:131] - 하나투어[039130]
+2024-01-03 22:09:45 - INFO - [init_trgt_stock_list:131] - 라온시큐어[042510]
+2024-01-03 22:09:45 - INFO - [init_trgt_stock_list:131] - 예스24[053280]
+2024-01-03 22:09:46 - INFO - [init_trgt_stock_list:131] - LG전자[066570]
+2024-01-03 22:09:46 - INFO - [init_trgt_stock_list:131] - 삼성출판사[068290]
+2024-01-03 22:09:46 - INFO - [init_trgt_stock_list:131] - 현대백화점[069960]
+2024-01-03 22:09:46 - INFO - [init_trgt_stock_list:131] - CJ CGV[079160]
+2024-01-03 22:09:47 - INFO - [init_trgt_stock_list:131] - 락앤락[115390]
+2024-01-03 22:09:47 - INFO - [init_trgt_stock_list:131] - 세틀뱅크[234340]
+2024-01-03 22:09:47 - INFO - [init_trgt_stock_list:131] - 롯데정보통신[286940]
+2024-01-03 22:09:47 - INFO - [init_trgt_stock_list:131] - 카카오뱅크[323410]
+2024-01-03 22:09:48 - INFO - [init_trgt_stock_list:131] - 밀리의서재[418470]
+2024-01-03 22:09:48 - INFO - [init_trgt_stock_list:131] - 두산로보틱스[454910]
+2024-01-03 22:09:48 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 20150
+2024-01-03 22:09:48 - INFO - [init_trgt_stock_list:168] - 전일 고가: 22350
+2024-01-03 22:09:48 - INFO - [init_trgt_stock_list:169] - 전일 저가: 20250
+2024-01-03 22:09:48 - INFO - [init_trgt_stock_list:170] - 전일 종가: 20550
+2024-01-03 22:09:48 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    20351
+2024-01-03 22:09:48 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    20758
+2024-01-03 22:09:48 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    19545
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 40600
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 41900
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 38500
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 41450
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    41006
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    41826
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    39382
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 17280
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 17580
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 17110
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 17500
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    17452
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    17801
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    16761
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 4800
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 4845
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 4710
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 4805
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    4848
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    4944
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    4656
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 2480
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 2510
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 2450
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 2500
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    2504
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    2554
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    2405
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 14400
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 14600
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 14220
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 14580
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    14544
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    14834
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    13968
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 5970
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 6200
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 5870
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 6030
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    6029
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    6149
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    5790
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 94100
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 94900
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 93900
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 94600
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    95041
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    96941
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    91277
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 10130
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 10210
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 10120
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 10170
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    10231
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    10435
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    9826
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 30150
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 30250
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 28950
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 30200
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    30451
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    31060
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    29245
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 5880
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 5960
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 5740
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 5900
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    5938
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    6056
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    5703
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 25100
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 25850
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 25000
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 25100
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    25351
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    25858
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    24347
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 21300
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 21650
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 21300
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 21300
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    21513
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    21943
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    20661
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 27550
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 28350
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 27250
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 28000
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    27825
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    28381
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    26723
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 26250
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 26950
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 26300
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 26350
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    26512
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    27042
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    25462
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 51700
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 52700
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 51900
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 52200
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    52217
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    53261
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    50149
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 57100
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 57900
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 54000
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 57900
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    57671
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    58824
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    55387
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 51400
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:168] - 전일 고가: 51900
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:169] - 전일 저가: 51000
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:170] - 전일 종가: 51500
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    51914
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    52952
+2024-01-03 22:09:49 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    49858
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 23850
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:168] - 전일 고가: 24000
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:169] - 전일 저가: 23600
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:170] - 전일 종가: 23900
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    24088
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    24569
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    23134
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 100400
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:168] - 전일 고가: 101800
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:169] - 전일 저가: 100500
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:170] - 전일 종가: 101400
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    101404
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    103432
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    97388
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 27700
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:168] - 전일 고가: 28500
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:169] - 전일 저가: 26600
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:170] - 전일 종가: 28350
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    27977
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    28536
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    26869
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 223500
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:168] - 전일 고가: 229000
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:169] - 전일 저가: 221000
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:170] - 전일 종가: 227500
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    225735
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    230249
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    216795
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 111000
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:168] - 전일 고가: 116800
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:169] - 전일 저가: 111100
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:170] - 전일 종가: 112800
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    112110
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    114352
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    107670
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 140000
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:168] - 전일 고가: 142800
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:169] - 전일 저가: 139700
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:170] - 전일 종가: 142400
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    141400
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    144228
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    135800
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:167] - 오늘 시가: 199100
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:168] - 전일 고가: 202500
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:169] - 전일 저가: 199800
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:170] - 전일 종가: 200500
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:171] - 매수 목표가:    201091
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:172] - 매도 목표가:    205112
+2024-01-03 22:09:50 - INFO - [init_trgt_stock_list:173] - 손절 목표가:    193127
+2024-01-03 22:09:51 - INFO - [report_cur_stock_info:192] - =====reportCurStockInfo START =====
+2024-01-03 22:09:52 - INFO - [report_cur_stock_info:217] - =====reportCurStockInfo END =====
+2024-01-03 22:09:52 - INFO - [report_cur_stock_info:192] - =====reportCurStockInfo START =====
+2024-01-03 22:09:52 - INFO - [report_cur_stock_info:217] - =====reportCurStockInfo END =====
