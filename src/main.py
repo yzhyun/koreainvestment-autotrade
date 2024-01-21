@@ -23,6 +23,7 @@ symbol_list = init_symbol_list()
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
 
+#수수료 수기 업데이트용
 #upd_charge_amt("20240119")
 
 def set_report_time():
