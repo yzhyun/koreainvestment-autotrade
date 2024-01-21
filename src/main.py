@@ -23,6 +23,8 @@ symbol_list = init_symbol_list()
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
 
+#upd_charge_amt("20240119")
+
 def set_report_time():
     global isReportTime
     isReportTime = True
@@ -37,14 +39,17 @@ while True:
 
         t_now = datetime.datetime.now()
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
-        t_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
-        t_buy_start = t_now.replace(hour=9, minute=3, second=0, microsecond=0)
-        t_buy_end = t_now.replace(hour=10, minute=00, second=0, microsecond=0)
-        t_sell_start = t_now.replace(hour=10, minute=31, second=0, microsecond=0)
+
+        t_start = t_now.replace(hour=9, minute=1, second=0, microsecond=0)
+        t_buy_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
+        t_buy_end = t_now.replace(hour=9, minute=30, second=0, microsecond=0)
+        t_sell_start = t_now.replace(hour=9, minute=31, second=0, microsecond=0)
+
         t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=30, second=0, microsecond=0)
         t_report = t_now.replace(hour=16, minute=0, second=0, microsecond=0)
         t_report_end = t_now.replace(hour=16, minute=30, second=0, microsecond=0)
+        t_program_exit = t_now.replace(hour=17, minute=00, second=0, microsecond=0)
         today = datetime.datetime.today().weekday()
 
         if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
@@ -55,12 +60,11 @@ while True:
             # time.sleep(10)  # 시가 조회 시간 여유 부여
             if isInit:  # 첫 1회 초기화
                 wish_stock_dict = init_trgt_stock_list(symbol_list)
-                print(wish_stock_dict)
                 time.sleep(1)
                 report_cur_stock_info(dict_bought_list, wish_stock_dict)
                 isInit = False
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
-        if t_buy_start <= t_now < t_buy_end:  # 09:03 ~ 09:30 까지만 매수
+        if t_buy_start <= t_now < t_buy_end:  # 09:02 ~ 09:30 까지만 매수
             print("=====매수목표가 달성 시 매수 진행")
             time.sleep(1)
             buy_stock_by_condition(wish_stock_dict, dict_bought_list)
@@ -92,7 +96,12 @@ while True:
                 sel_daily_report(today.strftime("%Y%m%d"))
             except Exception as e:
                 logger.error(e.args)
-
+        if t_program_exit <= t_now:
+            try:
+                today = datetime.date.today()
+                upd_charge_amt(today.strftime("%Y%m%d"))
+            except Exception as e:
+                logger.error(e.args)
             break
     except Exception as e:
         logger.error(e.args)

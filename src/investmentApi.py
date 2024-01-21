@@ -10,8 +10,7 @@ _code = ""
 def init_investment():
     try:
         kis.ACCESS_TOKEN = kis.get_access_token()
-        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6Ijc2ZjZiMmE5LWNhMjUtNGJiZi1iNmFmLTRhNzVhOWM5Y2M5OCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1NjY3ODkxLCJpYXQiOjE3MDU1ODE0OTEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.3vR1k2ccIX3vv9QFKEMXv91EKyFGYz2SQG1SnIHNtt0H62IlgurNDG63H3sOjYvZKfq15YbAB77SiFjbfUsfzA"
-
+        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJlZmEwNTM2LTM4NDktNDZiYi05NTFmLTVjYzM0MzNkZDk0MyIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1ODkwMjg3LCJpYXQiOjE3MDU4MDM4ODcsImp0aSI6IlBTQVNiWWRhMHVXa0FrT1FieFV2TVU4QU4xVVRKeUoyU29UUyJ9.5I8gz_uiWazMgsdEar_qQyqhVS-BqAOA6pVN1U9QuTfH-x_KZdG0wDaz2UJmXRWvS9-H3tOlfNaGLRe78dpztQ"
         print(kis.ACCESS_TOKEN)
         db.test_db()
         global _code
@@ -113,6 +112,83 @@ def init_trgt_stock_list(symbol_list):
     5: 매매 목표가
     6: 손절 목표가 
     7: 가중치
+    """
+    sort_dict = {}
+    try:
+        msg = ""
+        for code in symbol_list:
+            time.sleep(0.2)
+            res = get_stock_price_daily_info(code)
+            time.sleep(0.2)
+            stock_info = get_stock_cur_info(code)
+
+            arr = []
+            stck_prpr = stock_info['stck_prpr']  # 현재가
+            stck_oprc = int(res.json()['output'][0]['stck_oprc'])  # 오늘 시가
+            stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
+            stck_lwpr = int(res.json()['output'][1]['stck_lwpr'])  # 전일 저가
+            stck_clpr = int(res.json()['output'][1]['stck_clpr'])  # 전일 종가
+            # prdy_ctrt = str(res.json()['output'][1]['prdy_ctrt'])  # 전일 대비율
+
+            # 현재가 대비 (현재가-시가-전일종가) 율로 가중치를 계산한다.
+            diff = stck_prpr - stck_oprc - stck_clpr
+            diff_per_stck_clpr = round(((stck_prpr - stck_clpr) / stck_clpr * 100), 2)
+            diff_per_stck_oprc = round(((stck_prpr - stck_oprc) / stck_oprc * 100), 2)
+            sort_key = round(diff_per_stck_oprc + diff_per_stck_clpr, 2)
+
+            # 0 : 시가의 1% 상승 시 목표가
+            target_price = int(get_target_price(0, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr))
+            sell_target_price = int(target_price + target_price * SELL_PER)
+
+            # 손절 목표가 (시가의 5%)
+            stop_loss_price = int(get_target_price(1, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr))
+
+            arr.append(stck_oprc)  # 오늘 시가
+            arr.append(stck_hgpr)  # 전일 고가
+            arr.append(stck_lwpr)  # 전일 저가
+            arr.append(stck_clpr)  # 전일 종가
+            arr.append(target_price)  # 매수 목표가
+            arr.append(sell_target_price)  # 매매 목표가
+            arr.append(stop_loss_price)  # 손절가
+            arr.append(sort_key)  # 정렬을 위한 가중치 계산 값
+
+            msg += _code[code] + "[" + code + "]" + "/" \
+                   + "\n" \
+                   + "전일종가:" + str(stck_clpr) + "/" \
+                   + "오늘시가:" + str(stck_oprc) + "/" \
+                   + "현재가:" + str(stck_prpr) + "/" \
+                   + "\n" \
+                   + "매수목표가:" + str(target_price) + "/" \
+                   + "매도목표가:" + str(sell_target_price) + "/" \
+                   + "손절목표가:" + str(stop_loss_price) + "/" \
+                   + "\n"
+
+            rtnRes[code] = arr
+        logger.info(msg)
+        send_message(msg)
+        rtnRes = dict(sorted(rtnRes.items(), key=lambda x: x[1][7], reverse=True))
+
+        msg2 = ""
+        for code in rtnRes:
+            temp = rtnRes[code]
+            msg2 += _code[code] + "/"
+        send_message(msg2)
+
+    except Exception as e:
+        logger.error(f"[목표 주식 초기화 오류 발생]{e}")
+    return rtnRes
+
+
+def init_trgt_stock_list_backup(symbol_list):
+    rtnRes = {}
+    """ 배열 순서 변경 금지
+    0: 오늘 시가
+    1: 전일 고가
+    2: 전일 저가
+    3: 전일 종가
+    4: 매수 목표가
+    5: 매매 목표가
+    6: 손절 목표가    
     """
     sort_dict = {}
     try:
@@ -267,7 +343,7 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
             print(f"매수 목표량 도달")
             return
         buy_qty = 0
-        # 목표가보다 현재가가 높은 경우 매수 진행
+        # 매수목표가보다 현재가가 높은 경우 매수 진행
         if arrTmp[4] <= current_price:
             # target_buy_count = current_price // standard_price_stock      # 1주당 금액 기준으로 매수 수량 선택
             target_buy_count = STANDARD_PRICE_STOCK // current_price
@@ -281,6 +357,8 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
                     dict_bought_list[code] = buy_qty
                     tmp_sell_target_price = wish_stock_dict[code][5]
                     wish_stock_dict[code][5] = int(current_price * (1 + SELL_PER))  # 매수 금액으로 매도 목표 금액 재설정 (2%)
+                    wish_stock_dict[code][6] = get_target_price(1, current_price, "", "", "")   # 매수 금액으로 손절가 목표 금액 재설정
+
                     send_message(f"[매수 성공]: {_code[code]}({buy_qty})")
                     write_report(f"[매수 성공]: {_code[code]}({buy_qty})")
                     # f"매도 목표가 변경 {tmp_sell_target_price} -> {wish_stock_dict[code][5]}")
@@ -381,6 +459,21 @@ def ins_daily_report(dd):
         # 금일 최종 합계를 저장한다.
         ins_daily_report_total(dd, charge_amt)
 
+def upd_charge_amt(dd):
+    res = kis.get_daily_ccld(dd, dd)
+    print(res.json())
+    charge_amt = 0
+    if res.json()['rt_cd'] == '0':
+        output2 = res.json()['output2']
+        charge_amt = output2['prsm_tlex_smtl']
+        if int(charge_amt) > 0:
+            query = f"""
+                    UPDATE DAILY_REPORT
+                       SET CHARGE_AMT = {charge_amt}
+                     WHERE 1=1
+                       AND REPORT_DD = '{dd}'                    
+                    """
+            db.update(query)
 
 def ins_daily_report_total(dd, charge_amt):
     query = f"""

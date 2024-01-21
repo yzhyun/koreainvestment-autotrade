@@ -18,7 +18,7 @@ SELL_PER = 0.02  # 매도 목표 퍼센트
 BUY_PER = 0.01  # 매수 목표 퍼센트
 STOP_LOSS_PER = 0.03 # 손절 목표 퍼센트
 # BUY_PER = 0  # 매수 목표 퍼센트
-MAX_STOCK_NUM = 5
+MAX_STOCK_NUM = 4
 
 def send_message(msg):
     """slack 메세지 전송"""
@@ -60,5 +60,5 @@ def get_target_price(num, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr):
         val = stck_oprc * (1 + BUY_PER)  # 금일 시가 1%
         # val = stck_oprc
     elif num == 1:  # 손절 매매가
-        val = stck_oprc * (1 - STOP_LOSS_PER) # 금일 시가의 5% 하락 시 매매 (손절)
+        val = stck_oprc * (1 - STOP_LOSS_PER) # 금일 시가의 3% 하락 시 매매 (손절)
     return val
