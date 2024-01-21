@@ -513,53 +513,49 @@ def ins_daily_report_total(dd, charge_amt):
 
 def sel_daily_report(dd):
     query = f"""
-            SELECT  A.STOCK_ID
-                    ,(select stock_nm from stock_mst sm where sm.stock_id = A.stock_id) as STOCK_NM
-                    ,A.PROFIT
-                    ,A.BUY_AVG
-                    ,A.SELL_AVG
-                    ,A.BUY_TOT_AMT
-                    ,A.SELL_TOT_AMT
-
-              FROM (
-                SELECT
-                    COALESCE (stock_id, "TOTAL") AS stock_id,
-                    SUM(profit) AS profit,
-                    AVG(buy_amt) AS buy_avg,
-                    AVG(sell_amt) AS sell_avg,
-                    SUM(buy_tot_amt) AS buy_tot_amt,
-                    SUM(sell_tot_amt) AS sell_tot_amt
-                FROM (
-                    SELECT  sell.stock_id as stock_id
-                            ,(sell.tot_ccld_amt - buy.tot_ccld_amt) as profit
-                            ,buy.avg_prvs as buy_amt
-                            ,sell.avg_prvs as sell_amt
-                            ,buy.tot_ccld_amt as buy_tot_amt
-                            ,sell.tot_ccld_amt as sell_tot_amt
-                      FROM
-                      (
-                            SELECT tot_ccld_amt
-                                  ,stock_id
-                                  ,avg_prvs
-                              FROM profit_info
-                             where 1=1
-                               and profit_dd = '{dd}'
-                               and sll_buy_dvsn_cd = '01'
-                      ) sell,
-                      (
-                            SELECT tot_ccld_amt
-                                   ,stock_id
-                                   ,avg_prvs
-                              FROM profit_info
-                             where 1=1
-                               and profit_dd = '{dd}'
-                               and sll_buy_dvsn_cd = '02'
-                      ) buy
-                     WHERE sell.stock_id = buy.stock_id
-                     ) result
-                GROUP BY result.stock_id WITH ROLLUP
-            )A
-            """
+            WITH TMP AS (
+            SELECT  sell.stock_id as STOCK_ID		
+                    ,(select stock_nm from stock_mst sm where sm.stock_id = sell.stock_id) as STOCK_NM
+                    ,(sell.tot_ccld_amt - buy.tot_ccld_amt) as PROFIT
+                    ,buy.avg_prvs as BUY_AVG
+                    ,sell.avg_prvs as SELL_AVG
+                    ,buy.tot_ccld_amt as BUY_TOT_AMT
+                    ,sell.tot_ccld_amt as SELL_TOT_AMT
+              FROM 
+              (
+                    SELECT tot_ccld_amt
+                          ,stock_id
+                          ,avg_prvs
+                          ,profit_dd
+                      FROM profit_info
+                     where 1=1
+                       and profit_dd = '{dd}'
+                       and sll_buy_dvsn_cd = '01'
+              ) sell,
+              (	
+                    SELECT tot_ccld_amt
+                           ,stock_id
+                           ,avg_prvs
+                           ,profit_dd
+                      FROM profit_info
+                     where 1=1
+                       and profit_dd = '{dd}'
+                       and sll_buy_dvsn_cd = '02'
+              ) buy
+             WHERE sell.stock_id = buy.stock_id
+        ) 
+        
+        SELECT * FROM TMP
+        UNION ALL 
+         SELECT 'TOTAL' AS STOCK_ID
+                ,'TOTAL' AS STOCK_NM
+                ,SUM(PROFIT)
+                ,SUM(BUY_AVG)
+                ,SUM(SELL_AVG)
+                ,SUM(BUY_TOT_AMT)
+                ,SUM(SELL_TOT_AMT)
+           FROM TMP
+        """
     stocks = db.select_dict(query)
 
     msg = "==>금일 수익 내역\n"

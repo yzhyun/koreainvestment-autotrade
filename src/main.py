@@ -61,7 +61,6 @@ while True:
             if isInit:  # 첫 1회 초기화
                 wish_stock_dict = init_trgt_stock_list(symbol_list)
                 time.sleep(1)
-                report_cur_stock_info(dict_bought_list, wish_stock_dict)
                 isInit = False
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
         if t_buy_start <= t_now < t_buy_end:  # 09:02 ~ 09:30 까지만 매수
