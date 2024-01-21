@@ -10,7 +10,7 @@ _code = ""
 def init_investment():
     try:
         kis.ACCESS_TOKEN = kis.get_access_token()
-        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJjYTFjNWYzLTUwMWQtNDk0ZS1iOGZjLWI3NjM5YjgzODkwYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1MzAwOTAxLCJpYXQiOjE3MDUyMTQ1MDEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.PY2km0cu6M0HKqZQu0VlM_xRwwTK6BpILTzCCWtWunBk4Shp-Lk1wbQ-Lcye2hri_8v4s4Qn0ECQRNY3gjUkvg"
+        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6Ijc2ZjZiMmE5LWNhMjUtNGJiZi1iNmFmLTRhNzVhOWM5Y2M5OCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1NjY3ODkxLCJpYXQiOjE3MDU1ODE0OTEsImp0aSI6IlBTT1RmQnBPNlF3ajVGSElrNHUyT2hLNFF5ZTFLRXZvMVlSYyJ9.3vR1k2ccIX3vv9QFKEMXv91EKyFGYz2SQG1SnIHNtt0H62IlgurNDG63H3sOjYvZKfq15YbAB77SiFjbfUsfzA"
 
         print(kis.ACCESS_TOKEN)
         db.test_db()
@@ -111,33 +111,31 @@ def init_trgt_stock_list(symbol_list):
     3: 전일 종가
     4: 매수 목표가
     5: 매매 목표가
-    6: 손절 목표가    
+    6: 손절 목표가 
+    7: 가중치
     """
     sort_dict = {}
     try:
-        # 초기화 시, 현재가-시가 높은 순서대로 정렬, 매매 할 수 있도록 한다.
-        for code in symbol_list:
-            logger.info(f"{_code[code]}[{code}]")
-            stock_info = get_stock_cur_info(code)
-            time.sleep(0.2)
-            diff = stock_info['stck_prpr'] - stock_info['stck_oprc']
-            diff_per = round((diff / stock_info['stck_prpr'] * 100), 2)
-            write_report(f"{_code[code]}[{code}]: {diff}[{diff_per}]")
-            sort_dict[code] = diff_per
-        sort_dict = dict(sorted(sort_dict.items(), key=lambda x: x[1], reverse=True))
-        time.sleep(0.2)
         msg = ""
-        for code in list(sort_dict.keys()):
+        for code in symbol_list:
             time.sleep(0.2)
             res = get_stock_price_daily_info(code)
+            time.sleep(0.2)
+            stock_info = get_stock_cur_info(code)
 
             arr = []
+            stck_prpr = stock_info['stck_prpr']                    # 현재가
             stck_oprc = int(res.json()['output'][0]['stck_oprc'])  # 오늘 시가
             stck_hgpr = int(res.json()['output'][1]['stck_hgpr'])  # 전일 고가
             stck_lwpr = int(res.json()['output'][1]['stck_lwpr'])  # 전일 저가
             stck_clpr = int(res.json()['output'][1]['stck_clpr'])  # 전일 종가
             # prdy_ctrt = str(res.json()['output'][1]['prdy_ctrt'])  # 전일 대비율
 
+            # 현재가 대비 (현재가-시가-전일종가) 율로 가중치를 계산한다.
+            diff  =  stck_prpr - stck_oprc - stck_clpr
+            diff_per_stck_clpr = round(((stck_prpr-stck_clpr)/stck_clpr*100), 2)
+            diff_per_stck_oprc = round(((stck_prpr-stck_oprc)/stck_oprc*100), 2)
+            sort_key = round(diff_per_stck_oprc + diff_per_stck_clpr, 2)
 
             # 0 : 시가의 1% 상승 시 목표가
             target_price = int(get_target_price(0, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr))
@@ -153,26 +151,29 @@ def init_trgt_stock_list(symbol_list):
             arr.append(target_price)  # 매수 목표가
             arr.append(sell_target_price)  # 매매 목표가
             arr.append(stop_loss_price)  # 손절가
-
-            logger.info(f"오늘 시가: {stck_oprc}")
-            logger.info(f"전일 고가: {stck_hgpr}")
-            logger.info(f"전일 저가: {stck_lwpr}")
-            logger.info(f"전일 종가: {stck_clpr}")
-            logger.info(f"매수 목표가:    {target_price}")
-            logger.info(f"매도 목표가:    {sell_target_price}")
-            logger.info(f"손절 목표가:    {stop_loss_price}")
-            # write_profit_amt(stck_oprc)
+            arr.append(sort_key) # 정렬을 위한 가중치 계산 값
 
             msg += _code[code] + "[" + code + "]" + "/" \
-                   + "오늘 시가: " + str(stck_oprc) + "/" \
-                   + "전일 종가: " + str(stck_clpr) + "/" \
                    + "\n" \
-                   + "매수목표가: " + str(target_price) + "/" \
-                   + "매도목표가: " + str(sell_target_price) + "/" \
-                   + "손절목표가: " + str(stop_loss_price) + "/" \
+                   + "전일종가:" + str(stck_clpr) + "/" \
+                   + "오늘시가:" + str(stck_oprc) + "/" \
+                   + "현재가:" + str(stck_prpr) + "/" \
+                   + "\n" \
+                   + "매수목표가:" + str(target_price) + "/" \
+                   + "매도목표가:" + str(sell_target_price) + "/" \
+                   + "손절목표가:" + str(stop_loss_price) + "/" \
                    + "\n"
+
             rtnRes[code] = arr
+        logger.info(msg)
         send_message(msg)
+        rtnRes = dict(sorted(rtnRes.items(), key=lambda x: x[1][7], reverse=True))
+
+        msg2 = ""
+        for code in rtnRes:
+            temp = rtnRes[code]
+            msg2 += _code[code] + "/"
+        send_message(msg2)
 
     except Exception as e:
         logger.error(f"[목표 주식 초기화 오류 발생]{e}")
