@@ -23,6 +23,8 @@ symbol_list = init_symbol_list()
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
 
+#upd_charge_amt("20240119")
+
 def set_report_time():
     global isReportTime
     isReportTime = True
@@ -45,6 +47,7 @@ while True:
         t_exit = t_now.replace(hour=15, minute=30, second=0, microsecond=0)
         t_report = t_now.replace(hour=16, minute=0, second=0, microsecond=0)
         t_report_end = t_now.replace(hour=16, minute=30, second=0, microsecond=0)
+        t_program_exit = t_now.replace(hour=17, minute=00, second=0, microsecond=0)
         today = datetime.datetime.today().weekday()
 
         if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
@@ -55,7 +58,6 @@ while True:
             # time.sleep(10)  # 시가 조회 시간 여유 부여
             if isInit:  # 첫 1회 초기화
                 wish_stock_dict = init_trgt_stock_list(symbol_list)
-                print(wish_stock_dict)
                 time.sleep(1)
                 report_cur_stock_info(dict_bought_list, wish_stock_dict)
                 isInit = False
@@ -92,7 +94,12 @@ while True:
                 sel_daily_report(today.strftime("%Y%m%d"))
             except Exception as e:
                 logger.error(e.args)
-
+        if t_program_exit <= t_now:
+            try:
+                today = datetime.date.today()
+                upd_charge_amt(today.strftime("%Y%m%d"))
+            except Exception as e:
+                logger.error(e.args)
             break
     except Exception as e:
         logger.error(e.args)
