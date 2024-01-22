@@ -10,7 +10,7 @@ _code = ""
 def init_investment():
     try:
         kis.ACCESS_TOKEN = kis.get_access_token()
-        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjJlZmEwNTM2LTM4NDktNDZiYi05NTFmLTVjYzM0MzNkZDk0MyIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1ODkwMjg3LCJpYXQiOjE3MDU4MDM4ODcsImp0aSI6IlBTQVNiWWRhMHVXa0FrT1FieFV2TVU4QU4xVVRKeUoyU29UUyJ9.5I8gz_uiWazMgsdEar_qQyqhVS-BqAOA6pVN1U9QuTfH-x_KZdG0wDaz2UJmXRWvS9-H3tOlfNaGLRe78dpztQ"
+        #kis.ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjY0YWJjZDlkLTFjNTUtNGM3Ni05YjI0LWI1MTczNTNkZTU2YyIsImlzcyI6InVub2d3IiwiZXhwIjoxNzA1OTk1ODgwLCJpYXQiOjE3MDU5MDk0ODAsImp0aSI6IlBTQVNiWWRhMHVXa0FrT1FieFV2TVU4QU4xVVRKeUoyU29UUyJ9.NTb2_j6xL2w7lXPCRznmZMFm4PkTQt74QmpXUrdJ4ZqDFmnAtnOOvwgjtXzB45hgxcStqZTWNJfiCK3i8b2PvA"
         print(kis.ACCESS_TOKEN)
         db.test_db()
         global _code
@@ -260,6 +260,7 @@ def init_trgt_stock_list_backup(symbol_list):
 def report_cur_stock_info(dict_bought_list, wish_stock_dict):
     logger.info("=====reportCurStockInfo START =====")
     try:
+        
         res = kis.get_stock_balance()
         stock_list = res.json()['output1']
         evaluation = res.json()['output2']
@@ -267,6 +268,7 @@ def report_cur_stock_info(dict_bought_list, wish_stock_dict):
         t_now = datetime.datetime.now()
         sMessage = "보유주식: \n"
         sum_pfls_amt = 0
+
         for stock in stock_list:
             if stock['pdno'] in wish_stock_dict.keys():
                 if int(stock['hldg_qty']) > 0:
@@ -300,10 +302,8 @@ def get_my_stock_cur_amt(wish_stock_dict):
             if stock['pdno'] in wish_stock_dict.keys():
                 if int(stock['hldg_qty']) > 0:
                     tmpList = []
-                    print(stock)
                     cur_amt = int(int(stock['pchs_amt']) / int(stock['hldg_qty']))
-                    print(
-                        f"*{stock['prdt_name']}\n매입[{cur_amt}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n")
+                    print(f"*{stock['prdt_name']}\n매입[{cur_amt}]/[{stock['hldg_qty']}] / 현재가[{stock['prpr']}] / 평가손익금액[{stock['evlu_pfls_amt']}]\n")
                     tmpList.append(stock['prpr'])  # [0] 현재가
                     tmpList.append(stock['hldg_qty'])  # [1] 수량
                     tmpList.append(stock['evlu_pfls_amt'])  # [2] 평가손익금액
@@ -389,6 +389,9 @@ def sell_stock_by_condition(wish_stock_dict, dict_bought_list):
                         write_report(
                             f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
                         write_profit_amt(int(cur_price_info_list[2]))
+                        del dict_bought_list[code]
+                        del wish_stock_dict[code]
+                    else:   # 실패한 사유가 없는 코드 (앱에서 매매)인 경우에도 보유 목록에서 제외해서 다음 번에 정상적으로 매매하도록 수정
                         del dict_bought_list[code]
                         del wish_stock_dict[code]
                 except Exception as e:
