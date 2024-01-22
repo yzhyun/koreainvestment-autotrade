@@ -8,6 +8,7 @@ import mysql as db
 
 isReportTime = False    # 중간 보고 용 flag
 isInit = True
+isSaveProfit = False
 
 send_message("==>Check system")
 
@@ -50,7 +51,7 @@ while True:
         t_exit = t_now.replace(hour=15, minute=30, second=0, microsecond=0)
         t_report = t_now.replace(hour=16, minute=0, second=0, microsecond=0)
         t_report_end = t_now.replace(hour=16, minute=30, second=0, microsecond=0)
-        t_program_exit = t_now.replace(hour=17, minute=00, second=0, microsecond=0)
+        t_program_exit = t_now.replace(hour=16, minute=30, second=0, microsecond=0)
         today = datetime.datetime.today().weekday()
 
         if today == 5 or today == 6:  # 토요일이나 일요일이면 자동 종료
@@ -61,6 +62,8 @@ while True:
             # time.sleep(10)  # 시가 조회 시간 여유 부여
             if isInit:  # 첫 1회 초기화
                 wish_stock_dict = init_trgt_stock_list(symbol_list)
+                report_cur_stock_info(dict_bought_list, wish_stock_dict)
+                print("=====> " + str(dict_bought_list))
                 time.sleep(1)
                 isInit = False
             schedule.run_pending()  # 정시에 현재 보유 주식 정보를 보고받고자 스케쥴러 실행
@@ -74,28 +77,32 @@ while True:
             time.sleep(1)
             sell_stock_by_condition(wish_stock_dict, dict_bought_list)
         if t_sell_end <= t_now < t_exit:  # PM 03:20 ~ PM 03:30 : 일괄 매도
-            time.sleep(1)
-            sell_stock_all(wish_stock_dict, dict_bought_list)
+            if len(dict_bought_list) > 0:
+                logger.info("=====일괄매도 진행")
+                time.sleep(1)
+                sell_stock_all(wish_stock_dict, dict_bought_list)
         if t_report <= t_now <= t_report_end:  # PM 04:00 ~ 04:30
-            profit_amt = get_real_profit()
-            result_msg = "금일 실현손익 합계: " + str(profit_amt)
-            send_message(result_msg)
-            write_report(result_msg)
-            write_monthly_report(str(profit_amt))
+            if not isSaveProfit:
+                profit_amt = get_real_profit()
+                result_msg = "금일 실현손익 합계: " + str(profit_amt)
+                send_message(result_msg)
+                write_report(result_msg)
+                write_monthly_report(str(profit_amt))
 
-            # 데일리 정보 저장
-            try:
-                today = datetime.date.today()
-                ins_daily_report(today.strftime("%Y%m%d"))
-            except Exception as e:
-                logger.error(e.args)
+                # 데일리 정보 저장
+                try:
+                    today = datetime.date.today()
+                    ins_daily_report(today.strftime("%Y%m%d"))
+                except Exception as e:
+                    logger.error(e.args)
 
-            # 데일리 정보 조회
-            try:
-                today = datetime.date.today()
-                sel_daily_report(today.strftime("%Y%m%d"))
-            except Exception as e:
-                logger.error(e.args)
+                # 데일리 정보 조회
+                try:
+                    today = datetime.date.today()
+                    sel_daily_report(today.strftime("%Y%m%d"))
+                except Exception as e:
+                    logger.error(e.args)
+            isSaveProfit = True
         if t_program_exit <= t_now:
             try:
                 today = datetime.date.today()
