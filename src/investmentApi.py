@@ -136,6 +136,9 @@ def init_trgt_stock_list(symbol_list):
             diff_per_stck_oprc = round(((stck_prpr - stck_oprc) / stck_oprc * 100), 2)
             sort_key = round(diff_per_stck_oprc + diff_per_stck_clpr, 2)
 
+            # 전일 대비율과, 시가 대비율의 합이 0보다 작은 경우 wish리스트에서 제외한다.
+            if sort_key < 0:
+                continue
             # 0 : 시가의 1% 상승 시 목표가
             target_price = int(get_target_price(0, stck_oprc, stck_hgpr, stck_lwpr, stck_clpr))
             sell_target_price = int(target_price + target_price * SELL_PER)
@@ -161,6 +164,7 @@ def init_trgt_stock_list(symbol_list):
                    + "매수목표가:" + str(target_price) + "/" \
                    + "매도목표가:" + str(sell_target_price) + "/" \
                    + "손절목표가:" + str(stop_loss_price) + "/" \
+                   + "[" + str(sort_key) + "]" \
                    + "\n"
 
             rtnRes[code] = arr
@@ -341,7 +345,7 @@ def buy_stock_by_condition(wish_stock_dict, dict_bought_list):
         logger.info(f"{_code[code]} 현재가 [{current_price}] / 매수목표가 [{arrTmp[4]}]")
 
         if len(dict_bought_list) >= MAX_STOCK_NUM:
-            print(f"매수 목표량 도달")
+            logger.info(f"매수 목표량 도달")
             return
         buy_qty = 0
         # 매수목표가보다 현재가가 높은 경우 매수 진행
@@ -405,6 +409,9 @@ def sell_stock_by_condition(wish_stock_dict, dict_bought_list):
                         write_report(
                             f"[매도 성공]: {_code[code]}({dict_bought_list[code]}) 평가손익금액: {cur_price_info_list[2]}")
                         write_profit_amt(int(cur_price_info_list[2]))
+                        del dict_bought_list[code]
+                        del wish_stock_dict[code]
+                    else:
                         del dict_bought_list[code]
                         del wish_stock_dict[code]
                 except Exception as e:

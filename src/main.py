@@ -24,7 +24,9 @@ symbol_list = init_symbol_list()
 wish_stock_dict = {}  # 매수 희망 종목 정보
 dict_bought_list = {}  # 매수 완료 정보
 
+
 #수수료 수기 업데이트용
+#ins_daily_report("20240124")
 #upd_charge_amt("20240119")
 
 def set_report_time():
@@ -41,11 +43,10 @@ while True:
 
         t_now = datetime.datetime.now()
         t_9 = t_now.replace(hour=9, minute=0, second=0, microsecond=0)
-
-        t_start = t_now.replace(hour=9, minute=1, second=0, microsecond=0)
-        t_buy_start = t_now.replace(hour=9, minute=2, second=0, microsecond=0)
-        t_buy_end = t_now.replace(hour=9, minute=30, second=0, microsecond=0)
-        t_sell_start = t_now.replace(hour=9, minute=31, second=0, microsecond=0)
+        t_start = t_now.replace(hour=9, minute=0, second=30, microsecond=0)
+        t_buy_start = t_now.replace(hour=9, minute=0, second=30, microsecond=0)
+        t_buy_end = t_now.replace(hour=9, minute=15, second=0, microsecond=0)
+        t_sell_start = t_now.replace(hour=9, minute=16, second=0, microsecond=0)
 
         t_sell_end = t_now.replace(hour=15, minute=20, second=0, microsecond=0)
         t_exit = t_now.replace(hour=15, minute=30, second=0, microsecond=0)
